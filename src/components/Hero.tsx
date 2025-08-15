@@ -1,6 +1,7 @@
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroBg from '@/assets/hero-bg.jpg';
+import profilePhoto from '@/assets/profile-photo.jpg';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -25,6 +26,18 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div className="animate-fade-in-up">
+          {/* Profile Picture */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative">
+              <img 
+                src={profilePhoto} 
+                alt="Ali Saeed - Engineering Graduate"
+                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/30 shadow-card hover:border-primary hover:shadow-primary transition-all duration-300"
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+            </div>
+          </div>
+          
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="block text-foreground">Ali Saeed</span>
             <span className="block text-2xl md:text-3xl font-light text-muted-foreground mt-2">
