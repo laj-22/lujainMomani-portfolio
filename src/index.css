@@ -2,41 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Motorsport & Cybersecurity Portfolio Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* Core Background System */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    
+    /* Card & Surface System */
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --card-hover: 0 0% 12%;
+    
+    /* Popover System */
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    
+    /* Primary Brand Colors - Racing Theme */
+    --primary: 0 85% 45%; /* Racing Red */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 85% 55%;
+    --primary-dark: 0 85% 35%;
+    
+    /* Secondary - Cyber Theme */
+    --secondary: 140 100% 55%; /* Cyber Green */
+    --secondary-foreground: 0 0% 8%;
+    --secondary-glow: 140 100% 65%;
+    --secondary-dark: 140 100% 45%;
+    
+    /* Muted Colors */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --muted-hover: 0 0% 20%;
+    
+    /* Accent System */
+    --accent: 220 100% 60%; /* Tech Blue */
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 220 100% 70%;
+    
+    /* System Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Borders & Inputs */
+    --border: 0 0% 18%;
+    --border-hover: 0 0% 25%;
+    --input: 0 0% 12%;
+    --ring: 0 85% 45%;
+    
+    /* Design System Radius */
+    --radius: 0.75rem;
+    
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(0 0% 8%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card-hover)));
+    --gradient-cyber: linear-gradient(90deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
+    
+    /* Racing Grid Pattern */
+    --pattern-grid: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
+    --pattern-size: 20px 20px;
+    
+    /* Shadows & Effects */
+    --shadow-primary: 0 0 30px hsl(var(--primary) / 0.3);
+    --shadow-secondary: 0 0 30px hsl(var(--secondary) / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-hero: 0 20px 60px -10px hsl(0 0% 0% / 0.8);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-fast: all 0.2s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +138,97 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    background-image: var(--pattern-grid);
+    background-size: var(--pattern-size);
+  }
+}
+
+@layer components {
+  /* Racing Grid Background */
+  .racing-grid {
+    background-image: var(--pattern-grid);
+    background-size: var(--pattern-size);
+  }
+  
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply relative overflow-hidden border-2 border-primary bg-transparent text-primary 
+           hover:text-primary-foreground transition-all duration-300 
+           before:absolute before:inset-0 before:bg-gradient-primary before:scale-x-0 
+           before:origin-right before:transition-transform before:duration-300
+           hover:before:scale-x-100 hover:before:origin-left hover:shadow-primary;
+  }
+  
+  .btn-cyber {
+    @apply relative overflow-hidden border border-secondary bg-transparent text-secondary 
+           hover:text-secondary-foreground transition-all duration-300
+           before:absolute before:inset-0 before:bg-gradient-secondary before:scale-x-0 
+           before:origin-right before:transition-transform before:duration-300
+           hover:before:scale-x-100 hover:before:origin-left hover:shadow-secondary;
+  }
+  
+  /* Project Card Hover Effects */
+  .project-card {
+    @apply relative overflow-hidden bg-card border border-border rounded-lg p-6 
+           transition-all duration-300 hover:border-border-hover hover:shadow-card
+           hover:transform hover:scale-[1.02] group cursor-pointer;
+  }
+  
+  .project-card::before {
+    @apply absolute inset-0 bg-gradient-card opacity-0 transition-opacity duration-300;
+    content: '';
+  }
+  
+  .project-card:hover::before {
+    @apply opacity-100;
+  }
+  
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+  
+  .glow-secondary {
+    box-shadow: var(--shadow-secondary);
+  }
+  
+  /* Navigation Active State */
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-foreground transition-colors duration-300
+           after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 
+           after:bg-gradient-primary after:transition-all after:duration-300
+           hover:after:w-full;
+  }
+  
+  .nav-link.active {
+    @apply text-foreground after:w-full;
+  }
+  
+  /* Section Headers */
+  .section-header {
+    @apply text-4xl md:text-5xl font-bold bg-gradient-cyber bg-clip-text text-transparent;
+  }
+  
+  /* Smooth Scroll */
+  html {
+    @apply scroll-smooth;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-glow;
   }
 }
