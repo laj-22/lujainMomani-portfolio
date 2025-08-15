@@ -41,16 +41,16 @@ const ProjectOfTheMonth = () => {
             <Star className="h-8 w-8 text-secondary fill-secondary" />
           </div>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Showcasing the most innovative and impactful project from my portfolio
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 bg-gradient-card">
-            <div className="grid lg:grid-cols-2 gap-0">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Project Image */}
-              <div className="relative aspect-[4/3] lg:aspect-auto">
+              <div className="relative aspect-[4/3] lg:aspect-auto w-full">
                 <img 
                   src={featuredProject.image} 
                   alt={featuredProject.title}
@@ -66,7 +66,7 @@ const ProjectOfTheMonth = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-8 lg:p-12 flex flex-col justify-center">
+              <div className="p-4 sm:p-8 lg:p-12 flex flex-col justify-center">
                 <div className="mb-6">
                   <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
                     {featuredProject.title}

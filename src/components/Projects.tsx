@@ -3,8 +3,9 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { 
-  ExternalLink, 
-  Github, 
+  Star,
+  ExternalLink,
+  Github,
   ChevronRight,
   Cpu, 
   Shield, 
@@ -47,6 +48,7 @@ const Projects = () => {
 
   const categories = [
     { id: 'all', label: 'All Projects', icon: <Cpu className="h-4 w-4" /> },
+    { id: 'featured', label: 'Featured', icon: <Star className="h-4 w-4" /> },
     { id: 'embedded', label: 'Embedded Systems', icon: <Cpu className="h-4 w-4" /> },
     { id: 'motorsport', label: 'Motorsport Tech', icon: <Gauge className="h-4 w-4" /> },
     { id: 'iot', label: 'IoT & Wireless', icon: <Wifi className="h-4 w-4" /> },
@@ -150,9 +152,12 @@ const Projects = () => {
     }
   ];
 
-  const filteredProjects = activeCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+  const filteredProjects = 
+    activeCategory === 'all' 
+      ? projects 
+      : activeCategory === 'featured'
+        ? projects.filter(project => project.featured)
+        : projects.filter(project => project.category === activeCategory);
 
   const featuredProjects = projects.filter(project => project.featured);
 
@@ -160,7 +165,7 @@ const Projects = () => {
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-header mb-6">Featured Projects</h2>
+          <h2 className="section-header mb-6">Projects</h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Innovative solutions spanning motorsport technology, cybersecurity, and embedded systems
@@ -187,9 +192,11 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
           {filteredProjects.map((project, index) => (
-            <Card 
+            <Card
+              id={project.id}
+              data-title={project.title}
               key={project.id} 
               className="project-card overflow-hidden group"
               style={{ animationDelay: `${index * 0.1}s` }}
@@ -242,8 +249,7 @@ const Projects = () => {
                   
                   <Button 
                     size="sm" 
-                    variant="ghost"
-                    className="text-primary hover:text-primary-glow"
+                    className="btn-hero px-4 py-2 text-sm"
                   >
                     View Details
                     <ChevronRight className="h-4 w-4 ml-1" />

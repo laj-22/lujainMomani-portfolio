@@ -45,10 +45,6 @@ const About = () => {
                 <Download className="h-5 w-5 mr-2" />
                 <span className="relative z-10">Download CV</span>
               </Button>
-              
-              <Button size="lg" variant="outline" className="btn-cyber">
-                <span className="relative z-10">View Portfolio</span>
-              </Button>
             </div>
           </div>
 

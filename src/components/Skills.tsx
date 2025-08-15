@@ -11,12 +11,16 @@ import {
   Radio,
   Terminal,
   Cog,
-  Gauge,
-  Eye
+  Gauge
 } from 'lucide-react';
 
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   // Related projects data for skill filtering
   const relatedProjects = {
@@ -91,6 +95,9 @@ const Skills = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A comprehensive toolkit spanning hardware design, software development, and cybersecurity
           </p>
+          <p className="text-sm text-muted-foreground max-w-3xl mx-auto mb-8">
+            Hover over a skill to view the number of related projects
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -113,10 +120,11 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div 
                     key={skill.name}
-                    className="flex items-center justify-between group hover:transform hover:translate-x-2 transition-all duration-300 cursor-pointer p-2 rounded-lg hover:bg-muted/30"
+                    className="flex items-center justify-between group hover:translate-x-2 transition-all duration-300 cursor-pointer p-2 rounded-lg hover:bg-muted/30"
                     style={{ animationDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s` }}
                     onMouseEnter={() => setHoveredSkill(skill.name)}
                     onMouseLeave={() => setHoveredSkill(null)}
+                    onClick={() => setSelectedSkill(selectedSkill === skill.name ? null : skill.name)}
                   >
                     <div className="flex items-center space-x-3">
                       <div className="text-muted-foreground group-hover:text-primary transition-colors">
@@ -128,31 +136,30 @@ const Skills = () => {
                     </div>
                     
                     {hoveredSkill === skill.name && relatedProjects[skill.name] && (
-                      <div className="flex items-center gap-2">
-                        <Eye className="h-4 w-4 text-primary" />
-                        <span className="text-xs text-primary font-medium">
-                          {relatedProjects[skill.name].length} projects
-                        </span>
-                      </div>
+                      <span className="text-xs text-primary font-medium">
+                        {relatedProjects[skill.name].length} projects
+                      </span>
                     )}
                   </div>
                 ))}
               </div>
-
-              {/* Related Projects Popup */}
-              {hoveredSkill && skillCategories.flatMap(cat => cat.skills).some(skill => skill.name === hoveredSkill) && (
-                <div className="absolute z-20 right-0 top-0 translate-x-full ml-4 w-64 bg-card border border-border rounded-lg p-4 shadow-card animate-fade-in">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Related Projects:</h4>
-                  <div className="space-y-2">
-                    {relatedProjects[hoveredSkill]?.map((project, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs mr-1 mb-1">
-                        {project}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-2">
-                    Click on a skill to filter projects in the Projects section
-                  </div>
+              {/* Expanded Projects for clicked skill */}
+              {selectedSkill && relatedProjects[selectedSkill] && category.skills.some(s => s.name === selectedSkill) && (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {relatedProjects[selectedSkill].map((project, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        const el = document.querySelector(`[data-title="${project}"]`);
+                        if (el) {
+                          (el as HTMLElement).click();
+                        }
+                      }}
+                      className="text-left w-full p-2 bg-muted/20 rounded hover:bg-muted/40 transition-colors"
+                    >
+                      {project}
+                    </button>
+                  ))}
                 </div>
               )}
             </Card>

@@ -31,25 +31,25 @@ const Hero = () => {
             <div className="relative">
               <img 
                 src={profilePhoto} 
-                alt="Ali Saeed - Engineering Graduate"
-                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/30 shadow-card hover:border-primary hover:shadow-primary transition-all duration-300"
+                alt="Lujain Almomani - Engineering Graduate"
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/30 shadow-card hover:border-primary hover:shadow-primary transition-all duration-300"
               />
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="block text-foreground">Ali Saeed</span>
-            <span className="block text-2xl md:text-3xl font-light text-muted-foreground mt-2">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
+            <span className="block text-foreground">Lujain Almomani</span>
+            <span className="block text-lg sm:text-2xl md:text-3xl font-light text-muted-foreground mt-2">
               Engineering Graduate
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             <span className="text-primary font-semibold">Motorsport</span> & <span className="text-secondary font-semibold">Cybersecurity</span> Enthusiast
           </p>
           
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
             "Building high-performance solutions from track to tech"
           </p>
           
@@ -57,7 +57,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
               size="lg"
-              className="btn-hero px-8 py-3 text-lg"
+              className="btn-hero px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-lg"
               onClick={() => scrollToSection('projects')}
             >
               <span className="relative z-10">Explore My Work</span>
@@ -66,7 +66,7 @@ const Hero = () => {
             <Button 
               size="lg"
               variant="outline"
-              className="btn-cyber px-8 py-3 text-lg"
+              className="btn-cyber px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-lg"
               onClick={() => scrollToSection('contact')}
             >
               <span className="relative z-10">Let's Connect</span>
@@ -99,15 +99,14 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        
-        {/* Scroll Indicator */}
-        <button
-          onClick={() => scrollToSection('about')}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-        >
-          <ChevronDown size={32} className="text-muted-foreground hover:text-primary transition-colors" />
-        </button>
       </div>
+      {/* Scroll Indicator */}
+      <button
+        onClick={() => scrollToSection('about')}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <ChevronDown size={32} className="text-muted-foreground hover:text-primary transition-colors" />
+      </button>
     </section>
   );
 };
