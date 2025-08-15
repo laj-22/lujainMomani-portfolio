@@ -96,7 +96,7 @@ const RecentProjects = () => {
           {recentProjects.map((project, index) => (
             <Card 
               key={project.id}
-              className="project-card overflow-hidden"
+              className="project-card overflow-hidden group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Project Image */}
