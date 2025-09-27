@@ -1,4 +1,12 @@
-# Welcome to your Lovable project
+# Portfolio Project
+
+This is a Vite + React (TypeScript) portfolio site for Lujain Almomani.
+
+- Build: `npm run build`
+- Dev: `npm run dev`
+- Preview: `npm run preview`
+
+Content and UI are tailored for Telecommunications & IoT engineering with interests in cybersecurity and network engineering.
 
 ## Project info
 

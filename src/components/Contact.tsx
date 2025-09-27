@@ -5,12 +5,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { 
   Mail, 
-  Phone, 
   MapPin, 
-  Github, 
   Linkedin, 
-  Send,
-  MessageSquare
+  Send
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -23,20 +20,56 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const web3formsKey = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) ?? '27fd6a80-d2fb-4f48-b53c-08ef083a04d0';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    if (!web3formsKey) {
       toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: 'Email service not configured',
+        description: 'Add VITE_WEB3FORMS_KEY to your .env to enable sending.',
       });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 2000);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          reply_to: formData.email
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: 'Message Sent!',
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        toast({
+          title: 'Failed to send',
+          description: result.message || 'Please try again later.'
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Network error',
+        description: 'Unable to send your message right now.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -50,41 +83,23 @@ const Contact = () => {
     {
       icon: <Mail className="h-5 w-5" />,
       title: 'Email',
-      value: 'ali.saeed@example.com',
-      link: 'mailto:ali.saeed@example.com'
-    },
-    {
-      icon: <Phone className="h-5 w-5" />,
-      title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: 'lujain.momani@hotmail.com',
+      link: 'mailto:lujain.momani@hotmail.com'
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       title: 'Location',
-      value: 'Available for Remote Work',
+      value: 'Dubai, UAE • Available for online work',
       link: null
     }
   ];
 
   const socialLinks = [
     {
-      icon: <Github className="h-6 w-6" />,
-      label: 'GitHub',
-      url: 'https://github.com',
-      color: 'hover:text-foreground'
-    },
-    {
       icon: <Linkedin className="h-6 w-6" />,
       label: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/lujainn',
       color: 'hover:text-accent'
-    },
-    {
-      icon: <MessageSquare className="h-6 w-6" />,
-      label: 'Discord',
-      url: 'https://discord.com',
-      color: 'hover:text-secondary'
     }
   ];
 
@@ -95,7 +110,7 @@ const Contact = () => {
           <h2 className="section-header mb-6">Let's Connect</h2>
           <div className="w-24 h-1 bg-gradient-cyber mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Let's talk innovation, security, and speed. Whether it's designing race-ready tech or securing connected systems, I'm always looking for the next challenge.
+            Let's talk innovation, security, and resilient systems. I'm always looking for the next challenge.
           </p>
         </div>
 

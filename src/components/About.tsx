@@ -6,18 +6,18 @@ const About = () => {
   const highlights = [
     {
       icon: <Cpu className="h-8 w-8" />,
-      title: "Engineering Excellence",
-      description: "Hardware & software integration specialist"
-    },
-    {
-      icon: <Trophy className="h-8 w-8" />,
-      title: "Motorsport Technology",
-      description: "Performance-driven automotive solutions"
+      title: "Network Engineering",
+      description: "Routing, switching, and resilient system architecture"
     },
     {
       icon: <Shield className="h-8 w-8" />,
-      title: "Cybersecurity Focus",
-      description: "Security-first embedded systems design"
+      title: "Cybersecurity",
+      description: "ML‑enabled IDS, secure design, and threat‑aware systems"
+    },
+    {
+      icon: <Cpu className="h-8 w-8" />,
+      title: "IoT Systems",
+      description: "Edge hardware, sensors, and cloud-connected platforms"
     }
   ];
 
@@ -33,11 +33,11 @@ const About = () => {
           {/* Content */}
           <div className="animate-fade-in-up">
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              I am an engineering graduate with a passion for <strong className="text-primary">motorsport technology</strong> and <strong className="text-secondary">cybersecurity</strong>. My work bridges the gap between hardware and software, focusing on innovative solutions for automotive systems, connected devices, and secure embedded platforms.
+              I am a Telecommunications & IoT engineering graduate with a strong interest in <strong className="text-primary">cybersecurity</strong> and <strong className="text-secondary">network engineering</strong>. My work bridges hardware and software—building reliable networks, intelligent edge devices, and secure connected systems.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              From designing IoT-enabled prototypes to exploring vulnerabilities in vehicle networks, I thrive at the intersection of performance and protection. Every project is an opportunity to push the boundaries of what's possible in engineering.
+              Recent projects span autonomous robotics (ROS), IoT telemetry platforms, ML‑driven intrusion detection, signal processing, and enterprise networking. For a detailed view of my professional experience and roles, please refer to my CV.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

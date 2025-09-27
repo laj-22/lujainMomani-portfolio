@@ -2,33 +2,44 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Star, Github, ExternalLink, Calendar, Award } from 'lucide-react';
-import projectTelemetry from '@/assets/project-telemetry.jpg';
+import { Star, Calendar } from 'lucide-react';
+import projectSecurity from '@/assets/project-security.jpg';
+
+const publicBase = (import.meta.env.BASE_URL || '/');
 
 const ProjectOfTheMonth = () => {
   const [showDetails, setShowDetails] = useState(false);
   
   const featuredProject = {
-    id: 'featured-1',
-    title: 'IoT Vehicle Telemetry System',
-    description: 'Advanced real-time racing data collection and visualization platform with wireless transmission capabilities.',
-    longDescription: 'A comprehensive telemetry system designed specifically for motorsport applications. This system features real-time data acquisition from multiple sensors including temperature, pressure, acceleration, and GPS tracking with sub-second latency. The wireless transmission system uses LoRa technology for reliable pit-to-car communication even at high speeds. The dashboard provides advanced analytics including lap time optimization, tire degradation analysis, and predictive maintenance alerts.',
-    image: projectTelemetry,
-    tags: ['Arduino', 'LoRa', 'Real-time', 'Dashboard', 'Motorsport'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    id: 'hardware-vanet-ids-2025',
+    title: 'Hardware-Accelerated Intrusion Detection System for VANETs',
+    description:
+      'Real-time IDS on Raspberry Pi 5 using Random Forest (99.72% accuracy) with protocol benchmarking (MQTT, CoAP, AMQP, TCP, UDP).',
+    longDescription:
+      'A practical, hardware-in-the-loop VANET security system built on Raspberry Pi 5. Multiple ad hoc WiFi nodes simulate vehicles publishing via MQTT; a central subscriber intercepts traffic and classifies messages in real time using a trained ML model. We evaluated five communication protocols across clients and loads, identifying MQTT as the optimal balance of latency, jitter, resource use, and scalability.',
+    image: `${publicBase}pictures/Hardware-Accelerated Intrusion Detection System for VANETs.jpg`,
+    tags: ['Machine Learning', 'Cybersecurity', 'IoT', 'Raspberry Pi', 'Python', 'MQTT'],
     achievements: [
-      'Reduced lap time analysis from hours to minutes',
-      'Implemented in 3 racing teams',
-      '99.9% data transmission reliability',
-      'Featured in Motorsport Engineering Magazine'
+      '99.72% detection accuracy (Random Forest on NSL-KDD)',
+      'End-to-end hardware prototype with multi-radio setup',
+      'Protocol benchmark identified MQTT as optimal',
+      'Under academic peer review'
     ],
     tech: [
-      { name: 'Arduino Nano 33 IoT', role: 'Main Controller' },
-      { name: 'LoRa RFM95W', role: 'Wireless Communication' },
-      { name: 'React Dashboard', role: 'Data Visualization' },
-      { name: 'Python Backend', role: 'Data Processing' }
+      { name: 'Raspberry Pi 5', role: 'Core compute node' },
+      { name: 'Python', role: 'Inference + data pipeline' },
+      { name: 'Random Forest', role: 'Intrusion detection model' },
+      { name: 'MQTT', role: 'Primary messaging protocol' }
     ]
+  };
+
+  const openProjectDetails = () => {
+    const button = document.querySelector(
+      `[data-title="${featuredProject.title}"] button`
+    ) as HTMLButtonElement | null;
+    if (button) {
+      button.click();
+    }
   };
 
   return (
@@ -36,13 +47,13 @@ const ProjectOfTheMonth = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Award className="h-8 w-8 text-primary" />
+            <Star className="h-8 w-8 text-secondary fill-secondary" />
             <h2 className="section-header">Project of the Month</h2>
             <Star className="h-8 w-8 text-secondary fill-secondary" />
           </div>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Showcasing the most innovative and impactful project from my portfolio
+            Showcasing the most impactful project from my portfolio
           </p>
         </div>
 
@@ -55,12 +66,32 @@ const ProjectOfTheMonth = () => {
                   src={featuredProject.image} 
                   alt={featuredProject.title}
                   className="w-full h-full object-cover"
+                  data-bases={[`${publicBase}pictures/${featuredProject.title}`, `${publicBase}pictures/${featuredProject.title.replace(/[()]/g, '')}`].join('|')}
+                  data-eidx="0"
+                  onError={(e) => {
+                    const img = e.currentTarget as HTMLImageElement;
+                    const exts = ['.jpg', '.jpeg', '.png', '.webp'];
+                    const bases = (img.getAttribute('data-bases') || '').split('|').filter(Boolean);
+                    let eIdx = Number(img.getAttribute('data-eidx') || '0');
+                    eIdx += 1;
+                    if (eIdx >= exts.length) {
+                      eIdx = 0;
+                      bases.shift();
+                      img.setAttribute('data-bases', bases.join('|'));
+                    }
+                    if (bases.length > 0) {
+                      img.setAttribute('data-eidx', String(eIdx));
+                      img.src = `${bases[0]}${exts[eIdx]}`;
+                      return;
+                    }
+                    img.src = projectSecurity;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent lg:hidden" />
                 <div className="absolute top-6 left-6">
                   <Badge className="bg-primary text-primary-foreground font-semibold text-sm px-3 py-1">
                     <Calendar className="h-4 w-4 mr-2" />
-                    August 2024
+                    July 2025
                   </Badge>
                 </div>
               </div>
@@ -85,13 +116,8 @@ const ProjectOfTheMonth = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-4 mb-6">
-                  <Button className="btn-hero flex-1 sm:flex-none">
-                    <Github className="h-5 w-5 mr-2" />
-                    <span className="relative z-10">View Code</span>
-                  </Button>
-                  <Button variant="outline" className="btn-cyber flex-1 sm:flex-none">
-                    <ExternalLink className="h-5 w-5 mr-2" />
-                    <span className="relative z-10">Live Demo</span>
+                  <Button className="btn-hero flex-1 sm:flex-none" onClick={openProjectDetails}>
+                    <span className="relative z-10">View Details</span>
                   </Button>
                 </div>
 

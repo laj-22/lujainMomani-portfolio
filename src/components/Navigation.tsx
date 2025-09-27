@@ -47,7 +47,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
               onClick={() => scrollToSection('home')}
               className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent"
             >
-              AS
+              LM
             </button>
           </div>
 

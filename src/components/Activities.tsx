@@ -20,133 +20,168 @@ const Activities = () => {
       color: 'primary',
       items: [
         {
-          title: 'Formula Student Competition',
-          role: 'Electronics Team Lead',
+          title: 'Nexus 2.0 Research Competition – First Place, Computational Intelligence & Secure Systems',
+          role: 'Inter‑University Student Research Competition',
           date: '2024',
-          location: 'Silverstone, UK',
-          achievement: '3rd Place Overall',
-          description: 'Led the electronics and telemetry systems for our formula racing car, managing a team of 8 engineers.',
-          tags: ['Leadership', 'Motorsport', 'Electronics']
+          location: 'UAE',
+          achievement: 'First Place',
+          description: 'Won first place in the Computational Intelligence & Secure Systems track for research on ML/DL‑based VANET intrusion detection.',
+          tags: ['Competition', 'Research', 'Cybersecurity'],
+          link: 'https://www.linkedin.com/posts/university-of-wollongong-in-dubai_uowd-engineering-cybersecurity-activity-7309847882658938880-nX6E?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         },
         {
-          title: 'CyberSecurity CTF Championship',
-          role: 'Team Captain',
-          date: '2024',
-          location: 'London, UK',
-          achievement: '1st Place',
-          description: 'Captured flags in penetration testing, reverse engineering, and network security challenges.',
-          tags: ['Security', 'CTF', 'Penetration Testing']
-        },
-        {
-          title: 'Robotics Competition',
-          role: 'Lead Developer',
+          title: 'Youth Sustainability Conference – First Place, YouthHub×GE',
+          role: 'Sustainability Innovation Challenge',
           date: '2023',
-          location: 'Birmingham, UK',
-          achievement: '2nd Place',
-          description: 'Developed autonomous navigation and control systems for high-speed racing robots.',
-          tags: ['Robotics', 'AI', 'Competition']
+          location: 'UAE',
+          achievement: 'First Place',
+          description: 'Awarded for proposing innovative energy solutions to increase power production using limited resources.',
+          tags: ['Sustainability', 'Energy', 'Innovation'],
+          link: 'https://www.linkedin.com/posts/lujainn_generalelectric-cop28uae-sustainability-activity-7059578121179602944-1Z8q?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
+        },
+        {
+          title: 'Engineering Robotics Challenge (ERC 2025) – Best Poster/Design Award',
+          role: 'American University of Sharjah',
+          date: '2025',
+          location: 'UAE',
+          achievement: 'Best Poster/Design',
+          description: 'Recognized for the Autonomous Waste Collection Robot featuring ROS navigation and a custom lifting mechanism.',
+          tags: ['Robotics', 'ROS', 'Design'],
+          link: 'https://www.linkedin.com/posts/joud-almomani_erc2025-roboticsinnovation-sustainability-ugcPost-7315373789771395074-wU8G?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         }
       ]
     },
     {
-      category: 'Certifications',
+      category: 'Certifications & Programs',
       icon: <Award className="h-6 w-6" />,
       color: 'secondary',
       items: [
         {
-          title: 'Certified Ethical Hacker (CEH)',
-          role: 'EC-Council',
+          title: 'PwC Elevate Me Program',
+          role: 'PwC Academy Middle East',
+          date: '2025',
+          location: 'Online',
+          achievement: 'Completed',
+          description: 'Mentorship initiative focused on workflow dynamics, industry exposure, and career path validation.',
+          tags: ['Program', 'Mentorship', 'Online'],
+          link: 'https://www.linkedin.com/posts/lujainn_i-am-delighted-to-share-that-i-have-recently-activity-7305508240568545280-W5wx?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
+        },
+        {
+          title: 'McKinsey Forward Learners Program',
+          role: 'McKinsey & Company',
           date: '2024',
           location: 'Online',
-          achievement: 'Certified',
-          description: 'Advanced certification in ethical hacking, penetration testing, and cybersecurity practices.',
-          tags: ['Certification', 'Security', 'Ethical Hacking']
+          achievement: 'Completed',
+          description: 'Early‑career program developing problem solving, communication, and leadership skills for impact.',
+          tags: ['Program', 'Leadership', 'Online'],
+          link: 'https://www.linkedin.com/posts/lujainn_growth-leadership-itookastepforward-activity-7223989562048487425-A70u?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         },
         {
-          title: 'AWS Solutions Architect',
-          role: 'Amazon Web Services',
+          title: 'Agile Software Development Nanodegree',
+          role: 'Abdullah Al Ghurair Foundation × Udacity',
           date: '2023',
           location: 'Online',
-          achievement: 'Associate Level',
-          description: 'Cloud architecture and IoT integration expertise for scalable embedded systems.',
-          tags: ['AWS', 'Cloud', 'IoT']
-        },
-        {
-          title: 'CompTIA Security+',
-          role: 'CompTIA',
-          date: '2023',
-          location: 'Online',
-          achievement: 'Certified',
-          description: 'Foundational cybersecurity principles and network security fundamentals.',
-          tags: ['Security', 'Networking', 'Compliance']
+          achievement: 'Nanodegree',
+          description: 'Agile practices with Scrum, Kanban, and iterative delivery fundamentals applied to software projects.',
+          tags: ['Agile', 'Scrum', 'Program', 'Online'],
+          link: 'https://www.udacity.com/certificate/e/ef946478-4c8a-11ee-a172-bf447b3103e6'
         }
       ]
     },
     {
-      category: 'Speaking & Teaching',
-      icon: <BookOpen className="h-6 w-6" />,
+      category: 'Involvements',
+      icon: <Medal className="h-6 w-6" />,
       color: 'accent',
       items: [
         {
-          title: 'Motorsport Technology Conference',
-          role: 'Keynote Speaker',
-          date: '2024',
-          location: 'Monaco',
-          achievement: '300+ Attendees',
-          description: 'Presented IoT telemetry innovations in Formula racing to industry professionals.',
-          tags: ['Speaking', 'Motorsport', 'IoT']
+          title: 'ZainTECH – RIT Data Challenge',
+          role: 'Hackathon Participant',
+          date: '2025-03',
+          location: 'RIT Dubai',
+          achievement: 'Participant Credential',
+          description: 'Analyzed, modeled, and optimized public transport data; applied AI-driven analytics and teamwork to improve efficiency and routing.',
+          tags: ['Hackathon', 'Data Science', 'AI', 'Analytics'],
+          link: 'https://www.linkedin.com/posts/lujainn_check-out-lujain-almomanis-zaintech-rit-activity-7292131432192212992-KE3L?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         },
         {
-          title: 'University Guest Lecturer',
-          role: 'Cybersecurity in Automotive',
-          date: '2024',
-          location: 'Imperial College London',
-          achievement: 'High Student Ratings',
-          description: 'Taught advanced course on automotive cybersecurity and CAN bus vulnerabilities.',
-          tags: ['Teaching', 'University', 'Automotive Security']
+          title: 'URC at BITS (InterSys2025)',
+          role: 'Research Competitor / Presenter',
+          date: '2025',
+          location: 'UAE',
+          achievement: 'Participation',
+          description: 'University research competition hosted by Microsoft Tech Club at BITS during InterSys2025.',
+          tags: ['Research', 'Competition', 'Fair'],
+          link: 'https://www.linkedin.com/posts/mamad_intersys2025-ugcPost-7334919535205969920-qECJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         },
         {
-          title: 'DEF CON Workshop',
-          role: 'Workshop Leader',
-          date: '2023',
-          location: 'Las Vegas, USA',
-          achievement: '50+ Participants',
-          description: 'Led hands-on workshop on automotive penetration testing and CAN bus security.',
-          tags: ['Workshop', 'DEF CON', 'Automotive']
+          title: 'URIC at Abu Dhabi University',
+          role: 'Research Competitor / Presenter',
+          date: '2025',
+          location: 'UAE',
+          achievement: 'Participation',
+          description: 'University Research & Innovation Competition showcasing applied engineering and cybersecurity projects.',
+          tags: ['Research', 'Competition', 'Fair'],
+          link: 'https://www.linkedin.com/posts/mamad_intersys2025-ugcPost-7334919535205969920-qECJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
+        },
+        {
+          title: '19th IEEE UAE Section Student Day – University of Dubai',
+          role: 'Research Competitor / Presenter',
+          date: '2025',
+          location: 'UAE',
+          achievement: 'Participation',
+          description: 'Inter‑University Student Research Competition Nexus 2.0 organized by the IEEE Student Branch.',
+          tags: ['IEEE', 'Research', 'Competition'],
+          link: 'https://www.linkedin.com/posts/mamad_intersys2025-ugcPost-7334919535205969920-qECJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         }
       ]
     },
     {
-      category: 'Community Involvement',
+      category: 'Extracurricular',
       icon: <Users className="h-6 w-6" />,
       color: 'primary',
       items: [
         {
-          title: 'Engineering Society President',
-          role: 'University Engineering Club',
-          date: '2023-2024',
-          location: 'University Campus',
-          achievement: '200% Membership Growth',
-          description: 'Organized technical workshops, industry visits, and mentorship programs for 500+ students.',
-          tags: ['Leadership', 'Community', 'Mentorship']
+          title: 'Clubs Director – Student Government',
+          role: 'Rochester Institute of Technology (RIT) Dubai',
+          date: '2023',
+          location: 'RIT Dubai',
+          achievement: 'Leadership Nominations',
+          description: 'Led university clubs and organized campus events; received Best Leadership and Best Club nominations. Facilitated collaboration among students, faculty, and staff to strengthen community engagement.',
+          tags: ['Leadership', 'Student Government', 'Events']
         },
         {
-          title: 'STEM Outreach Program',
-          role: 'Volunteer Mentor',
-          date: '2022-2024',
-          location: 'Local Schools',
-          achievement: '100+ Students Mentored',
-          description: 'Teaching robotics and programming to high school students in underserved communities.',
-          tags: ['Outreach', 'Education', 'Volunteering']
+          title: 'Founder – The Levant Club',
+          role: 'Rochester Institute of Technology (RIT) Dubai',
+          date: '2022',
+          location: 'RIT Dubai',
+          achievement: 'Club Founder',
+          description: 'Established a cultural community club celebrating Levant heritage; delivered inclusive events and collaborations across campus.',
+          tags: ['Founder', 'Culture', 'Community']
+        }
+      ]
+    },
+    {
+      category: 'Academic Involvement',
+      icon: <BookOpen className="h-6 w-6" />,
+      color: 'secondary',
+      items: [
+        {
+          title: 'IEEE Member',
+          role: 'Institute of Electrical and Electronics Engineers',
+          date: 'Present',
+          location: 'UAE',
+          achievement: 'Professional Membership',
+          description: 'Active member participating in technical communities and student research activities.',
+          tags: ['IEEE', 'Membership', 'Academic']
         },
         {
-          title: 'Open Source Contributor',
-          role: 'Various Projects',
-          date: '2022-Present',
-          location: 'Global',
-          achievement: '50+ PRs Merged',
-          description: 'Active contributor to cybersecurity tools and embedded systems libraries on GitHub.',
-          tags: ['Open Source', 'GitHub', 'Community']
+          title: 'Engineers Australia Member',
+          role: 'Engineers Australia',
+          date: 'Present',
+          location: 'Australia',
+          achievement: 'Professional Membership',
+          description: 'Member of the national engineering body supporting standards, ethics, and professional development.',
+          tags: ['Engineers Australia', 'Membership', 'Academic']
         }
       ]
     }
@@ -210,9 +245,19 @@ const Activities = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-2">
                       {item.description}
                     </p>
+                    {('link' in item) && (item as any).link && (
+                      <a
+                        href={(item as any).link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-primary text-xs underline"
+                      >
+                        View credential
+                      </a>
+                    )}
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">

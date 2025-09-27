@@ -22,40 +22,86 @@ const Skills = () => {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Related projects data for skill filtering
-  const relatedProjects = {
-    'Arduino & Raspberry Pi': ['IoT Vehicle Telemetry System', 'Smart Pit Stop Assistant', 'Wireless Sensor Network'],
-    'Sensors & Actuators': ['IoT Vehicle Telemetry System', 'Autonomous Track Robot', 'Wireless Sensor Network'],
-    'CAN Bus Systems': ['CAN Bus Security Scanner', 'IoT Vehicle Telemetry System'],
-    'Telemetry Systems': ['IoT Vehicle Telemetry System', 'Smart Pit Stop Assistant'],
-    'PCB Design': ['Wireless Sensor Network', 'Embedded Firewall System'],
-    '3D Printing & CAD': ['Autonomous Track Robot', 'Smart Pit Stop Assistant'],
-    'Python & MATLAB': ['CAN Bus Security Scanner', 'Embedded Firewall System', 'Autonomous Track Robot'],
-    'Penetration Testing': ['CAN Bus Security Scanner', 'Embedded Firewall System'],
-    'Network Security': ['CAN Bus Security Scanner', 'Embedded Firewall System', 'Wireless Sensor Network'],
-    'Wireshark Analysis': ['CAN Bus Security Scanner', 'Wireless Sensor Network'],
-    'Embedded C/C++': ['Autonomous Track Robot', 'Embedded Firewall System', 'IoT Vehicle Telemetry System'],
-    'IoT Security': ['Embedded Firewall System', 'Wireless Sensor Network'],
-    'SolidWorks': ['Autonomous Track Robot', 'Smart Pit Stop Assistant'],
-    'Git & Version Control': ['All Projects'],
-    'Linux Systems': ['CAN Bus Security Scanner', 'Embedded Firewall System'],
-    'Network Simulators': ['Wireless Sensor Network', 'Embedded Firewall System'],
-    'Oscilloscopes': ['IoT Vehicle Telemetry System', 'Autonomous Track Robot'],
-    'Logic Analyzers': ['CAN Bus Security Scanner', 'Embedded Firewall System']
+  // Related projects mapped to current portfolio titles
+  const relatedProjects: Record<string, string[]> = {
+    // Hardware
+    'Raspberry Pi & IoT Hardware': [
+      'Hardware-Accelerated Intrusion Detection System for VANETs',
+      'Smart Agricultural Monitoring System'
+    ],
+    'ESP32 & Edge Control': [
+      'Smart IoT Parking Management System (SmartSpot)'
+    ],
+    'Sensors & Actuators': [
+      'Intelligent Robotic Arm Sorting System',
+      'Autonomous Robot Navigation System'
+    ],
+    'Digital Logic Design': [
+      'Digital Currency Exchange Calculator'
+    ],
+    'Robotics Platforms': [
+      'Autonomous Robot Navigation System',
+      'Intelligent Robotic Arm Sorting System'
+    ],
+    // Software & Cybersecurity
+    'Machine Learning': [
+      'Traffic Sign Recognition System',
+      'Smart Audio Denoising & Speech Restoration',
+      'A Hybrid Machine Learning Framework for Antenna Design Optimization',
+      'A Hybrid Deep Learning-Genetic Algorithm Approach for 5G Beam Selection',
+      'Machine Learning Framework for VANET Intrusion Detection',
+      'Hardware-Accelerated Intrusion Detection System for VANETs'
+    ],
+    'Computer Vision': [
+      'Traffic Sign Recognition System',
+      'Intelligent Robotic Arm Sorting System',
+      'Smart IoT Parking Management System (SmartSpot)'
+    ],
+    'Network Security & IDS': [
+      'Machine Learning Framework for VANET Intrusion Detection',
+      'Hardware-Accelerated Intrusion Detection System for VANETs'
+    ],
+    'Network Design & Cisco IOS': [
+      'Multi-Site Enterprise Network Design & Implementation'
+    ],
+    'Signal Processing': [
+      'Smart Audio Denoising & Speech Restoration',
+      'Parallel Image Processing Performance Analysis'
+    ],
+    // Tools & Tech
+    'MATLAB': [
+      'Traffic Sign Recognition System',
+      'Smart Audio Denoising & Speech Restoration',
+      'A Hybrid Deep Learning-Genetic Algorithm Approach for 5G Beam Selection',
+      'Smart Agricultural Monitoring System'
+    ],
+    'Python': [
+      'Hardware-Accelerated Intrusion Detection System for VANETs',
+      'Intelligent Robotic Arm Sorting System'
+    ],
+    'Java': [
+      'Parallel Image Processing Performance Analysis',
+      'Fault-Tolerant Data Processing & Resilient Logging System'
+    ],
+    'Arduino & ThingSpeak': [
+      'Smart Agricultural Monitoring System'
+    ],
+    'ROS': [
+      'Autonomous Waste Collection Robot (ERC 2025)'
+    ]
   };
 
   const skillCategories = [
     {
-      title: "Hardware & Motorsport Tech",
+      title: "Hardware",
       icon: <Gauge className="h-6 w-6" />,
       color: "primary",
       skills: [
-        { name: "Arduino & Raspberry Pi", icon: <Cpu className="h-5 w-5" /> },
-        { name: "Sensors & Actuators", icon: <Activity className="h-5 w-5" /> },
-        { name: "CAN Bus Systems", icon: <Radio className="h-5 w-5" /> },
-        { name: "Telemetry Systems", icon: <Gauge className="h-5 w-5" /> },
-        { name: "PCB Design", icon: <Cpu className="h-5 w-5" /> },
-        { name: "3D Printing & CAD", icon: <Cog className="h-5 w-5" /> }
+        { name: 'Raspberry Pi & IoT Hardware', icon: <Wifi className="h-5 w-5" /> },
+        { name: 'ESP32 & Edge Control', icon: <Wifi className="h-5 w-5" /> },
+        { name: 'Sensors & Actuators', icon: <Activity className="h-5 w-5" /> },
+        { name: 'Digital Logic Design', icon: <Cpu className="h-5 w-5" /> },
+        { name: 'Robotics Platforms', icon: <Gauge className="h-5 w-5" /> }
       ]
     },
     {
@@ -63,12 +109,10 @@ const Skills = () => {
       icon: <Shield className="h-6 w-6" />,
       color: "secondary",
       skills: [
-        { name: "Python & MATLAB", icon: <Code className="h-5 w-5" /> },
-        { name: "Penetration Testing", icon: <Shield className="h-5 w-5" /> },
-        { name: "Network Security", icon: <Wifi className="h-5 w-5" /> },
-        { name: "Wireshark Analysis", icon: <Terminal className="h-5 w-5" /> },
-        { name: "Embedded C/C++", icon: <Code className="h-5 w-5" /> },
-        { name: "IoT Security", icon: <Wifi className="h-5 w-5" /> }
+        { name: 'Machine Learning', icon: <Code className="h-5 w-5" /> },
+        { name: 'Computer Vision', icon: <Code className="h-5 w-5" /> },
+        { name: 'Network Security & IDS', icon: <Shield className="h-5 w-5" /> },
+        { name: 'Signal Processing', icon: <Activity className="h-5 w-5" /> }
       ]
     },
     {
@@ -76,12 +120,12 @@ const Skills = () => {
       icon: <Wrench className="h-6 w-6" />,
       color: "accent",
       skills: [
-        { name: "SolidWorks", icon: <Cog className="h-5 w-5" /> },
-        { name: "Git & Version Control", icon: <Terminal className="h-5 w-5" /> },
-        { name: "Linux Systems", icon: <Terminal className="h-5 w-5" /> },
-        { name: "Network Simulators", icon: <Wifi className="h-5 w-5" /> },
-        { name: "Oscilloscopes", icon: <Activity className="h-5 w-5" /> },
-        { name: "Logic Analyzers", icon: <Activity className="h-5 w-5" /> }
+        { name: 'MATLAB', icon: <Terminal className="h-5 w-5" /> },
+        { name: 'Python', icon: <Terminal className="h-5 w-5" /> },
+        { name: 'Java', icon: <Terminal className="h-5 w-5" /> },
+        { name: 'Arduino & ThingSpeak', icon: <Wifi className="h-5 w-5" /> },
+        { name: 'ROS', icon: <Cog className="h-5 w-5" /> },
+        { name: 'Network Design & Cisco IOS', icon: <Terminal className="h-5 w-5" /> }
       ]
     }
   ];
@@ -93,10 +137,10 @@ const Skills = () => {
           <h2 className="section-header mb-6">Skills & Expertise</h2>
           <div className="w-24 h-1 bg-gradient-secondary mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive toolkit spanning hardware design, software development, and cybersecurity
+            Explore core skills across hardware, software, and tools.
           </p>
           <p className="text-sm text-muted-foreground max-w-3xl mx-auto mb-8">
-            Hover over a skill to view the number of related projects
+            Hover to see related project counts. Click a skill to jump to those projects.
           </p>
         </div>
 
