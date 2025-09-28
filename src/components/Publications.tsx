@@ -270,7 +270,7 @@ const Publications = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           <Card className="p-6 border border-border">
             <h4 className="text-lg font-semibold text-foreground">Research Intern</h4>
-            <div className="text-sm text-muted-foreground mb-2">University of Wollongong (UOWD) • Sept 2024 – Present</div>
+            <div className="text-sm text-muted-foreground mb-2">University of Wollongong (UOWD) • Sept 2024 - Present</div>
             <ul className="list-disc list-inside space-y-2 text-foreground">
               <li>Developed ML-based VANET IDS; published on VANET security.</li>
               <li>Optimized real-time detection for constrained hardware.</li>
@@ -278,8 +278,8 @@ const Publications = () => {
           </Card>
 
           <Card className="p-6 border border-border">
-            <h4 className="text-lg font-semibold text-foreground">Clubs Director – Student Government</h4>
-            <div className="text-sm text-muted-foreground mb-2">Rochester Institute of Technology (RIT) • Apr 2023 – Sept 2023</div>
+            <h4 className="text-lg font-semibold text-foreground">Clubs Director - Student Government</h4>
+            <div className="text-sm text-muted-foreground mb-2">Rochester Institute of Technology (RIT) • Apr 2023 - Sept 2023</div>
             <ul className="list-disc list-inside space-y-2 text-foreground">
               <li>Led clubs, organized events; earned Best Leadership & Best Club.</li>
               <li>Facilitated collaboration across students, faculty, and staff.</li>
@@ -288,7 +288,7 @@ const Publications = () => {
 
           <Card className="p-6 border border-border">
             <h4 className="text-lg font-semibold text-foreground">Business Intelligence Intern</h4>
-            <div className="text-sm text-muted-foreground mb-2">Jordan Payments & Clearance Company (JOPACC) • Jul 2023 – Aug 2023</div>
+            <div className="text-sm text-muted-foreground mb-2">Jordan Payments & Clearance Company (JOPACC) • Jul 2023 - Aug 2023</div>
             <ul className="list-disc list-inside space-y-2 text-foreground">
               <li>Built presentation & quarterly report for decision-making.</li>
               <li>Explored ETL processes; created Power BI visualizations.</li>

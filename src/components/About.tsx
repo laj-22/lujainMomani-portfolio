@@ -12,7 +12,7 @@ const About = () => {
     {
       icon: <Shield className="h-8 w-8" />,
       title: "Cybersecurity",
-      description: "ML‑enabled IDS, secure design, and threat‑aware systems"
+      description: "ML-enabled IDS, secure design, and threat-aware systems"
     },
     {
       icon: <Cpu className="h-8 w-8" />,
@@ -33,7 +33,7 @@ const About = () => {
           {/* Content */}
           <div className="animate-fade-in-up">
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
-              I am a Telecommunications & IoT engineering graduate with a passion for <strong className="text-primary">cybersecurity</strong> and <strong className="text-secondary">network engineering</strong>. I actively apply my knowledge through continuous learning, research publication, and hands-on project development—bridging theoretical concepts with practical, secure system implementations.
+              I am a Telecommunications & IoT engineering graduate with a passion for <strong className="text-primary">cybersecurity</strong> and <strong className="text-secondary">network engineering</strong>. I actively apply my knowledge through continuous learning, research publication, and hands-on project development, bridging theoretical concepts with practical, secure system implementations.
             </p>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">

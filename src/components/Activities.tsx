@@ -39,17 +39,17 @@ const Activities = () => {
       color: 'primary',
       items: [
         {
-          title: 'Nexus 2.0 Research Competition – First Place, Computational Intelligence & Secure Systems',
-          role: 'Inter‑University Student Research Competition',
+          title: 'Nexus 2.0 Research Competition - First Place, Computational Intelligence & Secure Systems',
+          role: 'Inter-University Student Research Competition',
           date: '2024',
           location: 'UAE',
           achievement: 'First Place',
-          description: 'Won first place in the Computational Intelligence & Secure Systems track for research on ML/DL‑based VANET intrusion detection.',
+          description: 'Won first place in the Computational Intelligence & Secure Systems track for research on ML/DL-based VANET intrusion detection.',
           tags: ['Competition', 'Research', 'Cybersecurity'],
           link: 'https://www.linkedin.com/posts/university-of-wollongong-in-dubai_uowd-engineering-cybersecurity-activity-7309847882658938880-nX6E?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         },
         {
-          title: 'Youth Sustainability Conference – First Place, YouthHub×GE',
+          title: 'Youth Sustainability Conference - First Place, YouthHub×GE',
           role: 'Sustainability Innovation Challenge',
           date: '2023',
           location: 'UAE',
@@ -59,7 +59,7 @@ const Activities = () => {
           link: 'https://www.linkedin.com/posts/lujainn_generalelectric-cop28uae-sustainability-activity-7059578121179602944-1Z8q?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         },
         {
-          title: 'Engineering Robotics Challenge (ERC 2025) – Best Poster/Design Award',
+          title: 'Engineering Robotics Challenge (ERC 2025) - Best Poster/Design Award',
           role: 'American University of Sharjah',
           date: '2025',
           location: 'UAE',
@@ -91,7 +91,7 @@ const Activities = () => {
           date: '2024',
           location: 'Online',
           achievement: 'Completed',
-          description: 'Early‑career program developing problem solving, communication, and leadership skills for impact.',
+          description: 'Early-career program developing problem solving, communication, and leadership skills for impact.',
           tags: ['Program', 'Leadership', 'Online'],
           link: 'https://www.linkedin.com/posts/lujainn_growth-leadership-itookastepforward-activity-7223989562048487425-A70u?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         },
@@ -113,7 +113,7 @@ const Activities = () => {
       color: 'accent',
       items: [
         {
-          title: 'ZainTECH – RIT Data Challenge',
+          title: 'ZainTECH - RIT Data Challenge',
           role: 'Hackathon Participant',
           date: '2025-03',
           location: 'RIT Dubai',
@@ -143,12 +143,12 @@ const Activities = () => {
           link: 'https://www.linkedin.com/posts/mamad_intersys2025-ugcPost-7334919535205969920-qECJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         },
         {
-          title: '19th IEEE UAE Section Student Day – University of Dubai',
+          title: '19th IEEE UAE Section Student Day - University of Dubai',
           role: 'Research Competitor / Presenter',
           date: '2025',
           location: 'UAE',
           achievement: 'Participation',
-          description: 'Inter‑University Student Research Competition Nexus 2.0 organized by the IEEE Student Branch.',
+          description: 'Inter-University Student Research Competition Nexus 2.0 organized by the IEEE Student Branch.',
           tags: ['IEEE', 'Research', 'Competition'],
           link: 'https://www.linkedin.com/posts/mamad_intersys2025-ugcPost-7334919535205969920-qECJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
         }
@@ -160,7 +160,7 @@ const Activities = () => {
       color: 'primary',
       items: [
         {
-          title: 'Clubs Director – Student Government',
+          title: 'Clubs Director - Student Government',
           role: 'Rochester Institute of Technology (RIT) Dubai',
           date: '2023',
           location: 'RIT Dubai',
@@ -169,7 +169,7 @@ const Activities = () => {
           tags: ['Leadership', 'Student Government', 'Events']
         },
         {
-          title: 'Founder – The Levant Club',
+          title: 'Founder - The Levant Club',
           role: 'Rochester Institute of Technology (RIT) Dubai',
           date: '2022',
           location: 'RIT Dubai',
