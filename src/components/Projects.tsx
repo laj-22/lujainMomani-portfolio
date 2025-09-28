@@ -532,9 +532,9 @@ const Projects = () => {
           <div className="space-y-12">
             {/* Mobile: horizontal carousel */}
             <div className="sm:hidden overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 scroll-smooth">
-              <div className="flex gap-4 w-[100%] pr-4">
+              <div className="flex gap-4 w-[100%] pr-4 pl-4">
                 {sortedProjects.slice(0, visibleProjects).map((project, index) => (
-                  <div key={project.id} className="min-w-full snap-start">
+                  <div key={project.id} className="min-w-[92%] snap-start mr-2">
                     <Card
                       id={project.id}
                       data-title={project.title}
@@ -591,6 +591,10 @@ const Projects = () => {
                     </Card>
                   </div>
                 ))}
+                {/* Peek of next card to indicate swipe */}
+                <div className="min-w-[8%] opacity-70 flex items-center justify-center">
+                  <ChevronRight className="h-6 w-6 text-muted-foreground" />
+                </div>
               </div>
               <div className="text-center text-xs text-muted-foreground mt-2">Swipe to see more</div>
             </div>

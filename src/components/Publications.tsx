@@ -158,13 +158,15 @@ const Publications = () => {
         {/* Mobile: Collapsible two sections */}
         <div className="lg:hidden space-y-4">
           <button
-            className="w-full flex items-center justify-between p-4 bg-card/60 rounded-lg border border-border"
+            className="w-full flex items-center justify-between p-4 bg-card/60 rounded-lg border border-border cursor-pointer"
             onClick={() => setMobileSection(mobileSection === 'published' ? 'under' : 'published')}
             aria-expanded={mobileSection === 'published'}
             aria-controls="pub-published"
+            role="button"
+            tabIndex={0}
           >
             <span className="text-left text-xl font-bold text-foreground">Published Research</span>
-            {mobileSection === 'published' ? <ChevronUp className="h-6 w-6 text-primary"/> : <ChevronDown className="h-6 w-6 text-primary"/>}
+            <ChevronDown className={`h-6 w-6 text-primary transition-transform ${mobileSection === 'published' ? 'rotate-180' : ''}`}/>
           </button>
           {mobileSection === 'published' && (
             <div id="pub-published" className="space-y-4">
@@ -175,13 +177,15 @@ const Publications = () => {
           )}
 
           <button
-            className="mt-6 w-full flex items-center justify-between p-4 bg-card/60 rounded-lg border border-border"
+            className="mt-6 w-full flex items-center justify-between p-4 bg-card/60 rounded-lg border border-border cursor-pointer"
             onClick={() => setMobileSection(mobileSection === 'under' ? 'published' : 'under')}
             aria-expanded={mobileSection === 'under'}
             aria-controls="pub-under"
+            role="button"
+            tabIndex={0}
           >
             <span className="text-left text-xl font-bold text-foreground">Under Review & In Progress</span>
-            {mobileSection === 'under' ? <ChevronUp className="h-6 w-6 text-primary"/> : <ChevronDown className="h-6 w-6 text-primary"/>}
+            <ChevronDown className={`h-6 w-6 text-primary transition-transform ${mobileSection === 'under' ? 'rotate-180' : ''}`}/>
           </button>
           {mobileSection === 'under' && (
             <div id="pub-under" className="space-y-4">
