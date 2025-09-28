@@ -531,10 +531,10 @@ const Projects = () => {
         ) : (
           <div className="space-y-12">
             {/* Mobile: horizontal carousel */}
-            <div className="sm:hidden overflow-x-auto [-webkit-overflow-scrolling:touch] snap-x snap-mandatory pb-2">
-              <div className="flex gap-3 w-max pr-4">
+            <div className="sm:hidden overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 scroll-smooth">
+              <div className="flex gap-4 w-[100%] pr-4">
                 {sortedProjects.slice(0, visibleProjects).map((project, index) => (
-                  <div key={project.id} className="min-w-[85%] snap-center">
+                  <div key={project.id} className="min-w-full snap-start">
                     <Card
                       id={project.id}
                       data-title={project.title}
@@ -543,7 +543,40 @@ const Projects = () => {
                       onClick={() => setSelectedProject(project)}
                     >
                       <div className="aspect-video bg-muted bg-cover bg-center relative overflow-hidden">
-                        <img src={project.image || ''} alt={project.title} className="w-full h-full object-cover" />
+                        <img
+                          src={project.image || ''}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                          data-variants={getTitleBases(project.title, project.image).join('|')}
+                          data-vidx="0"
+                          data-eidx="0"
+                          onError={(e) => {
+                            const img = e.currentTarget as HTMLImageElement;
+                            const variants = (img.getAttribute('data-variants') || '').split('|').filter(Boolean);
+                            const exts = ['.jpg', '.jpeg', '.png', '.webp'];
+                            let vIdx = Number(img.getAttribute('data-vidx') || '0');
+                            let eIdx = Number(img.getAttribute('data-eidx') || '0');
+                            eIdx += 1;
+                            if (eIdx >= exts.length) {
+                              eIdx = 0;
+                              vIdx += 1;
+                            }
+                            if (vIdx < variants.length) {
+                              img.setAttribute('data-vidx', String(vIdx));
+                              img.setAttribute('data-eidx', String(eIdx));
+                              img.src = `${variants[vIdx]}${exts[eIdx]}`;
+                              return;
+                            }
+                            img.style.display = 'none';
+                            const parent = img.parentElement;
+                            if (parent) {
+                              const fallback = document.createElement('div');
+                              fallback.className = 'w-full h-full flex items-center justify-center text-muted-foreground text-sm';
+                              fallback.textContent = 'No image provided';
+                              parent.appendChild(fallback);
+                            }
+                          }}
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                       </div>
                       <div className="p-4">
@@ -559,6 +592,7 @@ const Projects = () => {
                   </div>
                 ))}
               </div>
+              <div className="text-center text-xs text-muted-foreground mt-2">Swipe to see more</div>
             </div>
 
             {/* Desktop grid */}

@@ -160,12 +160,14 @@ const Publications = () => {
           <button
             className="w-full flex items-center justify-between p-4 bg-card/60 rounded-lg border border-border"
             onClick={() => setMobileSection(mobileSection === 'published' ? 'under' : 'published')}
+            aria-expanded={mobileSection === 'published'}
+            aria-controls="pub-published"
           >
             <span className="text-left text-xl font-bold text-foreground">Published Research</span>
             {mobileSection === 'published' ? <ChevronUp className="h-6 w-6 text-primary"/> : <ChevronDown className="h-6 w-6 text-primary"/>}
           </button>
           {mobileSection === 'published' && (
-            <div className="space-y-4">
+            <div id="pub-published" className="space-y-4">
               {published.map((publication, index) => (
                 <PublicationCard key={publication.id} publication={publication} index={index} />
               ))}
@@ -175,12 +177,14 @@ const Publications = () => {
           <button
             className="mt-6 w-full flex items-center justify-between p-4 bg-card/60 rounded-lg border border-border"
             onClick={() => setMobileSection(mobileSection === 'under' ? 'published' : 'under')}
+            aria-expanded={mobileSection === 'under'}
+            aria-controls="pub-under"
           >
             <span className="text-left text-xl font-bold text-foreground">Under Review & In Progress</span>
             {mobileSection === 'under' ? <ChevronUp className="h-6 w-6 text-primary"/> : <ChevronDown className="h-6 w-6 text-primary"/>}
           </button>
           {mobileSection === 'under' && (
-            <div className="space-y-4">
+            <div id="pub-under" className="space-y-4">
               {underReview.map((publication, index) => (
                 <PublicationCard key={publication.id} publication={publication} index={index} />
               ))}

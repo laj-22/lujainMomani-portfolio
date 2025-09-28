@@ -61,7 +61,7 @@ const ProjectOfTheMonth = () => {
           <Card className="overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 bg-gradient-card">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Project Image */}
-              <div className="relative aspect-[4/3] lg:aspect-auto w-full">
+              <div className="relative aspect-[16/9] lg:aspect-[4/3] w-full">
                 <img 
                   src={featuredProject.image} 
                   alt={featuredProject.title}
