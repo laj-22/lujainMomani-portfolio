@@ -7,49 +7,49 @@
 @layer base {
   :root {
     /* Core Background System */
-    --background: 0 0% 5%;
-    --foreground: 0 0% 95%;
-    
+    --background: 210 12% 94%; /* Slightly darker soft gray */
+    --foreground: 0 0% 12%; /* Dark grey, not pure black */
+
     /* Card & Surface System */
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 95%;
-    --card-hover: 0 0% 12%;
+    --card: 0 0% 100%; /* Pure White for cards */
+    --card-foreground: 0 0% 12%; /* Dark grey text */
+    --card-hover: 210 12% 91%; /* Subtle darker gray hover */
     
     /* Popover System */
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 0 0% 12%; /* Dark grey text for consistency */
     
-    /* Primary Brand Colors - Racing Theme */
-    --primary: 0 85% 45%; /* Racing Red */
+    /* Primary Brand Colors - Forest Green Theme */
+    --primary: 109 62% 22%; /* Forest Green #1E591C */
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 0 85% 55%;
-    --primary-dark: 0 85% 35%;
-    
-    /* Secondary - Cyber Theme */
-    --secondary: 140 100% 55%; /* Cyber Green */
-    --secondary-foreground: 0 0% 8%;
-    --secondary-glow: 140 100% 65%;
-    --secondary-dark: 140 100% 45%;
-    
+    --primary-glow: 109 62% 32%;
+    --primary-dark: 109 62% 15%;
+
+    /* Secondary - Darker Green Theme */
+    --secondary: 140 35% 13%; /* Dark Green #1E522E */
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 140 35% 23%;
+    --secondary-dark: 140 35% 8%;
+
     /* Muted Colors */
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --muted-hover: 0 0% 20%;
-    
+    --muted: 210 12% 88%; /* Darker muted for better contrast */
+    --muted-foreground: 0 0% 25%; /* Darker grey for better readability */
+    --muted-hover: 210 12% 82%;
+
     /* Accent System */
-    --accent: 220 100% 60%; /* Tech Blue */
+    --accent: 295 78% 25%; /* Purple #6D1F70 */
     --accent-foreground: 0 0% 98%;
-    --accent-glow: 220 100% 70%;
+    --accent-glow: 295 78% 35%;
     
     /* System Colors */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     
     /* Borders & Inputs */
-    --border: 0 0% 18%;
-    --border-hover: 0 0% 25%;
-    --input: 0 0% 12%;
-    --ring: 0 85% 45%;
+    --border: 210 15% 85%; /* Subtle Gray Border */
+    --border-hover: 210 15% 75%;
+    --input: 0 0% 100%; /* White Input */
+    --ring: 109 62% 22%; /* Forest Green Ring */
     
     /* Design System Radius */
     --radius: 0.75rem;
@@ -57,9 +57,8 @@
     /* Custom Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(0 0% 8%));
     --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card-hover)));
-    --gradient-cyber: linear-gradient(90deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-forest: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
     
     /* Racing Grid Pattern */
     --pattern-grid: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
@@ -94,41 +93,41 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 229 84% 6%; /* Darker background for better contrast */
+    --foreground: 210 25% 96%; /* Brighter text for excellent readability */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 229 84% 8%; /* Darker cards */
+    --card-foreground: 210 25% 96%; /* Brighter text */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 229 84% 8%; /* Consistent with cards */
+    --popover-foreground: 210 25% 96%; /* Brighter text */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 109 62% 35%; /* Brighter forest green for dark mode */
+    --primary-foreground: 210 25% 96%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 140 35% 25%; /* Brighter dark green */
+    --secondary-foreground: 210 25% 96%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 229 84% 12%; /* Better contrast for muted elements */
+    --muted-foreground: 210 25% 80%; /* More readable muted text */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 295 78% 40%; /* Brighter purple for dark mode */
+    --accent-foreground: 210 25% 96%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 55%; /* Brighter red for better visibility */
+    --destructive-foreground: 210 25% 96%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 229 84% 18%; /* More visible borders */
+    --input: 229 84% 10%; /* Better input visibility */
+    --ring: 109 62% 35%; /* Brighter focus ring */
+    --sidebar-background: 229 84% 6%;
+    --sidebar-foreground: 210 25% 96%;
+    --sidebar-primary: 109 62% 35%;
+    --sidebar-primary-foreground: 210 25% 96%;
+    --sidebar-accent: 229 84% 12%;
+    --sidebar-accent-foreground: 210 25% 96%;
+    --sidebar-border: 229 84% 18%;
+    --sidebar-ring: 109 62% 35%;
   }
 }
 
@@ -153,17 +152,17 @@
   
   /* Hero Button Variants */
   .btn-hero {
-    @apply relative overflow-hidden border-2 border-primary bg-transparent text-primary 
-           hover:text-primary-foreground transition-all duration-300 
-           before:absolute before:inset-0 before:bg-gradient-primary before:scale-x-0 
+    @apply relative overflow-hidden border-2 border-primary bg-transparent text-primary
+           hover:text-primary-foreground transition-all duration-300
+           before:absolute before:inset-0 before:bg-gradient-primary before:scale-x-0
            before:origin-right before:transition-transform before:duration-300
            hover:before:scale-x-100 hover:before:origin-left hover:shadow-primary;
   }
-  
-  .btn-cyber {
-    @apply relative overflow-hidden border border-secondary bg-transparent text-secondary 
+
+  .btn-forest {
+    @apply relative overflow-hidden border border-secondary bg-transparent text-secondary
            hover:text-secondary-foreground transition-all duration-300
-           before:absolute before:inset-0 before:bg-gradient-secondary before:scale-x-0 
+           before:absolute before:inset-0 before:bg-gradient-forest before:scale-x-0
            before:origin-right before:transition-transform before:duration-300
            hover:before:scale-x-100 hover:before:origin-left hover:shadow-secondary;
   }
@@ -186,19 +185,20 @@
   
   /* Navigation Active State */
   .nav-link {
-    @apply relative text-muted-foreground hover:text-foreground transition-colors duration-300
+    @apply relative transition-colors duration-300
            after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 
            after:bg-gradient-primary after:transition-all after:duration-300
            hover:after:w-full;
   }
   
   .nav-link.active {
-    @apply text-foreground after:w-full;
+    @apply after:w-full;
   }
   
   /* Section Headers */
   .section-header {
-    @apply text-4xl md:text-5xl font-bold bg-gradient-cyber bg-clip-text text-transparent;
+    @apply text-4xl md:text-5xl font-bold text-transparent bg-clip-text;
+    background-image: var(--gradient-forest);
   }
   
   /* Smooth Scroll */
@@ -225,5 +225,27 @@
   
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary-glow;
+  }
+
+  /* Project description formatting */
+  .project-description {
+    @apply whitespace-pre-line leading-relaxed;
+  }
+
+  .project-description ul {
+    @apply list-disc list-inside space-y-2 ml-4;
+  }
+
+  .project-description li {
+    @apply text-muted-foreground;
+  }
+
+  .project-description strong {
+    @apply text-foreground font-semibold;
+  }
+
+  /* Improve bullet point visibility */
+  .project-description::before {
+    content: "";
   }
 }

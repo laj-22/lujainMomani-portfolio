@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 interface NavigationProps {
   activeSection: string;
@@ -14,6 +15,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
+    { id: 'publications', label: 'Publications' },
     { id: 'activities', label: 'Activities' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -45,27 +47,29 @@ const Navigation = ({ activeSection }: NavigationProps) => {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-2xl font-bold bg-gradient-cyber bg-clip-text text-transparent"
+              className="text-2xl font-bold text-transparent bg-clip-text"
+              style={{ backgroundImage: 'var(--gradient-forest)' }}
             >
               LM
             </button>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex md:items-center md:space-x-6">
+            <div className="flex items-baseline space-x-8">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
                   className={`nav-link text-sm font-medium px-3 py-2 ${
                     activeSection === section.id ? 'active' : ''
-                  }`}
+                  } ${scrolled ? 'text-foreground hover:text-foreground' : 'text-white/90 hover:text-white'}`}
                 >
                   {section.label}
                 </button>
               ))}
             </div>
+            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
@@ -89,11 +93,14 @@ const Navigation = ({ activeSection }: NavigationProps) => {
                   onClick={() => scrollToSection(section.id)}
                   className={`nav-link block w-full text-left px-3 py-2 text-base font-medium ${
                     activeSection === section.id ? 'active' : ''
-                  }`}
+                  } ${scrolled ? 'text-foreground hover:text-foreground' : 'text-white hover:text-white'}`}
                 >
                   {section.label}
                 </button>
               ))}
+              <div className="flex justify-center pt-2 border-t border-border">
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         )}

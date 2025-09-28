@@ -108,7 +108,10 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="section-header mb-6">Let's Connect</h2>
-          <div className="w-24 h-1 bg-gradient-cyber mx-auto mb-8"></div>
+          <div
+            className="w-24 h-1 mx-auto mb-8"
+            style={{ backgroundImage: 'var(--gradient-forest)' }}
+          ></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Let's talk innovation, security, and resilient systems. I'm always looking for the next challenge.
           </p>

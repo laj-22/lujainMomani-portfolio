@@ -4,6 +4,7 @@ import About from '@/components/About';
 import Skills from '@/components/Skills';
 import ProjectOfTheMonth from '@/components/ProjectOfTheMonth';
 import Projects from '@/components/Projects';
+import Publications from '@/components/Publications';
 import Activities from '@/components/Activities';
 import Contact from '@/components/Contact';
 import { useActiveSection } from '@/hooks/useActiveSection';
@@ -20,6 +21,7 @@ const Index = () => {
         <Skills />
         <ProjectOfTheMonth />
         <Projects />
+        <Publications />
         <Activities />
         <Contact />
       </main>

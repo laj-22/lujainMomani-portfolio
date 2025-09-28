@@ -47,6 +47,7 @@ interface Project {
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [visibleProjects, setVisibleProjects] = useState(6);
 
   const publicBase = (import.meta.env.BASE_URL || '/');
 
@@ -92,7 +93,7 @@ const Projects = () => {
       description:
         'Dobot robotic arm sorting with computer vision and OCR; real-time classification by text and color.',
       longDescription:
-        'This project involved the development of an intelligent control system for a Dobot Magician robotic arm. The core of the system is a computer vision pipeline that enables the robot to perceive and understand its environment. By integrating Optical Character Recognition (OCR) and color detection, the system can identify specific objects on a conveyor belt, classify them based on predefined rules (e.g., text "DXB" and color "Blue"), and perform sorting actions. To ensure fluid, real-time operation, the vision processing and robotic control logic were separated using multithreading, allowing the system to analyze the camera feed without pausing robot movements. An infrared sensor serves as a trigger, initiating the sorting sequence only when an object is present.\n\nKey Features & Technical Details\n• Real-time Vision Processing: Utilized OpenCV to capture and process a live camera feed on a separate thread for responsiveness.\n• Advanced Text Recognition (OCR): Implemented PaddleOCR to accurately detect printed text for classification.\n• HSV-Based Color Detection: Robust color detection using HSV ranges for Red, Blue, Yellow under varying lighting.\n• Precise Robotic Arm Control: Dobot Magician EDU SDK for PTP moves, suction control, and conveyor speed management.\n• Sensor-Driven Automation: Infrared (IR) sensor triggers sorting when an object is detected.\n\nProject Impact & Objective\n• Built a fully functional, real-time sorting system.\n• Integrated arm, camera, sensor, and conveyor successfully.\n• Achieved high classification accuracy via OCR + color analysis.\n• Resolved real-time constraints using multithreading.',
+        'This project involved the development of an intelligent control system for a Dobot Magician robotic arm. The core of the system is a computer vision pipeline that enables the robot to perceive and understand its environment. By integrating Optical Character Recognition (OCR) and color detection, the system can identify specific objects on a conveyor belt, classify them based on predefined rules (e.g., text "DXB" and color "Blue"), and perform sorting actions.\n\nTo ensure fluid, real-time operation, the vision processing and robotic control logic were separated using multithreading, allowing the system to analyze the camera feed without pausing robot movements. An infrared sensor serves as a trigger, initiating the sorting sequence only when an object is present.\n\nKey Features & Technical Details:\n• Real-time Vision Processing: Utilized OpenCV to capture and process a live camera feed on a separate thread for responsiveness\n• Advanced Text Recognition (OCR): Implemented PaddleOCR to accurately detect printed text for classification\n• HSV-Based Color Detection: Robust color detection using HSV ranges for Red, Blue, Yellow under varying lighting\n• Precise Robotic Arm Control: Dobot Magician EDU SDK for PTP moves, suction control, and conveyor speed management\n• Sensor-Driven Automation: Infrared (IR) sensor triggers sorting when an object is detected\n\nProject Impact & Objective:\n• Built a fully functional, real-time sorting system\n• Integrated arm, camera, sensor, and conveyor successfully\n• Achieved high classification accuracy via OCR + color analysis\n• Resolved real-time constraints using multithreading',
       category: 'robotics',
       tags: ['Python', 'OpenCV', 'Computer Vision', 'Robotics', 'OCR', 'Multithreading', 'Hardware Integration'],
       image: `${publicBase}pictures/Intelligent Robotic Arm Sorting System.jpg`,
@@ -115,7 +116,7 @@ const Projects = () => {
       description:
         'FSM-driven autonomous navigation for a Maqueen robot with obstacle avoidance, dead-end escape, and line-based stopping.',
       longDescription:
-        'This project is an autonomous navigation system engineered for the Maqueen robot platform. The core of the system is a Finite State Machine (FSM) that governs the robot\'s logic and behavior, ensuring predictable and structured responses to environmental stimuli. By integrating an ultrasonic sensor for obstacle detection and line-tracking sensors for boundary conditions, the robot can navigate a space on its own. It is programmed to identify and maneuver around objects, intelligently handle complex scenarios like dead ends, and come to a complete stop upon reaching a designated line, demonstrating a robust foundation for autonomous mobility.\n\nKey Features & Technical Details\n• Finite State Machine (FSM) Control: Deterministic states (FORWARD, OBSTACLE_DETECTED, DEAD_END, STOP) with clear sensor-driven transitions.\n• Intelligent Obstacle Avoidance: Ultrasonic distance checks trigger avoidance; algorithm selects left/right path before turning.\n• Dead-End Handling Strategy: If both sides are blocked, executes reverse + turn-around + randomized turn to escape.\n• Sensor-Driven Stopping Mechanism: Line-tracking sensors transition to STOP when a boundary line is detected for precise halting.\n\nProject Impact & Objective\n• Developed a fully autonomous, deterministic navigation algorithm.\n• Implemented a multi-state FSM for complex decisions.\n• Robust dead-end recovery prevents stalls.\n• Effective integration of ultrasonic and line-tracking sensors.',
+        'This project is an autonomous navigation system engineered for the Maqueen robot platform. The core of the system is a Finite State Machine (FSM) that governs the robot\'s logic and behavior, ensuring predictable and structured responses to environmental stimuli.\n\nBy integrating an ultrasonic sensor for obstacle detection and line-tracking sensors for boundary conditions, the robot can navigate a space on its own. It is programmed to identify and maneuver around objects, intelligently handle complex scenarios like dead ends, and come to a complete stop upon reaching a designated line, demonstrating a robust foundation for autonomous mobility.\n\nKey Features & Technical Details:\n• Finite State Machine (FSM) Control: Deterministic states (FORWARD, OBSTACLE_DETECTED, DEAD_END, STOP) with clear sensor-driven transitions\n• Intelligent Obstacle Avoidance: Ultrasonic distance checks trigger avoidance; algorithm selects left/right path before turning\n• Dead-End Handling Strategy: If both sides are blocked, executes reverse + turn-around + randomized turn to escape\n• Sensor-Driven Stopping Mechanism: Line-tracking sensors transition to STOP when a boundary line is detected for precise halting\n\nProject Impact & Objective:\n• Developed a fully autonomous, deterministic navigation algorithm\n• Implemented a multi-state FSM for complex decisions\n• Robust dead-end recovery prevents stalls\n• Effective integration of ultrasonic and line-tracking sensors',
       category: 'robotics',
       tags: ['Robotics', 'JavaScript', 'Algorithms', 'FSM', 'Sensor Integration', 'Hardware Integration'],
       image: `${publicBase}pictures/Autonomous Robot Navigation System.jpg`,
@@ -138,7 +139,7 @@ const Projects = () => {
       description:
         'Multi-stage MATLAB pipeline to remove ringtone, fire alarm, and AC noise, restoring clear speech.',
       longDescription:
-        'This project focused on the practical application of digital signal processing for speech restoration. The challenge was a single audio file contaminated with three distinct and overlapping noise sources—an iPhone ringtone, a high-frequency fire alarm, and low-frequency AC fan noise—and to recover the clean, intelligible speech. Using MATLAB, a systematic, multi-step approach was designed. Each noise source was identified via time-domain and spectrogram analysis, then targeted with tailored techniques.\n\nKey Features & Technical Details\n• Noise Cancellation via Signal Inversion: Phase-inverted the known ringtone and mixed it into the affected segment to cancel it.\n• Frequency-Domain Filtering for Tonal Noise: Designed precise bandstop filters to remove AC hum (≈1–400 Hz) and fire alarm tones (≈1.5 kHz and ≈3.4 kHz).\n• Comparative Analysis & Visualization: Built a MATLAB dashboard with waveforms and spectrograms before/after for clear proof of improvement.\n\nProject Impact & Objective\n• Restored intelligible speech from an otherwise unusable recording.\n• Demonstrated proficiency in selecting the right approach (inversion vs. filtering).\n• Mastered spectrogram-driven diagnosis and MATLAB Signal Processing Toolbox workflows.',
+        'This project focused on the practical application of digital signal processing for speech restoration. The challenge was a single audio file contaminated with three distinct and overlapping noise sources—an iPhone ringtone, a high-frequency fire alarm, and low-frequency AC fan noise—and to recover the clean, intelligible speech.\n\nUsing MATLAB, a systematic, multi-step approach was designed. Each noise source was identified via time-domain and spectrogram analysis, then targeted with tailored techniques.\n\nKey Features & Technical Details:\n• Noise Cancellation via Signal Inversion: Phase-inverted the known ringtone and mixed it into the affected segment to cancel it\n• Frequency-Domain Filtering for Tonal Noise: Designed precise bandstop filters to remove AC hum (≈1–400 Hz) and fire alarm tones (≈1.5 kHz and ≈3.4 kHz)\n• Comparative Analysis & Visualization: Built a MATLAB dashboard with waveforms and spectrograms before/after for clear proof of improvement\n\nProject Impact & Objective:\n• Restored intelligible speech from an otherwise unusable recording\n• Demonstrated proficiency in selecting the right approach (inversion vs. filtering)\n• Mastered spectrogram-driven diagnosis and MATLAB Signal Processing Toolbox workflows',
       category: 'dsp',
       tags: ['MATLAB', 'Signal Processing', 'Audio Processing', 'Digital Filtering', 'Noise Reduction', 'Data Visualization'],
       image: `${publicBase}pictures/Smart Audio Denoising & Speech Restoration.jpg`,
@@ -161,7 +162,7 @@ const Projects = () => {
       description:
         'End-to-end IoT solution for real-time soil, light, and climate monitoring with cloud dashboard and email alerts.',
       longDescription:
-        'This project addresses modern agriculture challenges with a data-driven remote monitoring solution. An Arduino Uno R4 WiFi aggregates sensor data (soil moisture, ambient light, temperature, humidity) and streams it to ThingSpeak for live visualization, while also logging locally. A MATLAB script periodically analyzes daily logs to detect anomalies and dispatch email alerts.\n\nKey Features & Technical Details\n• Centralized IoT Hub: Arduino Uno R4 WiFi (C++) polls DHT11, LDR, and soil moisture sensors at intervals.\n• Cloud Integration & Dashboard: Wireless telemetry to ThingSpeak enables remote, real-time graphs and gauges.\n• Automated Anomaly Alerts: MATLAB parses daily CSV logs; threshold breaches trigger email notifications with context.\n• Robust Data Logging: Dual logging to cloud and local CSV for redundancy and historical analysis.\n\nProject Impact & Objective\n• Built a complete IoT monitoring pipeline from sensor to cloud alerting.\n• Integrated embedded hardware with a public cloud platform.\n• Proactive farm management via automated anomaly detection.\n• Designed and implemented the physical circuit and PCB layout.',
+        'This project addresses modern agriculture challenges with a data-driven remote monitoring solution. An Arduino Uno R4 WiFi aggregates sensor data (soil moisture, ambient light, temperature, humidity) and streams it to ThingSpeak for live visualization, while also logging locally.\n\nA MATLAB script periodically analyzes daily logs to detect anomalies and dispatch email alerts.\n\nKey Features & Technical Details:\n• Centralized IoT Hub: Arduino Uno R4 WiFi (C++) polls DHT11, LDR, and soil moisture sensors at intervals\n• Cloud Integration & Dashboard: Wireless telemetry to ThingSpeak enables remote, real-time graphs and gauges\n• Automated Anomaly Alerts: MATLAB parses daily CSV logs; threshold breaches trigger email notifications with context\n• Robust Data Logging: Dual logging to cloud and local CSV for redundancy and historical analysis\n\nProject Impact & Objective:\n• Built a complete IoT monitoring pipeline from sensor to cloud alerting\n• Integrated embedded hardware with a public cloud platform\n• Proactive farm management via automated anomaly detection\n• Designed and implemented the physical circuit and PCB layout',
       category: 'iot',
       tags: ['IoT', 'Arduino', 'MATLAB', 'C++', 'Sensor Integration', 'Cloud Integration', 'Data Visualization'],
       image: `${publicBase}pictures/Smart Agricultural Monitoring System.jpg`,
@@ -184,7 +185,7 @@ const Projects = () => {
       description:
         'MATLAB app combining edge detection and BoF/SVM to classify traffic signs with 94% validation accuracy.',
       longDescription:
-        'This project presents a complete traffic sign recognition system built within MATLAB, targeting an efficient ADAS component. Images are preprocessed using Sobel edge detection to emphasize sign shapes. A Bag of Features (BoF) representation is then learned and fed into a multi-class SVM (fitcecoc) for classification, achieving 94% validation accuracy on GTSRB. A custom GUI wraps the workflow for dataset loading, training/validation, random testing, and external image upload.\n\nKey Features & Technical Details\n• Machine Learning Pipeline: BoF feature extraction + multi-class SVM (fitcecoc) trained on GTSRB; 94% validation accuracy.\n• Edge Detection Preprocessing: Sobel gradient magnitude used to highlight boundaries and symbols before BoF.\n• Interactive MATLAB GUI: Dataset loading/preview, one-click training/validation, random test evaluation, and external image upload.\n\nProject Impact & Objective\n• Demonstrates a resource-efficient alternative to deep learning.\n• Fully functional GUI-based tool for end-to-end experimentation and testing.',
+        'This project presents a complete traffic sign recognition system built within MATLAB, targeting an efficient ADAS component. Images are preprocessed using Sobel edge detection to emphasize sign shapes.\n\nA Bag of Features (BoF) representation is then learned and fed into a multi-class SVM (fitcecoc) for classification, achieving 94% validation accuracy on GTSRB. A custom GUI wraps the workflow for dataset loading, training/validation, random testing, and external image upload.\n\nKey Features & Technical Details:\n• Machine Learning Pipeline: BoF feature extraction + multi-class SVM (fitcecoc) trained on GTSRB; 94% validation accuracy\n• Edge Detection Preprocessing: Sobel gradient magnitude used to highlight boundaries and symbols before BoF\n• Interactive MATLAB GUI: Dataset loading/preview, one-click training/validation, random test evaluation, and external image upload\n\nProject Impact & Objective:\n• Demonstrates a resource-efficient alternative to deep learning\n• Fully functional GUI-based tool for end-to-end experimentation and testing',
       category: 'dsp',
       tags: ['MATLAB', 'Machine Learning', 'Computer Vision', 'Image Processing', 'GUI Development', 'SVM'],
       image: `${publicBase}pictures/Traffic Sign Recognition System.jpg`,
@@ -206,7 +207,7 @@ const Projects = () => {
       description:
         'Java histogram equalization benchmark comparing single-threaded vs. multiple parallel designs for speedup.',
       longDescription:
-        'This project explores parallel computing to accelerate image processing, focusing on histogram equalization to enhance image contrast. A correct single-threaded baseline was implemented first, then multiple multithreaded designs were developed and rigorously benchmarked to evaluate performance on multi-core processors.\n\nKey Features & Technical Details\n• Single-Threaded Baseline: Standard pixel-wise histogram equalization used as a reference for speedup calculation.\n• Parallel Design A (Shared State): Threads process different image parts while updating a shared histogram via AtomicIntegerArray; tested row-wise and interleaved-row work splitting.\n• Parallel Design B (Private State & Merge): Each thread builds a private histogram; partial results are merged (map-reduce style) to minimize contention.\n• Systematic Benchmarking: Runs repeated across thread counts (1, 2, 4, 6, 8, 10) recording average time and computing speedup (single-thread time / multi-thread time).\n\nProject Impact & Objective\n• Implemented a classic image enhancement algorithm and multiple parallel patterns.\n• Quantified speedup to provide data-driven insights into trade-offs of shared vs. private state designs.\n• Gained practical experience with Java concurrency, atomic operations, and measurement.',
+        'This project explores parallel computing to accelerate image processing, focusing on histogram equalization to enhance image contrast. A correct single-threaded baseline was implemented first, then multiple multithreaded designs were developed and rigorously benchmarked to evaluate performance on multi-core processors.\n\nKey Features & Technical Details:\n• Single-Threaded Baseline: Standard pixel-wise histogram equalization used as a reference for speedup calculation\n• Parallel Design A (Shared State): Threads process different image parts while updating a shared histogram via AtomicIntegerArray; tested row-wise and interleaved-row work splitting\n• Parallel Design B (Private State & Merge): Each thread builds a private histogram; partial results are merged (map-reduce style) to minimize contention\n• Systematic Benchmarking: Runs repeated across thread counts (1, 2, 4, 6, 8, 10) recording average time and computing speedup (single-thread time / multi-thread time)\n\nProject Impact & Objective:\n• Implemented a classic image enhancement algorithm and multiple parallel patterns\n• Quantified speedup to provide data-driven insights into trade-offs of shared vs. private state designs\n• Gained practical experience with Java concurrency, atomic operations, and measurement',
       category: 'embedded',
       tags: ['Java', 'Multithreading', 'Concurrency', 'Performance Analysis', 'Image Processing', 'Algorithms'],
       image: `${publicBase}pictures/Parallel Image Processing Performance Analysis.jpg`,
@@ -228,7 +229,7 @@ const Projects = () => {
       description:
         'Java simulation of majority voting for sensor validation and a cascading fallback logger to ensure data integrity.',
       longDescription:
-        'This project simulates a safety-critical data processing environment in Java, emphasizing resilience to hardware and software failures. Two core principles underpin the design: accurate data via redundancy, and guaranteed capture via robust logging. A triple-redundancy, majority voting scheme validates a critical sensor reading. Complementing this, a custom FileLogger implements a cascading fallback strategy to ensure events are recorded even under simulated I/O failures. A built-in test harness validates the voting logic and logger behavior across predefined cases and randomized simulation.\n\nKey Features & Technical Details\n• Redundancy & Majority Voting: Three replicas of a critical sensor feed performMajorityVote: if two agree, accept value and log the outlier; if all differ, flag a major discrepancy and fall back to last known-good value.\n• Resilient Cascading Logger: Primary write to log.txt; on failure (simulated 40% chance) sequentially attempts backup files (log1.txt, log2.txt, ...); on total failure, writes a critical notice to principal_log.txt.\n• Systematic Testing & Simulation: Test harness covers agreement, one-outlier, all-different cases, then runs randomized loops to demonstrate behavior under uncertainty.\n\nProject Impact & Objective\n• Demonstrates practical fault tolerance in software systems.\n• Shows majority voting as a validation mechanism in redundant sensing.\n• Prevents silent data loss via multi-tier logging with clear escalation paths.\n• Validated through combined deterministic tests and randomized simulations.',
+        'This project simulates a safety-critical data processing environment in Java, emphasizing resilience to hardware and software failures. Two core principles underpin the design: accurate data via redundancy, and guaranteed capture via robust logging.\n\nA triple-redundancy, majority voting scheme validates a critical sensor reading. Complementing this, a custom FileLogger implements a cascading fallback strategy to ensure events are recorded even under simulated I/O failures. A built-in test harness validates the voting logic and logger behavior across predefined cases and randomized simulation.\n\nKey Features & Technical Details:\n• Redundancy & Majority Voting: Three replicas of a critical sensor feed performMajorityVote: if two agree, accept value and log the outlier; if all differ, flag a major discrepancy and fall back to last known-good value\n• Resilient Cascading Logger: Primary write to log.txt; on failure (simulated 40% chance) sequentially attempts backup files (log1.txt, log2.txt, ...); on total failure, writes a critical notice to principal_log.txt\n• Systematic Testing & Simulation: Test harness covers agreement, one-outlier, all-different cases, then runs randomized loops to demonstrate behavior under uncertainty\n\nProject Impact & Objective:\n• Demonstrates practical fault tolerance in software systems\n• Shows majority voting as a validation mechanism in redundant sensing\n• Prevents silent data loss via multi-tier logging with clear escalation paths\n• Validated through combined deterministic tests and randomized simulations',
       category: 'embedded',
       tags: ['Java', 'Fault Tolerance', 'System Design', 'Algorithms', 'Error Handling', 'Data Integrity', 'Software Engineering'],
       image: `${publicBase}pictures/Fault-Tolerant Data Processing & Resilient Logging System.jpg`,
@@ -251,7 +252,7 @@ const Projects = () => {
       description:
         'Published research integrating fuzzy clustering with supervised classification, achieving up to 99.21% accuracy.',
       longDescription:
-        'This research introduces a two-stage hybrid ML framework to overcome limitations of manual threshold-based labeling in antenna design optimization. First, unsupervised Fuzzy C-Means (FCM) discovers performance clusters (Low/Medium/High) from engineered EM and geometric features (Wavelength, Normalized Patch Dimensions, Aspect Ratio, Slot-to-Patch Ratio). Then, supervised models (KNN, Random Forest, Gradient Boosting, SVM, Naive Bayes) are trained on both the fuzzy-generated and manual labels to compare performance. The fuzzy-clustered labels yield balanced classes and markedly better results.\n\nKey Features & Technical Details\n• Advanced Feature Engineering: EM and geometric features crafted to enrich model inputs.\n• Unsupervised Fuzzy Clustering (FCM): Data-driven class discovery into Low/Medium/High performance groups.\n• Supervised Model Suite: KNN, RF, GB, SVM, NB trained on both fuzzy and manual labels.\n• Comparative Analysis: KNN peaks at 99.21% with fuzzy labels; manual labels cause imbalance and degrade accuracy.\n\nProject Impact & Objective\n• Peer-reviewed publication demonstrating a superior alternative to manual labeling.\n• Strong evidence that unsupervised labeling produces balanced, meaningful classes.\n• Framework identifies high-performance antenna designs more reliably, enabling efficient optimization.',
+        'This research introduces a two-stage hybrid ML framework to overcome limitations of manual threshold-based labeling in antenna design optimization. First, unsupervised Fuzzy C-Means (FCM) discovers performance clusters (Low/Medium/High) from engineered EM and geometric features (Wavelength, Normalized Patch Dimensions, Aspect Ratio, Slot-to-Patch Ratio).\n\nThen, supervised models (KNN, Random Forest, Gradient Boosting, SVM, Naive Bayes) are trained on both the fuzzy-generated and manual labels to compare performance. The fuzzy-clustered labels yield balanced classes and markedly better results.\n\nKey Features & Technical Details:\n• Advanced Feature Engineering: EM and geometric features crafted to enrich model inputs\n• Unsupervised Fuzzy Clustering (FCM): Data-driven class discovery into Low/Medium/High performance groups\n• Supervised Model Suite: KNN, RF, GB, SVM, NB trained on both fuzzy and manual labels\n• Comparative Analysis: KNN peaks at 99.21% with fuzzy labels; manual labels cause imbalance and degrade accuracy\n\nProject Impact & Objective:\n• Peer-reviewed publication demonstrating a superior alternative to manual labeling\n• Strong evidence that unsupervised labeling produces balanced, meaningful classes\n• Framework identifies high-performance antenna designs more reliably, enabling efficient optimization',
       category: 'ml',
       tags: ['Machine Learning', 'Research', 'Data Science', 'Feature Engineering', 'Clustering', 'Supervised Learning', 'Python', 'Data Analysis'],
       image: `${publicBase}pictures/A Hybrid Machine Learning Framework for Antenna Design Optimization.jpg`,
@@ -528,114 +529,136 @@ const Projects = () => {
             </Card>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
-          {sortedProjects.map((project, index) => (
-            <Card 
-              id={project.id}
-              data-title={project.title}
-              key={project.id} 
-              className="project-card overflow-hidden group"
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="aspect-video bg-muted bg-cover bg-center relative overflow-hidden">
-                <img 
-                  src={project.image || ''} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  data-variants={getTitleBases(project.title, project.image).join('|')}
-                  data-vidx="0"
-                  data-eidx="0"
-                  onError={(e) => {
-                    const img = e.currentTarget as HTMLImageElement;
-                    const variants = (img.getAttribute('data-variants') || '').split('|').filter(Boolean);
-                    const exts = ['.jpg', '.jpeg', '.png', '.webp'];
-                    let vIdx = Number(img.getAttribute('data-vidx') || '0');
-                    let eIdx = Number(img.getAttribute('data-eidx') || '0');
-                    eIdx += 1;
-                    if (eIdx >= exts.length) {
-                      eIdx = 0;
-                      vIdx += 1;
-                    }
-                    if (vIdx < variants.length) {
-                      img.setAttribute('data-vidx', String(vIdx));
-                      img.setAttribute('data-eidx', String(eIdx));
-                      img.src = `${variants[vIdx]}${exts[eIdx]}`;
-                      return;
-                    }
-                    img.style.display = 'none';
-                    const parent = img.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'w-full h-full flex items-center justify-center text-muted-foreground text-sm';
-                      fallback.textContent = 'No image provided';
-                      parent.appendChild(fallback);
-                    }
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                {project.featured && (
-                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
-                    Featured
-                  </Badge>
-                )}
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-4 line-clamp-3">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.slice(0, 3).map((tag) => (
-                    <Badge key={tag} variant="secondary" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex space-x-2">
-                    {project.github && (
-                      <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                        <Github className="h-4 w-4" />
-                      </Button>
-                    )}
-                    {project.demo && (
-                      <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
+          <div className="space-y-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
+              {sortedProjects.slice(0, visibleProjects).map((project, index) => (
+                <Card
+                  id={project.id}
+                  data-title={project.title}
+                  key={project.id}
+                  className="project-card overflow-hidden group"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <div className="aspect-video bg-muted bg-cover bg-center relative overflow-hidden">
+                    <img
+                      src={project.image || ''}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      data-variants={getTitleBases(project.title, project.image).join('|')}
+                      data-vidx="0"
+                      data-eidx="0"
+                      onError={(e) => {
+                        const img = e.currentTarget as HTMLImageElement;
+                        const variants = (img.getAttribute('data-variants') || '').split('|').filter(Boolean);
+                        const exts = ['.jpg', '.jpeg', '.png', '.webp'];
+                        let vIdx = Number(img.getAttribute('data-vidx') || '0');
+                        let eIdx = Number(img.getAttribute('data-eidx') || '0');
+                        eIdx += 1;
+                        if (eIdx >= exts.length) {
+                          eIdx = 0;
+                          vIdx += 1;
+                        }
+                        if (vIdx < variants.length) {
+                          img.setAttribute('data-vidx', String(vIdx));
+                          img.setAttribute('data-eidx', String(eIdx));
+                          img.src = `${variants[vIdx]}${exts[eIdx]}`;
+                          return;
+                        }
+                        img.style.display = 'none';
+                        const parent = img.parentElement;
+                        if (parent) {
+                          const fallback = document.createElement('div');
+                          fallback.className = 'w-full h-full flex items-center justify-center text-muted-foreground text-sm';
+                          fallback.textContent = 'No image provided';
+                          parent.appendChild(fallback);
+                        }
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                    {project.featured && (
+                      <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                        Featured
+                      </Badge>
                     )}
                   </div>
-                  
-                  <Button 
-                    size="sm" 
-                    className="btn-hero px-4 py-2 text-sm"
-                  >
-                    View Details
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </Button>
-                </div>
+
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors leading-tight">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex space-x-2">
+                        {project.github && (
+                          <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                            <Github className="h-4 w-4" />
+                          </Button>
+                        )}
+                        {project.demo && (
+                          <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                            <ExternalLink className="h-4 w-4" />
+                          </Button>
+                        )}
+                      </div>
+
+                      <Button
+                        size="sm"
+                        className="btn-hero px-4 py-2 text-sm"
+                      >
+                        View Details
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            {/* Load More Button */}
+            {sortedProjects.length > visibleProjects && (
+              <div className="flex justify-center">
+                <Button
+                  onClick={() => setVisibleProjects(prev => prev + 6)}
+                  className="btn-hero px-8 py-3 text-lg"
+                  size="lg"
+                >
+                  Load More Projects
+                  <ChevronRight className="h-5 w-5 ml-2" />
+                </Button>
               </div>
-            </Card>
-          ))}
-        </div>
+            )}
+          </div>
         )}
 
         {/* Enhanced Project Detail Modal */}
         {selectedProject && (
-          <div className="fixed inset-0 z-50 bg-background/90 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
-            <Card className="max-w-6xl w-full max-h-[95vh] overflow-y-auto border-2 border-primary/20">
+          <div
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in"
+            onClick={() => setSelectedProject(null)}
+          >
+            <Card
+              className="max-w-6xl w-full max-h-[95vh] overflow-y-auto border-2 border-border shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="relative">
                 {/* Header */}
                 <div className="p-8 border-b border-border">
                   <div className="flex justify-between items-start mb-6">
                     <div className="flex-1">
-                      <h3 className="text-4xl font-bold text-foreground mb-3">
+                      <h3 className="text-4xl font-bold text-foreground mb-3 leading-tight">
                         {selectedProject.title}
                       </h3>
                       <div className="flex flex-wrap gap-2 mb-4">
@@ -720,9 +743,9 @@ const Projects = () => {
                   <div className="grid lg:grid-cols-2 gap-8 mb-8">
                     <div>
                       <h4 className="text-xl font-semibold text-foreground mb-4">Project Overview</h4>
-                      <p className="text-lg text-muted-foreground leading-relaxed">
+                      <div className="text-lg text-foreground leading-relaxed whitespace-pre-line">
                         {selectedProject.longDescription}
-                      </p>
+                      </div>
                     </div>
                     
                     <div>
@@ -731,7 +754,7 @@ const Projects = () => {
                         {selectedProject.impact.map((item, index) => (
                           <div key={index} className="flex items-start gap-3 p-3 bg-muted/30 rounded-lg">
                             <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-muted-foreground">{item}</span>
+                            <span className="text-foreground">{item}</span>
                           </div>
                         ))}
                       </div>
