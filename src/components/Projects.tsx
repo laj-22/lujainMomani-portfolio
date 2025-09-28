@@ -530,7 +530,39 @@ const Projects = () => {
           </div>
         ) : (
           <div className="space-y-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
+            {/* Mobile: horizontal carousel */}
+            <div className="sm:hidden overflow-x-auto [-webkit-overflow-scrolling:touch] snap-x snap-mandatory pb-2">
+              <div className="flex gap-3 w-max pr-4">
+                {sortedProjects.slice(0, visibleProjects).map((project, index) => (
+                  <div key={project.id} className="min-w-[85%] snap-center">
+                    <Card
+                      id={project.id}
+                      data-title={project.title}
+                      className="project-card overflow-hidden"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                      onClick={() => setSelectedProject(project)}
+                    >
+                      <div className="aspect-video bg-muted bg-cover bg-center relative overflow-hidden">
+                        <img src={project.image || ''} alt={project.title} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="text-lg font-semibold text-foreground mb-2 leading-tight">{project.title}</h3>
+                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{project.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.slice(0, 2).map((t) => (
+                            <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop grid */}
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
               {sortedProjects.slice(0, visibleProjects).map((project, index) => (
                 <Card
                   id={project.id}

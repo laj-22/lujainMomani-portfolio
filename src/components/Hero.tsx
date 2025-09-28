@@ -29,35 +29,11 @@ const Hero = () => {
           <div className="mb-16 flex justify-center">
             <div className="relative">
               <img
-                src={`${import.meta.env.BASE_URL || '/'}pictures/mypicNew.jpeg`}
+                src={mypicNew}
                 alt="Lujain Almomani - Telecommunications & IoT Engineer"
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover object-top border-4 border-white/20 shadow-lg hover:border-white/40 hover:shadow-xl transition-all duration-300"
-                onError={(e) => {
-                  const img = e.currentTarget as HTMLImageElement;
-                  const base = (import.meta.env.BASE_URL || '/');
-                  const names = [
-                    'main profile pictire-place on top its my pic',
-                    'main-profile-pictire-place-on-top-its-my-pic',
-                    'main_profile_pictire-place_on_top_its_my_pic',
-                    'profile-photo',
-                    'profile',
-                    'main-profile',
-                    'profile_picture',
-                    'main profile picture-place on top its my pic',
-                    'main-profile-picture-place-on-top-its-my-pic',
-                    'main_profile_picture-place_on_top_its_my_pic'
-                  ];
-                  const exts = ['.jpeg', '.jpg', '.png', '.webp'];
-                  const candidates: string[] = [];
-                  names.forEach((n) => exts.forEach((x) => candidates.push(`${base}pictures/${n}${x}`)));
-                  const idx = Number(img.getAttribute('data-attempt-idx') || '0');
-                  if (idx < candidates.length) {
-                    img.setAttribute('data-attempt-idx', String(idx + 1));
-                    img.src = candidates[idx];
-                    return;
-                  }
-                  img.src = mypicNew;
-                }}
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover object-[50%_5%] border-4 border-white/20 shadow-lg hover:border-white/40 hover:shadow-xl transition-all duration-300"
+                loading="eager"
+                decoding="sync"
               />
               <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 hover:opacity-30 transition-opacity duration-300 backdrop-blur-sm"></div>
             </div>

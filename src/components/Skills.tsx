@@ -144,7 +144,7 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-4 sm:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <Card 
               key={category.title} 

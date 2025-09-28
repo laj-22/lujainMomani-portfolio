@@ -9,7 +9,9 @@ import {
   FileText,
   Clock,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 interface Publication {
@@ -23,7 +25,10 @@ interface Publication {
   link?: string;
 }
 
+import { useState } from 'react';
+
 const Publications = () => {
+  const [mobileSection, setMobileSection] = useState<'published' | 'under'>('published');
   const published: Publication[] = [
     {
       id: 'ffnn-ga-beam-selection-2025',
@@ -150,8 +155,41 @@ const Publications = () => {
           </p>
         </div>
 
-        {/* Publications Grid - Side by Side */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
+        {/* Mobile: Collapsible two sections */}
+        <div className="lg:hidden space-y-4">
+          <button
+            className="w-full flex items-center justify-between p-4 bg-card/60 rounded-lg border border-border"
+            onClick={() => setMobileSection(mobileSection === 'published' ? 'under' : 'published')}
+          >
+            <span className="text-left text-xl font-bold text-foreground">Published Research</span>
+            {mobileSection === 'published' ? <ChevronUp className="h-6 w-6 text-primary"/> : <ChevronDown className="h-6 w-6 text-primary"/>}
+          </button>
+          {mobileSection === 'published' && (
+            <div className="space-y-4">
+              {published.map((publication, index) => (
+                <PublicationCard key={publication.id} publication={publication} index={index} />
+              ))}
+            </div>
+          )}
+
+          <button
+            className="mt-6 w-full flex items-center justify-between p-4 bg-card/60 rounded-lg border border-border"
+            onClick={() => setMobileSection(mobileSection === 'under' ? 'published' : 'under')}
+          >
+            <span className="text-left text-xl font-bold text-foreground">Under Review & In Progress</span>
+            {mobileSection === 'under' ? <ChevronUp className="h-6 w-6 text-primary"/> : <ChevronDown className="h-6 w-6 text-primary"/>}
+          </button>
+          {mobileSection === 'under' && (
+            <div className="space-y-4">
+              {underReview.map((publication, index) => (
+                <PublicationCard key={publication.id} publication={publication} index={index} />
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Desktop / Large screens: Side-by-side */}
+        <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Published Section */}
           <div className="animate-fade-in">
             <div className="flex items-center gap-3 mb-6 sm:mb-8">

@@ -76,7 +76,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-foreground hover:text-primary transition-colors"
+              className={`p-2 rounded-md transition-colors ${scrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-white'}`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -86,19 +86,19 @@ const Navigation = ({ activeSection }: NavigationProps) => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-card/95 backdrop-blur-md rounded-lg mt-2 border border-border">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/85 text-white rounded-lg mt-2 border border-white/20">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`nav-link block w-full text-left px-3 py-2 text-base font-medium ${
-                    activeSection === section.id ? 'active' : ''
-                  } ${scrolled ? 'text-foreground hover:text-foreground' : 'text-white hover:text-white'}`}
+                  className={`block w-full text-left px-3 py-2 text-base font-medium ${
+                    activeSection === section.id ? 'text-white' : 'text-white/90'
+                  }`}
                 >
                   {section.label}
                 </button>
               ))}
-              <div className="flex justify-center pt-2 border-t border-border">
+              <div className="flex justify-center pt-2 border-t border-white/20">
                 <ThemeToggle />
               </div>
             </div>

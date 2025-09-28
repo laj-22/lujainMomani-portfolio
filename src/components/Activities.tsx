@@ -207,7 +207,7 @@ const Activities = () => {
   ];
 
   return (
-    <section id="activities" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="activities" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="section-header mb-6">Activities & Achievements</h2>

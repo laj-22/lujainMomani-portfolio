@@ -32,16 +32,16 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="animate-fade-in-up">
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
               I am a Telecommunications & IoT engineering graduate with a passion for <strong className="text-primary">cybersecurity</strong> and <strong className="text-secondary">network engineering</strong>. I actively apply my knowledge through continuous learning, research publication, and hands-on project development—bridging theoretical concepts with practical, secure system implementations.
             </p>
 
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
               My recent focus centers on cybersecurity applications using machine learning for intrusion detection, network security analysis, and secure IoT implementations. I combine academic research with practical engineering to develop robust, real-world solutions that address current industry challenges in connected systems and threat mitigation.
             </p>
 
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              To explore my work in detail, I recommend scrolling through this website to see my projects, publications, and technical achievements. For a comprehensive overview of my professional background, experience, and complete project portfolio, downloading my CV is highly recommended.
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
+              On mobile, tap sections to expand; on desktop, everything is visible. For a complete overview of experience and projects, download my CV.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -53,7 +53,7 @@ const About = () => {
           </div>
 
           {/* Highlights Cards */}
-          <div className="grid gap-6 animate-slide-in-right">
+          <div className="grid gap-4 sm:gap-6 animate-slide-in-right">
             {highlights.map((highlight, index) => (
               <Card 
                 key={index} 
