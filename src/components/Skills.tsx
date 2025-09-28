@@ -75,6 +75,14 @@ const Skills = () => {
       'A Hybrid Deep Learning-Genetic Algorithm Approach for 5G Beam Selection',
       'Smart Agricultural Monitoring System'
     ],
+    'Linux (Ubuntu, Debian)': [
+      'Hardware-Accelerated Intrusion Detection System for VANETs',
+      'Machine Learning Framework for VANET Intrusion Detection'
+    ],
+    'Kali Linux & Security Tools': [
+      'Machine Learning Framework for VANET Intrusion Detection',
+      'Hardware-Accelerated Intrusion Detection System for VANETs'
+    ],
     'Python': [
       'Hardware-Accelerated Intrusion Detection System for VANETs',
       'Intelligent Robotic Arm Sorting System'
@@ -121,6 +129,8 @@ const Skills = () => {
       color: "accent",
       skills: [
         { name: 'MATLAB', icon: <Terminal className="h-5 w-5" /> },
+        { name: 'Linux (Ubuntu, Debian)', icon: <Terminal className="h-5 w-5" /> },
+        { name: 'Kali Linux & Security Tools', icon: <Terminal className="h-5 w-5" /> },
         { name: 'Python', icon: <Terminal className="h-5 w-5" /> },
         { name: 'Java', icon: <Terminal className="h-5 w-5" /> },
         { name: 'Arduino & ThingSpeak', icon: <Wifi className="h-5 w-5" /> },
