@@ -23,6 +23,7 @@ interface Publication {
   status: 'published' | 'under-review' | 'in-progress';
   abstract?: string;
   link?: string;
+  doi?: string;
 }
 
 import { useState } from 'react';
@@ -52,7 +53,9 @@ const Publications = () => {
       authors: 'Mohammad Abbasi, Lujain Almomani, Obada Alkhatib',
       conference: 'ISDIA-2025',
       year: '2025',
-      status: 'published'
+      status: 'published',
+      link: 'https://link.springer.com/chapter/10.1007/978-981-96-9245-3_10',
+      doi: 'https://doi.org/10.1007/978-981-96-9245-3_10'
     }
   ];
 
@@ -127,6 +130,20 @@ const Publications = () => {
           <BookOpen className="h-4 w-4 mt-0.5 flex-shrink-0" />
           <span className="break-words">{publication.conference}</span>
         </div>
+
+        {publication.doi && (
+          <div className="flex items-start gap-2 text-sm text-muted-foreground">
+            <FileText className="h-4 w-4 mt-0.5 flex-shrink-0" />
+            <a 
+              href={publication.doi} 
+              target="_blank" 
+              rel="noreferrer"
+              className="break-words hover:text-primary transition-colors underline"
+            >
+              DOI: {publication.doi.replace('https://doi.org/', '')}
+            </a>
+          </div>
+        )}
       </div>
 
       {publication.link && (
@@ -268,6 +285,14 @@ const Publications = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          <Card className="p-6 border border-border">
+            <h4 className="text-lg font-semibold text-foreground">V2X Networking & Architecture Engineer – Bosch Future Mobility Challenge</h4>
+            <div className="text-sm text-muted-foreground mb-2">Dubai, UAE • Sept 2025 - Present</div>
+            <ul className="list-disc list-inside space-y-2 text-foreground">
+              <li>Led V2X networking architecture design for autonomous driving algorithms, enabling proactive real-time data exchange with traffic monitors and infrastructure to drive enhanced decision-making, accuracy, and on-track performance.</li>
+            </ul>
+          </Card>
+
           <Card className="p-6 border border-border">
             <h4 className="text-lg font-semibold text-foreground">Research Intern</h4>
             <div className="text-sm text-muted-foreground mb-2">University of Wollongong (UOWD) • Sept 2024 - Present</div>

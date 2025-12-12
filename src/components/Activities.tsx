@@ -39,6 +39,16 @@ const Activities = () => {
       color: 'primary',
       items: [
         {
+          title: "CSAW'25 Hack My Robot Competition - 2nd Place",
+          role: 'Team Smooth Operators - NYU Abu Dhabi',
+          date: '2025',
+          location: 'NYU Abu Dhabi, UAE',
+          achievement: '2nd Place',
+          description: 'Selected among 5 finalists in MENA region and won 2nd place. Our project "From Clicks to Collision: A Cyber-Physical Kill Chain" demonstrated a multi-phase cyber attack on Robot Operating Systems (ROS), showing how a remote attacker could progress from network breach to system infiltration and operational sabotage, causing robot malfunction.',
+          tags: ['Cybersecurity', 'Competition', 'ROS', 'Cyber-Physical Systems'],
+          link: 'https://www.linkedin.com/posts/lujainn_csaw25-hackmyrobot-cybersecurity-activity-7392599467767656449-6sB_?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE'
+        },
+        {
           title: 'Nexus 2.0 Research Competition - First Place, Computational Intelligence & Secure Systems',
           role: 'Inter-University Student Research Competition',
           date: '2024',
