@@ -94,7 +94,7 @@ const Projects = () => {
       description:
         'Fog-native, stateful MQTT Intrusion Prevention System combining Snort 3 and BiLSTM on edge hardware.',
       longDescription:
-        'AstraIPS is a graduation thesis project that addresses application-layer command injection risks in MQTT-based IoT deployments. The system was designed and validated as an inline fog-native IPS on resource-constrained hardware, integrating Snort 3 signatures with a custom MQTT-aware Lua preprocessor for protocol-specific inspection, plus a BiLSTM model for sequence-aware anomaly detection on payload patterns.\n\nA progressive four-stage enforcement pipeline adapts response severity from passive logging to alerting, packet dropping, and MAC-based device isolation. Experimental results showed a mean detection accuracy of 98% (AUC 0.9911), below-40ms end-to-end latency, successful interception of obfuscated command injection and exfiltration attempts, and sub-linear resource growth up to seven devices with projected scaling to 80-100 devices.',
+        'AstraIPS is a graduation thesis project that addresses application-layer command injection risks in MQTT-based IoT deployments. The system was designed and validated as an inline fog-native IPS on resource-constrained hardware, integrating Snort 3 signatures with a custom MQTT-aware Lua preprocessor for protocol-specific inspection, plus a BiLSTM model for sequence-aware anomaly detection on payload patterns.\n\nA progressive four-stage enforcement pipeline adapts response severity from passive logging to alerting, packet dropping, and MAC-based device isolation. Experimental results showed a mean detection accuracy of 98% (AUC 0.9911), below-40ms end-to-end latency, successful interception of obfuscated command injection and exfiltration attempts, and sub-linear resource growth up to seven devices with projected scaling to 80-100 devices.\n\nThis full thesis is currently under review for IEEE Access, and additional technical details are intended for formal publication.',
       category: 'security',
       tags: ['Featured', 'Cybersecurity', 'IoT', 'MQTT', 'Snort 3', 'BiLSTM', 'Edge AI'],
       image: thesisImage,
@@ -859,13 +859,20 @@ const Projects = () => {
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-4 justify-center">
                     {selectedProject.github && (
-                      <Button className="btn-hero">
+                      <Button
+                        className="btn-hero"
+                        onClick={() => window.open(selectedProject.github, '_blank', 'noopener,noreferrer')}
+                      >
                         <Github className="h-5 w-5 mr-2" />
                         <span className="relative z-10">View Code</span>
                       </Button>
                     )}
                     {selectedProject.demo && (
-                      <Button variant="outline" className="btn-cyber">
+                      <Button
+                        variant="outline"
+                        className="btn-cyber"
+                        onClick={() => window.open(selectedProject.demo, '_blank', 'noopener,noreferrer')}
+                      >
                         <ExternalLink className="h-5 w-5 mr-2" />
                         <span className="relative z-10">Live Demo</span>
                       </Button>

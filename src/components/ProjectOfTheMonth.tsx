@@ -17,7 +17,7 @@ const ProjectOfTheMonth = () => {
     description:
       'Fog-native, stateful MQTT intrusion prevention on edge hardware using Snort 3 + BiLSTM hybrid detection.',
     longDescription:
-      'AstraIPS addresses application-layer command injection threats in MQTT-based IoT networks through a fog-native, inline IPS deployed on resource-constrained edge hardware. The system combines a signature-based Snort 3 engine with a custom MQTT-aware Lua preprocessor and a sequence-aware BiLSTM model trained on a synthesized benign/malicious MQTT dataset. A progressive four-stage policy adapts enforcement from alerting to packet dropping and MAC-based isolation. Evaluation showed 98% mean detection accuracy (AUC 0.9911), below-40ms end-to-end latency, and sub-linear resource usage with projected scaling to larger device counts.',
+      'AstraIPS addresses application-layer command injection threats in MQTT-based IoT networks through a fog-native, inline IPS deployed on resource-constrained edge hardware. The system combines a signature-based Snort 3 engine with a custom MQTT-aware Lua preprocessor and a sequence-aware BiLSTM model trained on a synthesized benign/malicious MQTT dataset. A progressive four-stage policy adapts enforcement from alerting to packet dropping and MAC-based isolation. Evaluation showed 98% mean detection accuracy (AUC 0.9911), below-40ms end-to-end latency, and sub-linear resource usage with projected scaling to larger device counts. The full thesis is currently under review for IEEE Access, with additional technical details planned for publication.',
     image: thesisImage,
     github: 'https://github.com/laj-22/AstraIPS',
     tags: ['Featured', 'Cybersecurity', 'IoT', 'MQTT', 'Intrusion Prevention', 'Edge AI'],

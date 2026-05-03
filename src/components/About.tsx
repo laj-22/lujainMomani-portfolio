@@ -45,7 +45,7 @@ const About = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={`${import.meta.env.BASE_URL || '/'}lujaincv.pdf`} download="lujainAlmomaniCv.pdf">
+              <a href={`${import.meta.env.BASE_URL || '/'}LujainCV.pdf`} download="LujainCV.pdf">
               <Button size="lg" className="btn-hero">
                 <Download className="h-5 w-5 mr-2" />
                 <span className="relative z-10">Download CV</span>
