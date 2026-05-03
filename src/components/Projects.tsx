@@ -24,6 +24,7 @@ import projectRobot from '@/assets/project-robot.jpg';
 import projectPitStop from '@/assets/project-pitstop.jpg';
 import projectWireless from '@/assets/project-wireless.jpg';
 import projectFirewall from '@/assets/project-firewall.jpg';
+import thesisImage from '../../thesis.png';
 
 interface Project {
   id: string;
@@ -87,6 +88,30 @@ const Projects = () => {
   ];
 
   const projects: Project[] = [
+    {
+      id: 'astraips-thesis-2026',
+      title: 'Graduation Project Thesis: AstraIPS',
+      description:
+        'Fog-native, stateful MQTT Intrusion Prevention System combining Snort 3 and BiLSTM on edge hardware.',
+      longDescription:
+        'AstraIPS is a graduation thesis project that addresses application-layer command injection risks in MQTT-based IoT deployments. The system was designed and validated as an inline fog-native IPS on resource-constrained hardware, integrating Snort 3 signatures with a custom MQTT-aware Lua preprocessor for protocol-specific inspection, plus a BiLSTM model for sequence-aware anomaly detection on payload patterns.\n\nA progressive four-stage enforcement pipeline adapts response severity from passive logging to alerting, packet dropping, and MAC-based device isolation. Experimental results showed a mean detection accuracy of 98% (AUC 0.9911), below-40ms end-to-end latency, successful interception of obfuscated command injection and exfiltration attempts, and sub-linear resource growth up to seven devices with projected scaling to 80-100 devices.',
+      category: 'security',
+      tags: ['Featured', 'Cybersecurity', 'IoT', 'MQTT', 'Snort 3', 'BiLSTM', 'Edge AI'],
+      image: thesisImage,
+      github: 'https://github.com/laj-22/AstraIPS',
+      featured: true,
+      timeline: 'Graduation Thesis',
+      team: '1 person',
+      impact: [
+        '98% mean detection accuracy with AUC 0.9911',
+        'Below-40ms end-to-end processing latency',
+        'Validated staged enforcement through active interception',
+        'Built and tested on resource-constrained edge hardware'
+      ],
+      gallery: [],
+      startDate: '2025-10-01',
+      endDate: '2026-04-30'
+    },
     {
       id: 'dobot-arm-sorting-2025',
       title: 'Intelligent Robotic Arm Sorting System',
@@ -323,7 +348,7 @@ const Projects = () => {
       category: 'iot',
       tags: ['Machine Learning', 'Cybersecurity', 'IoT', 'Raspberry Pi', 'Python', 'Network Protocols', 'Real-Time Systems'],
       image: `${publicBase}pictures/Hardware-Accelerated Intrusion Detection System for VANETs.jpg`,
-      featured: true,
+      featured: false,
       timeline: '6 months',
       team: '2 people',
       impact: [

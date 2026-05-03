@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Star, Calendar } from 'lucide-react';
+import { Star, Calendar, Github, ExternalLink } from 'lucide-react';
 import projectSecurity from '@/assets/project-security.jpg';
+import thesisImage from '../../thesis.png';
 
 const publicBase = (import.meta.env.BASE_URL || '/');
 
@@ -11,25 +12,26 @@ const ProjectOfTheMonth = () => {
   const [showDetails, setShowDetails] = useState(false);
   
   const featuredProject = {
-    id: 'hardware-vanet-ids-2025',
-    title: 'Hardware-Accelerated Intrusion Detection System for VANETs',
+    id: 'astraips-thesis-2026',
+    title: 'Graduation Project Thesis: AstraIPS',
     description:
-      'Real-time IDS on Raspberry Pi 5 using Random Forest (99.72% accuracy) with protocol benchmarking (MQTT, CoAP, AMQP, TCP, UDP).',
+      'Fog-native, stateful MQTT intrusion prevention on edge hardware using Snort 3 + BiLSTM hybrid detection.',
     longDescription:
-      'A practical, hardware-in-the-loop VANET security system built on Raspberry Pi 5. Multiple ad hoc WiFi nodes simulate vehicles publishing via MQTT; a central subscriber intercepts traffic and classifies messages in real time using a trained ML model. We evaluated five communication protocols across clients and loads, identifying MQTT as the optimal balance of latency, jitter, resource use, and scalability.',
-    image: `${publicBase}pictures/Hardware-Accelerated Intrusion Detection System for VANETs.jpg`,
-    tags: ['Machine Learning', 'Cybersecurity', 'IoT', 'Raspberry Pi', 'Python', 'MQTT'],
+      'AstraIPS addresses application-layer command injection threats in MQTT-based IoT networks through a fog-native, inline IPS deployed on resource-constrained edge hardware. The system combines a signature-based Snort 3 engine with a custom MQTT-aware Lua preprocessor and a sequence-aware BiLSTM model trained on a synthesized benign/malicious MQTT dataset. A progressive four-stage policy adapts enforcement from alerting to packet dropping and MAC-based isolation. Evaluation showed 98% mean detection accuracy (AUC 0.9911), below-40ms end-to-end latency, and sub-linear resource usage with projected scaling to larger device counts.',
+    image: thesisImage,
+    github: 'https://github.com/laj-22/AstraIPS',
+    tags: ['Featured', 'Cybersecurity', 'IoT', 'MQTT', 'Intrusion Prevention', 'Edge AI'],
     achievements: [
-      '99.72% detection accuracy (Random Forest on NSL-KDD)',
-      'End-to-end hardware prototype with multi-radio setup',
-      'Protocol benchmark identified MQTT as optimal',
-      'Under academic peer review'
+      '98% mean detection accuracy with AUC of 0.9911',
+      'Maintained end-to-end processing latency below 40 ms',
+      'Intercepted obfuscated command injection and data exfiltration payloads',
+      'Progressive enforcement from alerting to packet drop and MAC isolation'
     ],
     tech: [
-      { name: 'Raspberry Pi 5', role: 'Core compute node' },
-      { name: 'Python', role: 'Inference + data pipeline' },
-      { name: 'Random Forest', role: 'Intrusion detection model' },
-      { name: 'MQTT', role: 'Primary messaging protocol' }
+      { name: 'Snort 3', role: 'Signature-based detection and packet inspection' },
+      { name: 'Lua MQTT Preprocessor', role: 'Protocol-aware parsing and feature extraction' },
+      { name: 'BiLSTM', role: 'Sequence-based detection of novel and obfuscated threats' },
+      { name: 'Raspberry Pi 5 + GL.iNet MT6000', role: 'Edge deployment platform' }
     ]
   };
 
@@ -48,12 +50,12 @@ const ProjectOfTheMonth = () => {
         <div className="text-center mb-16 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Star className="h-8 w-8 text-secondary fill-secondary" />
-            <h2 className="section-header">Project of the Month</h2>
+            <h2 className="section-header">Graduation Project Spotlight</h2>
             <Star className="h-8 w-8 text-secondary fill-secondary" />
           </div>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Showcasing the most impactful project from my portfolio
+            Showcasing my thesis project in AI-driven IoT cybersecurity
           </p>
         </div>
 
@@ -91,7 +93,7 @@ const ProjectOfTheMonth = () => {
                 <div className="absolute top-6 left-6">
                   <Badge className="bg-primary text-primary-foreground font-semibold text-sm px-3 py-1">
                     <Calendar className="h-4 w-4 mr-2" />
-                    July 2025
+                    2026
                   </Badge>
                 </div>
               </div>
@@ -118,6 +120,15 @@ const ProjectOfTheMonth = () => {
                 <div className="flex flex-wrap gap-4 mb-6">
                   <Button className="btn-hero flex-1 sm:flex-none" onClick={openProjectDetails}>
                     <span className="relative z-10">View Details</span>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="flex-1 sm:flex-none"
+                    onClick={() => window.open(featuredProject.github, '_blank', 'noopener,noreferrer')}
+                  >
+                    <Github className="h-4 w-4 mr-2" />
+                    <span className="relative z-10">GitHub Repository</span>
+                    <ExternalLink className="h-4 w-4 ml-2" />
                   </Button>
                 </div>
 
