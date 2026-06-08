@@ -2,24 +2,28 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Download, Trophy, Shield, Cpu } from 'lucide-react';
 
-const About = () => {
-  const highlights = [
-    {
-      icon: <Cpu className="h-8 w-8" />,
-      title: "Network Engineering",
-      description: "Routing, switching, and resilient system architecture"
-    },
-    {
-      icon: <Shield className="h-8 w-8" />,
-      title: "Cybersecurity",
-      description: "ML-enabled IDS, secure design, and threat-aware systems"
-    },
-    {
-      icon: <Cpu className="h-8 w-8" />,
-      title: "IoT Systems",
-      description: "Edge hardware, sensors, and cloud-connected platforms"
-    }
-  ];
+const highlights = [
+  {
+    icon: <Cpu className="h-8 w-8" />,
+    title: "Network Engineering",
+    description: "Routing, switching, and resilient system architecture"
+  },
+  {
+    icon: <Shield className="h-8 w-8" />,
+    title: "Cybersecurity",
+    description: "ML-enabled IDS, secure design, and threat-aware systems"
+  },
+  {
+    icon: <Wifi className="h-8 w-8" />,
+    title: "IoT & Embedded Systems",
+    description: "Edge hardware, sensors, microcontrollers, and cloud-connected platforms"
+  },
+  {
+    icon: <Code className="h-8 w-8" />,
+    title: "Software & Research",
+    description: "Python, data analysis, ML applications, and published academic work"
+  }
+];
 
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
