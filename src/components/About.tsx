@@ -32,13 +32,12 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="animate-fade-in-up">
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
-              I am a Telecommunications & IoT engineering graduate with a passion for <strong className="text-primary">cybersecurity</strong> and <strong className="text-secondary">network engineering</strong>. I actively apply my knowledge through continuous learning, research publication, and hands-on project development, bridging theoretical concepts with practical, secure system implementations.
-            </p>
-
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
-              My recent focus centers on cybersecurity applications using machine learning for intrusion detection, network security analysis, and secure IoT implementations. I combine academic research with practical engineering to develop robust, real-world solutions that address current industry challenges in connected systems and threat mitigation.
-            </p>
+           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
+  I am a Telecommunications/Computer & IoT Engineering graduate with a strong foundation across <strong className="text-primary">cybersecurity</strong>, <strong className="text-secondary">network engineering</strong>, embedded systems, and connected infrastructure. I actively apply my knowledge through continuous learning, research publication, and hands-on project development — bridging theoretical concepts with practical, real-world implementations.
+</p>
+<p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
+  Whether it's securing networks, building IoT solutions, analyzing systems, or exploring machine learning applications for intrusion detection — I bring an engineering mindset to wherever the problem is. I combine academic research with practical engineering to develop robust solutions that address current industry challenges across connected systems, threat mitigation, and beyond.
+</p>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-8">
               On mobile, tap sections to expand; on desktop, everything is visible. For a complete overview of experience and projects, download my CV.
