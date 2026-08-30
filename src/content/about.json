@@ -1,0 +1,29 @@
+{
+  "highlights": [
+    {
+      "icon": "Cpu",
+      "title": "Network Engineering",
+      "description": "Routing, switching, and resilient system architecture"
+    },
+    {
+      "icon": "Shield",
+      "title": "Cybersecurity",
+      "description": "ML-enabled IDS, secure design, and threat-aware systems"
+    },
+    {
+      "icon": "Wifi",
+      "title": "IoT & Embedded Systems",
+      "description": "Edge hardware, sensors, microcontrollers, and cloud-connected platforms"
+    },
+    {
+      "icon": "Code",
+      "title": "Software & Research",
+      "description": "Python, data analysis, ML applications, and published academic work"
+    }
+  ],
+  "paragraphs": [
+    "I am a Telecommunications/Computer & IoT Engineering graduate with a strong foundation across cybersecurity, network engineering, embedded systems, and connected infrastructure. I actively apply my knowledge through continuous learning, research publication, and hands-on project development — bridging theoretical concepts with practical, real-world implementations.",
+    "Whether it's securing networks, building IoT solutions, analyzing systems, or exploring machine learning applications for intrusion detection — I bring an engineering mindset to wherever the problem is. I combine academic research with practical engineering to develop robust solutions that address current industry challenges across connected systems, threat mitigation, and beyond.",
+    "On mobile, tap sections to expand; on desktop, everything is visible. For a complete overview of experience and projects, download my CV."
+  ]
+}

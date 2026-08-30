@@ -1,0 +1,165 @@
+{
+  "categories": [
+    {
+      "title": "Hardware",
+      "icon": "Gauge",
+      "color": "primary",
+      "skills": [
+        {
+          "name": "Raspberry Pi & IoT Hardware",
+          "icon": "Wifi"
+        },
+        {
+          "name": "ESP32 & Edge Control",
+          "icon": "Wifi"
+        },
+        {
+          "name": "Sensors & Actuators",
+          "icon": "Activity"
+        },
+        {
+          "name": "Digital Logic Design",
+          "icon": "Cpu"
+        },
+        {
+          "name": "Robotics Platforms",
+          "icon": "Gauge"
+        }
+      ]
+    },
+    {
+      "title": "Software & Cybersecurity",
+      "icon": "Shield",
+      "color": "secondary",
+      "skills": [
+        {
+          "name": "Machine Learning",
+          "icon": "Code"
+        },
+        {
+          "name": "Computer Vision",
+          "icon": "Code"
+        },
+        {
+          "name": "Network Security & IDS",
+          "icon": "Shield"
+        },
+        {
+          "name": "Signal Processing",
+          "icon": "Activity"
+        }
+      ]
+    },
+    {
+      "title": "Tools & Technologies",
+      "icon": "Wrench",
+      "color": "accent",
+      "skills": [
+        {
+          "name": "MATLAB",
+          "icon": "Terminal"
+        },
+        {
+          "name": "Linux (Ubuntu, Debian)",
+          "icon": "Terminal"
+        },
+        {
+          "name": "Kali Linux & Security Tools",
+          "icon": "Terminal"
+        },
+        {
+          "name": "Python",
+          "icon": "Terminal"
+        },
+        {
+          "name": "Java",
+          "icon": "Terminal"
+        },
+        {
+          "name": "Arduino & ThingSpeak",
+          "icon": "Wifi"
+        },
+        {
+          "name": "ROS",
+          "icon": "Cog"
+        },
+        {
+          "name": "Network Design & Cisco IOS",
+          "icon": "Terminal"
+        }
+      ]
+    }
+  ],
+  "relatedProjects": {
+    "Raspberry Pi & IoT Hardware": [
+      "Hardware-Accelerated Intrusion Detection System for VANETs",
+      "Smart Agricultural Monitoring System"
+    ],
+    "ESP32 & Edge Control": [
+      "Smart IoT Parking Management System (SmartSpot)"
+    ],
+    "Sensors & Actuators": [
+      "Intelligent Robotic Arm Sorting System",
+      "Autonomous Robot Navigation System"
+    ],
+    "Digital Logic Design": [
+      "Digital Currency Exchange Calculator"
+    ],
+    "Robotics Platforms": [
+      "Autonomous Robot Navigation System",
+      "Intelligent Robotic Arm Sorting System"
+    ],
+    "Machine Learning": [
+      "Traffic Sign Recognition System",
+      "Smart Audio Denoising & Speech Restoration",
+      "A Hybrid Machine Learning Framework for Antenna Design Optimization",
+      "A Hybrid Deep Learning-Genetic Algorithm Approach for 5G Beam Selection",
+      "Machine Learning Framework for VANET Intrusion Detection",
+      "Hardware-Accelerated Intrusion Detection System for VANETs"
+    ],
+    "Computer Vision": [
+      "Traffic Sign Recognition System",
+      "Intelligent Robotic Arm Sorting System",
+      "Smart IoT Parking Management System (SmartSpot)"
+    ],
+    "Network Security & IDS": [
+      "Machine Learning Framework for VANET Intrusion Detection",
+      "Hardware-Accelerated Intrusion Detection System for VANETs"
+    ],
+    "Network Design & Cisco IOS": [
+      "Multi-Site Enterprise Network Design & Implementation"
+    ],
+    "Signal Processing": [
+      "Smart Audio Denoising & Speech Restoration",
+      "Parallel Image Processing Performance Analysis"
+    ],
+    "MATLAB": [
+      "Traffic Sign Recognition System",
+      "Smart Audio Denoising & Speech Restoration",
+      "A Hybrid Deep Learning-Genetic Algorithm Approach for 5G Beam Selection",
+      "Smart Agricultural Monitoring System"
+    ],
+    "Linux (Ubuntu, Debian)": [
+      "Hardware-Accelerated Intrusion Detection System for VANETs",
+      "Machine Learning Framework for VANET Intrusion Detection"
+    ],
+    "Kali Linux & Security Tools": [
+      "Machine Learning Framework for VANET Intrusion Detection",
+      "Hardware-Accelerated Intrusion Detection System for VANETs"
+    ],
+    "Python": [
+      "Hardware-Accelerated Intrusion Detection System for VANETs",
+      "Intelligent Robotic Arm Sorting System"
+    ],
+    "Java": [
+      "Parallel Image Processing Performance Analysis",
+      "Fault-Tolerant Data Processing & Resilient Logging System"
+    ],
+    "Arduino & ThingSpeak": [
+      "Smart Agricultural Monitoring System"
+    ],
+    "ROS": [
+      "Autonomous Waste Collection Robot (ERC 2025)"
+    ]
+  }
+}

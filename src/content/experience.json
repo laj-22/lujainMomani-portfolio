@@ -1,0 +1,41 @@
+[
+  {
+    "id": "exp-1",
+    "title": "V2X Networking & Architecture Engineer – Bosch Future Mobility Challenge",
+    "meta": "Dubai, UAE • Sept 2025 - Present",
+    "bullets": [
+      "Led V2X networking architecture design for autonomous driving algorithms, enabling proactive real-time data exchange with traffic monitors and infrastructure to drive enhanced decision-making, accuracy, and on-track performance."
+    ],
+    "order": 1
+  },
+  {
+    "id": "exp-2",
+    "title": "Research Intern",
+    "meta": "University of Wollongong (UOWD) • Sept 2024 - Present",
+    "bullets": [
+      "Developed ML-based VANET IDS; published on VANET security.",
+      "Optimized real-time detection for constrained hardware."
+    ],
+    "order": 2
+  },
+  {
+    "id": "exp-3",
+    "title": "Clubs Director - Student Government",
+    "meta": "Rochester Institute of Technology (RIT) • Apr 2023 - Sept 2023",
+    "bullets": [
+      "Led clubs, organized events; earned Best Leadership & Best Club.",
+      "Facilitated collaboration across students, faculty, and staff."
+    ],
+    "order": 3
+  },
+  {
+    "id": "exp-4",
+    "title": "Business Intelligence Intern",
+    "meta": "Jordan Payments & Clearance Company (JOPACC) • Jul 2023 - Aug 2023",
+    "bullets": [
+      "Built presentation & quarterly report for decision-making.",
+      "Explored ETL processes; created Power BI visualizations."
+    ],
+    "order": 4
+  }
+]

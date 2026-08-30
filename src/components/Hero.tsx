@@ -1,7 +1,9 @@
-import { ChevronDown, Linkedin, Mail } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroBg from '@/assets/hero-bg.jpg';
 import mypicNew from '@/assets/mypicNew.jpeg';
+import { site } from '@/lib/content';
+import { getLinkIcon, openLink, resolveLinks } from '@/lib/links';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -30,7 +32,7 @@ const Hero = () => {
             <div className="relative">
               <img
                 src={mypicNew}
-                alt="Lujain Almomani - Telecommunications/Computer & IoT Engineer"
+                alt={`${site.name} - ${site.title}`}
                 className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover object-[50%_5%] border-4 border-white/20 shadow-lg hover:border-white/40 hover:shadow-xl transition-all duration-300"
                 loading="eager"
                 decoding="sync"
@@ -40,9 +42,9 @@ const Hero = () => {
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
-            <span className="block text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">Lujain Almomani</span>
+            <span className="block text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">{site.name}</span>
             <span className="block text-lg sm:text-2xl md:text-3xl font-light text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] mt-2">
-              Telecommunications/Computer  & IoT Engineer
+              {site.title}
             </span>
           </h1>
 
@@ -70,14 +72,20 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-12">
-            <a
-              href="https://www.linkedin.com/in/lujainn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/70 hover:text-white transition-colors duration-300 p-2 bg-white/10 rounded-full backdrop-blur-sm"
-            >
-              <Linkedin size={24} />
-            </a>
+            {resolveLinks(site).map((link, index) => {
+              const Icon = getLinkIcon(link.type);
+              return (
+                <button
+                  key={`${link.type}-${link.url}-${index}`}
+                  type="button"
+                  onClick={() => openLink(link.url)}
+                  className="text-white/70 hover:text-white transition-colors duration-300 p-2 bg-white/10 rounded-full backdrop-blur-sm"
+                  aria-label={link.label || link.type}
+                >
+                  <Icon size={24} />
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

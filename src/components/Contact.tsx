@@ -6,10 +6,13 @@ import { Card } from '@/components/ui/card';
 import { 
   Mail, 
   MapPin, 
-  Linkedin, 
   Send
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+
+import { site } from '@/lib/content';
+import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_SUBMIT_URL } from '@/lib/contact';
+import { getLinkIcon, openLink, resolveLinks } from '@/lib/links';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,26 +23,18 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const web3formsKey = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) ?? '27fd6a80-d2fb-4f48-b53c-08ef083a04d0';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!web3formsKey) {
-      toast({
-        title: 'Email service not configured',
-        description: 'Add VITE_WEB3FORMS_KEY to your .env to enable sending.',
-      });
-      return;
-    }
 
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(WEB3FORMS_SUBMIT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: web3formsKey,
+          access_key: WEB3FORMS_ACCESS_KEY,
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
@@ -83,25 +78,23 @@ const Contact = () => {
     {
       icon: <Mail className="h-5 w-5" />,
       title: 'Email',
-      value: 'lujain.momani@hotmail.com',
-      link: 'mailto:lujain.momani@hotmail.com'
+      value: site.email,
+      link: `mailto:${site.email}`,
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       title: 'Location',
-      value: 'Dubai, UAE • Available for online work',
-      link: null
-    }
+      value: site.location,
+      link: null,
+    },
   ];
 
-  const socialLinks = [
-    {
-      icon: <Linkedin className="h-6 w-6" />,
-      label: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/lujainn',
-      color: 'hover:text-accent'
-    }
-  ];
+  const socialLinks = resolveLinks(site).map((link) => ({
+    icon: getLinkIcon(link.type),
+    label: link.label || link.type,
+    url: link.url,
+    color: 'hover:text-accent',
+  }));
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -155,7 +148,9 @@ const Contact = () => {
             <div>
               <h4 className="text-lg font-semibold text-foreground mb-4">Connect on Social</h4>
               <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social, index) => {
+                  const Icon = social.icon;
+                  return (
                   <a
                     key={index}
                     href={social.url}
@@ -164,9 +159,9 @@ const Contact = () => {
                     className={`p-3 rounded-lg bg-muted text-muted-foreground transition-all duration-300 ${social.color} hover:transform hover:scale-110`}
                     aria-label={social.label}
                   >
-                    {social.icon}
+                    <Icon className="h-6 w-6" />
                   </a>
-                ))}
+                )})}
               </div>
             </div>
           </div>

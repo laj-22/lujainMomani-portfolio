@@ -14,71 +14,17 @@ import {
   ChevronUp
 } from 'lucide-react';
 
-interface Publication {
-  id: string;
-  title: string;
-  authors: string;
-  conference: string;
-  year: string;
-  status: 'published' | 'under-review' | 'in-progress';
-  abstract?: string;
-  link?: string;
-  doi?: string;
-}
-
 import { useState } from 'react';
+import { publications, experience, type Publication } from '@/lib/content';
+import { resolveLinks } from '@/lib/links';
+import { LinkButtons } from '@/components/LinkButtons';
+import RichText, { toRichHtml } from '@/components/RichText';
 
 const Publications = () => {
   const [mobileSection, setMobileSection] = useState<'published' | 'under'>('published');
-  const published: Publication[] = [
-    {
-      id: 'ffnn-ga-beam-selection-2025',
-      title: 'A Hybrid FeedForward Neural Network-Genetic Algorithm Approach for Beam Selection Optimization in 5G Massive MIMO Systems',
-      authors: 'Lujain Almomani, Mohammad Abbasi, Ayesha Wasim Qureshi, Kiyan Afsari, Mohd Fareq Abd Malek',
-      conference: 'ICCCE 2025',
-      year: '2025',
-      status: 'published'
-    },
-    {
-      id: 'fuzzy-antenna-classification-2025',
-      title: 'Beyond Manual Labelling: Enhancing Antenna Classification and Performance with Fuzzy Clustering and Machine Learning',
-      authors: 'Lujain Almomani, Obada Alkhatib, Joud Almomani, Abeer Elkhouly',
-      conference: 'FICTA-2025',
-      year: '2025',
-      status: 'published'
-    },
-    {
-      id: 'vanet-ml-dl-comparison-2025',
-      title: 'Intrusion Detection in VANETs: A Comparative Study of Machine Learning and Deep Learning Models',
-      authors: 'Mohammad Abbasi, Lujain Almomani, Obada Alkhatib',
-      conference: 'ISDIA-2025',
-      year: '2025',
-      status: 'published',
-      link: 'https://link.springer.com/chapter/10.1007/978-981-96-9245-3_10',
-      doi: 'https://doi.org/10.1007/978-981-96-9245-3_10'
-    }
-  ];
+  const { published, underReview } = publications;
 
-  const underReview: Publication[] = [
-    {
-      id: 'vanet-iov-security-review-2025',
-      title: 'A Comprehensive Review of Security Mechanisms in VANETs and IoV',
-      authors: 'Lujain Almomani, Obada Al-Khatib, Ghalia Nassreddine, Mohamad Nassereddine, Abeer Elkhouly',
-      conference: 'Target Journal',
-      year: '-',
-      status: 'under-review'
-    },
-    {
-      id: 'real-time-vanet-ids-mqtt-2025',
-      title: 'Real-Time Intrusion Detection in VANETs Using Lightweight Machine Learning and MQTT',
-      authors: 'Mohammad Abbasi, Lujain Almomani, Obada Alkhatib',
-      conference: 'Under Review',
-      year: '-',
-      status: 'under-review'
-    }
-  ];
-
-  const getStatusIcon = (status: string) => {
+    const getStatusIcon = (status: string) => {
     switch (status) {
       case 'published':
         return <CheckCircle className="h-4 w-4 text-green-500" />;
@@ -146,17 +92,11 @@ const Publications = () => {
         )}
       </div>
 
-      {publication.link && (
-        <Button
-          size="sm"
-          className="btn-hero px-4 py-2 text-sm w-full"
-          onClick={() => window.open(publication.link, '_blank')}
-        >
-          <ExternalLink className="h-4 w-4 mr-2" />
-          <span className="hidden sm:inline">View Publication</span>
-          <span className="sm:hidden">View</span>
-        </Button>
-      )}
+      <LinkButtons
+        links={resolveLinks(publication, { link: 'paper' })}
+        size="sm"
+        className="w-full"
+      />
     </Card>
   );
 
@@ -285,40 +225,19 @@ const Publications = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          <Card className="p-6 border border-border">
-            <h4 className="text-lg font-semibold text-foreground">V2X Networking & Architecture Engineer – Bosch Future Mobility Challenge</h4>
-            <div className="text-sm text-muted-foreground mb-2">Dubai, UAE • Sept 2025 - Present</div>
-            <ul className="list-disc list-inside space-y-2 text-foreground">
-              <li>Led V2X networking architecture design for autonomous driving algorithms, enabling proactive real-time data exchange with traffic monitors and infrastructure to drive enhanced decision-making, accuracy, and on-track performance.</li>
-            </ul>
-          </Card>
-
-          <Card className="p-6 border border-border">
-            <h4 className="text-lg font-semibold text-foreground">Research Intern</h4>
-            <div className="text-sm text-muted-foreground mb-2">University of Wollongong (UOWD) • Sept 2024 - Present</div>
-            <ul className="list-disc list-inside space-y-2 text-foreground">
-              <li>Developed ML-based VANET IDS; published on VANET security.</li>
-              <li>Optimized real-time detection for constrained hardware.</li>
-            </ul>
-          </Card>
-
-          <Card className="p-6 border border-border">
-            <h4 className="text-lg font-semibold text-foreground">Clubs Director - Student Government</h4>
-            <div className="text-sm text-muted-foreground mb-2">Rochester Institute of Technology (RIT) • Apr 2023 - Sept 2023</div>
-            <ul className="list-disc list-inside space-y-2 text-foreground">
-              <li>Led clubs, organized events; earned Best Leadership & Best Club.</li>
-              <li>Facilitated collaboration across students, faculty, and staff.</li>
-            </ul>
-          </Card>
-
-          <Card className="p-6 border border-border">
-            <h4 className="text-lg font-semibold text-foreground">Business Intelligence Intern</h4>
-            <div className="text-sm text-muted-foreground mb-2">Jordan Payments & Clearance Company (JOPACC) • Jul 2023 - Aug 2023</div>
-            <ul className="list-disc list-inside space-y-2 text-foreground">
-              <li>Built presentation & quarterly report for decision-making.</li>
-              <li>Explored ETL processes; created Power BI visualizations.</li>
-            </ul>
-          </Card>
+          {experience.map((item) => (
+            <Card key={item.id} className="p-6 border border-border">
+              <h4 className="text-lg font-semibold text-foreground">{item.title}</h4>
+              <div className="text-sm text-muted-foreground mb-2">{item.meta}</div>
+              <ul className="list-disc list-inside space-y-2 text-foreground">
+                {item.bullets.map((bullet, idx) => (
+                  <li key={idx}>
+                    <RichText html={toRichHtml(bullet)} className="inline" as="span" />
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

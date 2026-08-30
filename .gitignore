@@ -11,6 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +25,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Portfolio Manager (local desktop app — never deployed)
+portfolio-manager/.venv/
+portfolio-manager/.preview.log
+portfolio-manager/**/__pycache__/
+portfolio-manager/**/*.pyc

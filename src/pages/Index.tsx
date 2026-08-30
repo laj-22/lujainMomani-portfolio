@@ -9,6 +9,8 @@ import Activities from '@/components/Activities';
 import Contact from '@/components/Contact';
 import { useActiveSection } from '@/hooks/useActiveSection';
 
+import { site } from '@/lib/content';
+
 const Index = () => {
   const activeSection = useActiveSection();
 
@@ -29,9 +31,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-border">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-muted-foreground">
-            © 2025 Lujain Almomani. Built with passion for motorsport and cybersecurity.
-          </p>
+          <p className="text-muted-foreground">{site.footer}</p>
         </div>
       </footer>
     </div>

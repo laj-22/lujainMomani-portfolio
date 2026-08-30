@@ -8,22 +8,47 @@ Use this README as an operations manual: file layout, where content lives, how t
 
 ## Table of contents
 
-1. [Quick start](#quick-start)
-2. [Architecture at a glance](#architecture-at-a-glance)
-3. [Repository layout (every important path)](#repository-layout-every-important-path)
-4. [How the page is assembled](#how-the-page-is-assembled)
-5. [Sections: what each one does & which file owns it](#sections-what-each-one-does--which-file-owns-it)
-6. [Adding or editing content](#adding-or-editing-content)
-7. [Images: where to put them, sizing, cropping](#images-where-to-put-them-sizing-cropping)
-8. [Hyperlinks (internal anchors vs external URLs)](#hyperlinks-internal-anchors-vs-external-urls)
-9. [Tags, badges & categories](#tags-badges--categories)
-10. [Adding a new major section](#adding-a-new-major-section-checklist)
-11. [Adding a new route (multi-page, optional)](#adding-a-new-route-multi-page-optional)
-12. [Styling vs data-only files](#styling-vs-data-only-files)
-13. [GitHub Actions & deploying the live site](#github-actions--deploying-the-live-site)
-14. [Git branches & workflows](#git-branches--workflows)
-15. [Security, “backend,” and developer tools inspection](#security-backend-and-developer-tools-inspection)
-16. [Environment variables](#environment-variables)
+1. [CMS integration (planned)](#cms-integration-planned)
+2. [Quick start](#quick-start)
+3. [Architecture at a glance](#architecture-at-a-glance)
+4. [Repository layout (every important path)](#repository-layout-every-important-path)
+5. [How the page is assembled](#how-the-page-is-assembled)
+6. [Sections: what each one does & which file owns it](#sections-what-each-one-does--which-file-owns-it)
+7. [Adding or editing content](#adding-or-editing-content)
+8. [Images: where to put them, sizing, cropping](#images-where-to-put-them-sizing-cropping)
+9. [Hyperlinks (internal anchors vs external URLs)](#hyperlinks-internal-anchors-vs-external-urls)
+10. [Tags, badges & categories](#tags-badges--categories)
+11. [Adding a new major section](#adding-a-new-major-section-checklist)
+12. [Adding a new route (multi-page, optional)](#adding-a-new-route-multi-page-optional)
+13. [Styling vs data-only files](#styling-vs-data-only-files)
+14. [GitHub Actions & deploying the live site](#github-actions--deploying-the-live-site)
+15. [Git branches & workflows](#git-branches--workflows)
+16. [Security, “backend,” and developer tools inspection](#security-backend-and-developer-tools-inspection)
+17. [Environment variables](#environment-variables)
+
+---
+
+## CMS integration (planned)
+
+**CMS is implemented.** Content lives in `src/content/*.json`. Use the Portfolio Manager desktop app to edit — no need to touch React files for routine updates.
+
+| Resource | Path |
+|----------|------|
+| Integration guide | [`docs/CMS-INTEGRATION.md`](docs/CMS-INTEGRATION.md) |
+| Audit (structural) | [`docs/AUDIT.md`](docs/AUDIT.md) |
+| Portfolio Manager | [`portfolio-manager/README.md`](portfolio-manager/README.md) |
+| Cursor agent skill | [`.cursor/skills/portfolio-cms/`](.cursor/skills/portfolio-cms/) |
+
+**Workflow:**
+
+```text
+cd portfolio-manager && python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+python main.py
+→ edit content (rich text, fonts, colors) → Preview → Publish
+```
+
+**Legacy workflow** (still works): edit `src/content/*.json` directly, then `git push`.
 
 ---
 
@@ -76,6 +101,10 @@ There is **no Node server** in production visitors hit only static files and any
 │   ├── LujainCV.pdf               # CV served at /<base>/LujainCV.pdf
 │   ├── pictures/                  # Project images referenced by URL in Projects.tsx
 │   ├── favicon.svg, robots.txt, 404.html, spa-redirect.js
+├── .cursor/skills/portfolio-cms/  # Cursor agent skill for CMS modernization
+├── docs/
+│   ├── CMS-INTEGRATION.md         # CMS project overview and phases
+│   └── AUDIT.md                   # Phase 1 audit findings (to be completed)
 ├── src/
 │   ├── main.tsx                   # React root mount + global styles import
 │   ├── App.tsx                    # Router, providers, routes

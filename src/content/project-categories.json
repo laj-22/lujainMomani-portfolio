@@ -1,0 +1,67 @@
+[
+  {
+    "id": "all",
+    "label": "All Projects",
+    "icon": "Cpu"
+  },
+  {
+    "id": "featured",
+    "label": "Featured",
+    "icon": "Star"
+  },
+  {
+    "id": "embedded",
+    "label": "Embedded Systems",
+    "icon": "Cpu"
+  },
+  {
+    "id": "iot",
+    "label": "IoT",
+    "icon": "Wifi"
+  },
+  {
+    "id": "security",
+    "label": "Cybersecurity",
+    "icon": "Shield"
+  },
+  {
+    "id": "robotics",
+    "label": "Robotics",
+    "icon": "Bot"
+  },
+  {
+    "id": "robotics-sim",
+    "label": "Robotics & Simulation",
+    "icon": "Bot"
+  },
+  {
+    "id": "autonomy",
+    "label": "Autonomous Robotics & AI",
+    "icon": "Bot"
+  },
+  {
+    "id": "dsp",
+    "label": "Digital Signal Processing",
+    "icon": "Cpu"
+  },
+  {
+    "id": "analog",
+    "label": "Analog Electronics",
+    "icon": "Cpu"
+  },
+  {
+    "id": "ml",
+    "label": "Machine Learning",
+    "icon": "Cpu"
+  },
+  {
+    "id": "neteng",
+    "label": "Networking Engineering",
+    "icon": "Shield"
+  },
+  {
+    "id": "tools",
+    "label": "Tools & Utilities",
+    "icon": "Wrench"
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "published": [
+    {
+      "id": "fuzzy-antenna-classification-2025",
+      "title": "Beyond Manual Labelling: Enhancing Antenna Classification and Performance with Fuzzy Clustering and Machine Learning",
+      "authors": "Lujain Almomani, Obada Alkhatib, Joud Almomani, Abeer Elkhouly",
+      "conference": "FICTA-2025",
+      "year": "2025",
+      "status": "published",
+      "doi": "https://doi.org/10.1007/978-3-032-18849-6_20",
+      "abstract": "",
+      "links": [
+        {
+          "type": "paper",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-032-18849-6_20"
+        }
+      ],
+      "link": "https://link.springer.com/chapter/10.1007/978-3-032-18849-6_20"
+    },
+    {
+      "id": "vanet-ml-dl-comparison-2025",
+      "title": "Intrusion Detection in VANETs: A Comparative Study of Machine Learning and Deep Learning Models",
+      "authors": "Mohammad Abbasi, Lujain Almomani, Obada Alkhatib",
+      "conference": "ISDIA-2025",
+      "year": "2025",
+      "status": "published",
+      "link": "https://link.springer.com/chapter/10.1007/978-981-96-9245-3_10",
+      "doi": "https://doi.org/10.1007/978-981-96-9245-3_10"
+    }
+  ],
+  "underReview": [
+    {
+      "id": "ffnn-ga-beam-selection-2025",
+      "title": "A Hybrid Deep Learning-Genetic Algorithm Approach for 5G Beam Selection",
+      "authors": "Lujain Almomani",
+      "conference": "Under review",
+      "year": "2025",
+      "status": "under-review",
+      "doi": "",
+      "abstract": ""
+    },
+    {
+      "id": "vanet-iov-security-review-2025",
+      "title": "A Comprehensive Review of Security Mechanisms in VANETs and IoV",
+      "authors": "Lujain Almomani, Obada Al-Khatib, Ghalia Nassreddine, Mohamad Nassereddine, Abeer Elkhouly",
+      "conference": "Target Journal",
+      "year": "-",
+      "status": "under-review",
+      "doi": "",
+      "abstract": ""
+    },
+    {
+      "id": "real-time-vanet-ids-mqtt-2025",
+      "title": "Real-Time VANET Intrusion Detection on Edge Hardware with MQTT Protocol Benchmarking",
+      "authors": "Lujain Almomani",
+      "conference": "In progress",
+      "year": "2025",
+      "status": "in-progress",
+      "doi": "",
+      "abstract": ""
+    }
+  ]
+}

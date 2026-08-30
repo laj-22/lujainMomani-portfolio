@@ -1,0 +1,16 @@
+{
+  "name": "Lujain Almomani",
+  "title": "Telecommunications/Computer  & IoT Engineer",
+  "linkedin": "https://www.linkedin.com/in/lujainn",
+  "email": "lujain.momani@hotmail.com",
+  "location": "Dubai, UAE • Available for online work",
+  "footer": "© 2025 Lujain Almomani. Built with passion for motorsport and cybersecurity.",
+  "aboutParagraphs": [
+    "I am a Telecommunications/Computer & IoT Engineering graduate with a strong foundation across cybersecurity, network engineering, embedded systems, and connected infrastructure. I actively apply my knowledge through continuous learning, research publication, and hands-on project development — bridging theoretical concepts with practical, real-world implementations.",
+    "Whether it's securing networks, building IoT solutions, analyzing systems, or exploring machine learning applications for intrusion detection — I bring an engineering mindset to wherever the problem is. I combine academic research with practical engineering to develop robust solutions that address current industry challenges across connected systems, threat mitigation, and beyond.",
+    "On mobile, tap sections to expand; on desktop, everything is visible. For a complete overview of experience and projects, download my CV."
+  ],
+  "heroImage": "src/assets/hero-bg.jpg",
+  "profileImage": "src/assets/mypicNew.jpeg",
+  "cvPath": "LujainCV.pdf"
+}
