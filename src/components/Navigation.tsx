@@ -39,7 +39,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
+      scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent border-b border-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -47,8 +47,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-2xl font-bold text-transparent bg-clip-text"
-              style={{ backgroundImage: 'var(--gradient-forest)' }}
+              className="font-mono text-lg font-semibold tracking-tight text-foreground"
             >
               LM
             </button>
@@ -56,14 +55,15 @@ const Navigation = ({ activeSection }: NavigationProps) => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-6">
-            <div className="flex items-baseline space-x-8">
+            <div className="flex items-baseline space-x-1">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
+                  aria-current={activeSection === section.id ? 'true' : undefined}
                   className={`nav-link text-sm font-medium px-3 py-2 ${
                     activeSection === section.id ? 'active' : ''
-                  } ${scrolled ? 'text-foreground hover:text-foreground' : 'text-white/90 hover:text-white'}`}
+                  }`}
                 >
                   {section.label}
                 </button>
@@ -76,7 +76,9 @@ const Navigation = ({ activeSection }: NavigationProps) => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md transition-colors ${scrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-white'}`}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              className="p-2 rounded-md text-foreground transition-colors hover:text-primary"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -86,19 +88,19 @@ const Navigation = ({ activeSection }: NavigationProps) => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/85 text-white rounded-lg mt-2 border border-white/20">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-card text-foreground rounded-lg mt-2 border border-border shadow-card">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
                   className={`block w-full text-left px-3 py-2 text-base font-medium ${
-                    activeSection === section.id ? 'text-white' : 'text-white/90'
+                    activeSection === section.id ? 'text-primary' : 'text-muted-foreground'
                   }`}
                 >
                   {section.label}
                 </button>
               ))}
-              <div className="flex justify-center pt-2 border-t border-white/20">
+              <div className="flex justify-center pt-2 border-t border-border">
                 <ThemeToggle />
               </div>
             </div>

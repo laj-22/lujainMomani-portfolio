@@ -1,8 +1,8 @@
 {
   "id": "astraips-thesis-2026",
   "title": "Graduation Project Thesis: AstraIPS",
-  "description": "Fog-native, stateful MQTT intrusion prevention on edge hardware using Snort 3 + BiLSTM hybrid detection.",
-  "longDescription": "AstraIPS addresses application-layer command injection threats in MQTT-based IoT networks through a fog-native, inline IPS deployed on resource-constrained edge hardware. The system combines a signature-based Snort 3 engine with a custom MQTT-aware Lua preprocessor and a sequence-aware BiLSTM model trained on a synthesized benign/malicious MQTT dataset. A progressive four-stage policy adapts enforcement from alerting to packet dropping and MAC-based isolation. Evaluation showed 98% mean detection accuracy (AUC 0.9911), below-40ms end-to-end latency, and sub-linear resource usage with projected scaling to larger device counts. The full thesis is currently under review for IEEE Access, with additional technical details planned for publication.",
+  "description": "Fog-native, two-layer MQTT intrusion prevention on a Raspberry Pi 5: Snort 3 with a custom Lua preprocessor plus a BiLSTM classifier.",
+  "longDescription": "AstraIPS addresses application-layer command injection threats in MQTT-based IoT networks through a fog-native, two-layer inline intrusion prevention system running on a Raspberry Pi 5. The first layer is Snort 3 with a custom MQTT-aware Lua preprocessor for protocol-aware parsing and signature detection; the second is a sequence-aware BiLSTM classifier that catches novel and obfuscated payloads. A four-stage, per-device enforcement policy escalates from flag, to alert, to packet drop, to MAC quarantine. Evaluation showed 97.7% mean 5-fold accuracy (AUC 0.991), 29 ms AI inference and only 2.5% CPU usage on the edge device. The thesis won 1st Place Overall out of 89 projects at the UOWD Research Competition (2026), and the thesis article has been accepted in IEEE Access.",
   "image": "thesis.png",
   "github": "https://github.com/laj-22/AstraIPS",
   "linkedProjectId": "astraips-thesis-2026",
@@ -15,10 +15,10 @@
     "Edge AI"
   ],
   "achievements": [
-    "98% mean detection accuracy with AUC of 0.9911",
-    "Maintained end-to-end processing latency below 40 ms",
-    "Intercepted obfuscated command injection and data exfiltration payloads",
-    "Progressive enforcement from alerting to packet drop and MAC isolation"
+    "97.7% mean 5-fold accuracy, AUC 0.991",
+    "29 ms AI inference at 2.5% CPU on Raspberry Pi 5",
+    "Four-stage per-device enforcement: flag, alert, drop, MAC quarantine",
+    "1st Place Overall of 89, UOWD Research Competition 2026; accepted in IEEE Access"
   ],
   "tech": [
     {
@@ -34,8 +34,20 @@
       "role": "Sequence-based detection of novel and obfuscated threats"
     },
     {
-      "name": "Raspberry Pi 5 + GL.iNet MT6000",
+      "name": "Raspberry Pi 5",
       "role": "Edge deployment platform"
+    }
+  ],
+  "links": [
+    {
+      "type": "github",
+      "url": "https://github.com/laj-22/AstraIPS",
+      "label": "Thesis Repo"
+    },
+    {
+      "type": "website",
+      "url": "https://laj-22.github.io/ThesiswebsiteLujain/",
+      "label": "Project Site"
     }
   ]
 }

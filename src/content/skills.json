@@ -1,6 +1,45 @@
 {
   "categories": [
     {
+      "title": "Networking & Security",
+      "icon": "Shield",
+      "color": "primary",
+      "skills": [
+        {
+          "name": "TCP/IP",
+          "icon": "Shield"
+        },
+        {
+          "name": "MQTT, CoAP & AMQP",
+          "icon": "Shield"
+        },
+        {
+          "name": "V2X / VANET",
+          "icon": "Shield"
+        },
+        {
+          "name": "5G",
+          "icon": "Shield"
+        },
+        {
+          "name": "Snort 3 & IDS/IPS Design",
+          "icon": "Shield"
+        },
+        {
+          "name": "iptables / NFQUEUE",
+          "icon": "Shield"
+        },
+        {
+          "name": "Wireshark",
+          "icon": "Shield"
+        },
+        {
+          "name": "Kali Linux",
+          "icon": "Shield"
+        }
+      ]
+    },
+    {
       "title": "Hardware",
       "icon": "Gauge",
       "color": "primary",
@@ -28,7 +67,7 @@
       ]
     },
     {
-      "title": "Software & Cybersecurity",
+      "title": "Programming & ML",
       "icon": "Shield",
       "color": "secondary",
       "skills": [
@@ -47,6 +86,26 @@
         {
           "name": "Signal Processing",
           "icon": "Activity"
+        },
+        {
+          "name": "TensorFlow & scikit-learn",
+          "icon": "Code"
+        },
+        {
+          "name": "LSTM / BiLSTM",
+          "icon": "Code"
+        },
+        {
+          "name": "Random Forest & Clustering",
+          "icon": "Code"
+        },
+        {
+          "name": "Genetic Algorithms",
+          "icon": "Code"
+        },
+        {
+          "name": "Python (pandas, Scapy)",
+          "icon": "Code"
         }
       ]
     },
@@ -86,6 +145,53 @@
         {
           "name": "Network Design & Cisco IOS",
           "icon": "Terminal"
+        },
+        {
+          "name": "C",
+          "icon": "Terminal"
+        },
+        {
+          "name": "Lua",
+          "icon": "Terminal"
+        },
+        {
+          "name": "SQL / SQLite",
+          "icon": "Terminal"
+        },
+        {
+          "name": "Git",
+          "icon": "Terminal"
+        },
+        {
+          "name": "Webots",
+          "icon": "Terminal"
+        }
+      ]
+    },
+    {
+      "title": "Data & Business",
+      "icon": "Activity",
+      "color": "secondary",
+      "skills": [
+        {
+          "name": "Power BI",
+          "icon": "Activity"
+        },
+        {
+          "name": "ETL",
+          "icon": "Activity"
+        },
+        {
+          "name": "Agile Project Management",
+          "icon": "Activity"
+        },
+        {
+          "name": "Stakeholder Communication",
+          "icon": "Activity"
+        },
+        {
+          "name": "Arabic (native), English (fluent)",
+          "icon": "Activity"
         }
       ]
     }
@@ -160,6 +266,19 @@
     ],
     "ROS": [
       "Autonomous Waste Collection Robot (ERC 2025)"
+    ],
+    "Snort 3 & IDS/IPS Design": [
+      "Graduation Project Thesis: AstraIPS"
+    ],
+    "MQTT, CoAP & AMQP": [
+      "Graduation Project Thesis: AstraIPS",
+      "Hardware-Accelerated Intrusion Detection System for VANETs"
+    ],
+    "LSTM / BiLSTM": [
+      "Graduation Project Thesis: AstraIPS"
+    ],
+    "Genetic Algorithms": [
+      "A Hybrid Deep Learning-Genetic Algorithm Approach for 5G Beam Selection"
     ]
   }
 }

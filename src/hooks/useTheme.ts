@@ -2,34 +2,34 @@ import { useState, useEffect } from 'react';
 
 type Theme = 'light' | 'dark';
 
+const systemTheme = (): Theme =>
+  window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
 export const useTheme = () => {
   const [theme, setTheme] = useState<Theme>(() => {
     try {
-      if (typeof window !== 'undefined') {
-        const savedTheme = window.localStorage.getItem('theme') as Theme;
-        return savedTheme || 'dark';
-      }
-    } catch (_) {}
-    return 'dark';
+      const savedTheme = window.localStorage.getItem('theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+    } catch {
+      // storage blocked (private mode): fall back to the system setting
+    }
+    return systemTheme();
   });
 
   useEffect(() => {
-    const root = document.documentElement;
-
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-
-    // Save to localStorage
-    localStorage.setItem('theme', theme);
+    document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
-  // No system override: default stays dark until user toggles
-
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    setTheme((prev) => {
+      const next = prev === 'light' ? 'dark' : 'light';
+      try {
+        window.localStorage.setItem('theme', next);
+      } catch {
+        // ignore: the choice just won't persist
+      }
+      return next;
+    });
   };
 
   return { theme, toggleTheme };

@@ -2,132 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Motorsport & Cybersecurity Portfolio Design System - All colors MUST be HSL */
+/* Calm editorial theme: warm off-white / soft charcoal, one deep-teal accent. Contrast checked to WCAG AA+ (body text AAA). All colors HSL. */
 
 @layer base {
   :root {
-    /* Core Background System */
-    --background: 210 12% 94%; /* Slightly darker soft gray */
-    --foreground: 0 0% 12%; /* Dark grey, not pure black */
+    --background: 36 23% 96%;
+    --foreground: 36 8% 13%;
 
-    /* Card & Surface System */
-    --card: 0 0% 100%; /* Pure White for cards */
-    --card-foreground: 0 0% 12%; /* Dark grey text */
-    --card-hover: 210 12% 91%; /* Subtle darker gray hover */
-    
-    /* Popover System */
-    --popover: 0 0% 100%; /* White */
-    --popover-foreground: 0 0% 12%; /* Dark grey text for consistency */
-    
-    /* Primary Brand Colors - Forest Green Theme */
-    --primary: 109 62% 22%; /* Forest Green #1E591C */
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 109 62% 32%;
-    --primary-dark: 109 62% 15%;
+    --card: 40 60% 99%;
+    --card-foreground: 36 8% 13%;
+    --card-hover: 38 22% 94%;
 
-    /* Secondary - Darker Green Theme */
-    --secondary: 140 35% 13%; /* Dark Green #1E522E */
-    --secondary-foreground: 0 0% 98%;
-    --secondary-glow: 140 35% 23%;
-    --secondary-dark: 140 35% 8%;
+    --popover: 40 60% 99%;
+    --popover-foreground: 36 8% 13%;
 
-    /* Muted Colors */
-    --muted: 210 12% 88%; /* Darker muted for better contrast */
-    --muted-foreground: 0 0% 25%; /* Darker grey for better readability */
-    --muted-hover: 210 12% 82%;
+    --primary: 184 70% 21%;
+    --primary-foreground: 36 30% 98%;
+    --primary-glow: 184 60% 27%;
+    --primary-dark: 184 75% 16%;
 
-    /* Accent System */
-    --accent: 295 78% 25%; /* Purple #6D1F70 */
-    --accent-foreground: 0 0% 98%;
-    --accent-glow: 295 78% 35%;
-    
-    /* System Colors */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    
-    /* Borders & Inputs */
-    --border: 210 15% 85%; /* Subtle Gray Border */
-    --border-hover: 210 15% 75%;
-    --input: 0 0% 100%; /* White Input */
-    --ring: 109 62% 22%; /* Forest Green Ring */
-    
-    /* Design System Radius */
-    --radius: 0.75rem;
-    
-    /* Custom Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--card-hover)));
-    --gradient-forest: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    
-    /* Racing Grid Pattern */
-    --pattern-grid: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
-    --pattern-size: 20px 20px;
-    
-    /* Shadows & Effects */
-    --shadow-primary: 0 0 30px hsl(var(--primary) / 0.3);
-    --shadow-secondary: 0 0 30px hsl(var(--secondary) / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
-    --shadow-hero: 0 20px 60px -10px hsl(0 0% 0% / 0.8);
-    
-    /* Animation Variables */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-fast: all 0.2s ease-out;
+    --secondary: 38 20% 90%;
+    --secondary-foreground: 36 8% 18%;
+    --secondary-glow: 38 18% 86%;
+    --secondary-dark: 38 16% 82%;
 
-    --sidebar-background: 0 0% 98%;
+    --muted: 38 20% 91%;
+    --muted-foreground: 36 7% 30%;
+    --muted-hover: 38 18% 87%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --accent: 184 30% 91%;
+    --accent-foreground: 184 75% 16%;
+    --accent-glow: 184 26% 86%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --destructive: 4 62% 46%;
+    --destructive-foreground: 40 30% 98%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --border: 38 16% 82%;
+    --border-hover: 38 12% 70%;
+    --input: 38 16% 80%;
+    --ring: 184 70% 21%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --radius: 0.625rem;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --gradient-primary: linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
+    --gradient-secondary: linear-gradient(hsl(var(--secondary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(hsl(var(--card)), hsl(var(--card)));
+    --gradient-forest: linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
 
-    --sidebar-border: 220 13% 91%;
+    --shadow-primary: 0 1px 2px hsl(30 20% 20% / 0.06), 0 4px 12px hsl(30 20% 20% / 0.06);
+    --shadow-secondary: var(--shadow-primary);
+    --shadow-card: 0 1px 2px hsl(30 20% 20% / 0.05), 0 8px 24px -8px hsl(30 20% 20% / 0.12);
+    --shadow-hero: var(--shadow-card);
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --transition-smooth: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+    --transition-bounce: var(--transition-smooth);
+    --transition-fast: all 0.15s ease-out;
+
+    --sidebar-background: 36 23% 96%;
+    --sidebar-foreground: 30 10% 22%;
+    --sidebar-primary: 184 70% 21%;
+    --sidebar-primary-foreground: 40 30% 98%;
+    --sidebar-accent: 40 16% 92%;
+    --sidebar-accent-foreground: 30 10% 15%;
+    --sidebar-border: 38 16% 82%;
+    --sidebar-ring: 184 70% 21%;
   }
 
   .dark {
-    --background: 229 84% 6%; /* Darker background for better contrast */
-    --foreground: 210 25% 96%; /* Brighter text for excellent readability */
+    --background: 190 8% 10%;
+    --foreground: 40 20% 90%;
 
-    --card: 229 84% 8%; /* Darker cards */
-    --card-foreground: 210 25% 96%; /* Brighter text */
+    --card: 190 7% 13%;
+    --card-foreground: 40 20% 90%;
+    --card-hover: 190 7% 16%;
 
-    --popover: 229 84% 8%; /* Consistent with cards */
-    --popover-foreground: 210 25% 96%; /* Brighter text */
+    --popover: 190 7% 13%;
+    --popover-foreground: 40 20% 90%;
 
-    --primary: 109 62% 35%; /* Brighter forest green for dark mode */
-    --primary-foreground: 210 25% 96%;
+    --primary: 178 38% 58%;
+    --primary-foreground: 190 10% 9%;
+    --primary-glow: 178 36% 64%;
+    --primary-dark: 178 36% 50%;
 
-    --secondary: 140 35% 25%; /* Brighter dark green */
-    --secondary-foreground: 210 25% 96%;
+    --secondary: 190 6% 17%;
+    --secondary-foreground: 40 14% 84%;
+    --secondary-glow: 190 6% 21%;
+    --secondary-dark: 190 6% 14%;
 
-    --muted: 229 84% 12%; /* Better contrast for muted elements */
-    --muted-foreground: 210 25% 80%; /* More readable muted text */
+    --muted: 190 6% 16%;
+    --muted-foreground: 36 8% 72%;
+    --muted-hover: 190 6% 20%;
 
-    --accent: 295 78% 40%; /* Brighter purple for dark mode */
-    --accent-foreground: 210 25% 96%;
+    --accent: 180 16% 18%;
+    --accent-foreground: 178 38% 70%;
+    --accent-glow: 180 16% 22%;
 
-    --destructive: 0 62.8% 55%; /* Brighter red for better visibility */
-    --destructive-foreground: 210 25% 96%;
+    --destructive: 4 55% 58%;
+    --destructive-foreground: 30 8% 10%;
 
-    --border: 229 84% 18%; /* More visible borders */
-    --input: 229 84% 10%; /* Better input visibility */
-    --ring: 109 62% 35%; /* Brighter focus ring */
-    --sidebar-background: 229 84% 6%;
-    --sidebar-foreground: 210 25% 96%;
-    --sidebar-primary: 109 62% 35%;
-    --sidebar-primary-foreground: 210 25% 96%;
-    --sidebar-accent: 229 84% 12%;
-    --sidebar-accent-foreground: 210 25% 96%;
-    --sidebar-border: 229 84% 18%;
-    --sidebar-ring: 109 62% 35%;
+    --border: 190 6% 24%;
+    --border-hover: 190 6% 32%;
+    --input: 190 6% 26%;
+    --ring: 178 38% 58%;
+
+    --shadow-primary: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.3), 0 8px 24px -8px hsl(0 0% 0% / 0.4);
+
+    --sidebar-background: 190 8% 10%;
+    --sidebar-foreground: 40 12% 80%;
+    --sidebar-primary: 178 38% 58%;
+    --sidebar-primary-foreground: 30 8% 10%;
+    --sidebar-accent: 30 6% 18%;
+    --sidebar-accent-foreground: 40 14% 86%;
+    --sidebar-border: 190 6% 24%;
+    --sidebar-ring: 178 38% 58%;
   }
 }
 
@@ -136,71 +124,105 @@
     @apply border-border;
   }
 
+  html {
+    font-size: 106.25%; /* 17px base for comfortable reading */
+  }
+
   body {
-    @apply bg-background text-foreground font-sans;
-    background-image: var(--pattern-grid);
-    background-size: var(--pattern-size);
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer components {
-  /* Racing Grid Background */
-  .racing-grid {
-    background-image: var(--pattern-grid);
-    background-size: var(--pattern-size);
-  }
-  
-  /* Hero Button Variants */
   .btn-hero {
-    @apply relative overflow-hidden border-2 border-primary bg-transparent text-primary
-           hover:text-primary-foreground transition-all duration-300
-           before:absolute before:inset-0 before:bg-gradient-primary before:scale-x-0
-           before:origin-right before:transition-transform before:duration-300
-           hover:before:scale-x-100 hover:before:origin-left hover:shadow-primary;
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-primary
+           bg-primary font-medium text-primary-foreground
+           transition-colors duration-200 hover:bg-primary-dark active:translate-y-px;
   }
 
-  .btn-forest {
-    @apply relative overflow-hidden border border-secondary bg-transparent text-secondary
-           hover:text-secondary-foreground transition-all duration-300
-           before:absolute before:inset-0 before:bg-gradient-forest before:scale-x-0
-           before:origin-right before:transition-transform before:duration-300
-           hover:before:scale-x-100 hover:before:origin-left hover:shadow-secondary;
+  .btn-forest,
+  .btn-cyber {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-border
+           bg-transparent font-medium text-foreground
+           transition-colors duration-200 hover:border-border-hover hover:bg-secondary active:translate-y-px;
   }
-  
-  /* Project Card Hover Effects */
+
   .project-card {
-    @apply relative overflow-hidden bg-card border border-border rounded-lg p-6 
-           transition-all duration-150 hover:border-border-hover hover:shadow-card
-           transform hover:scale-[1.02] cursor-pointer;
+    @apply relative overflow-hidden rounded-xl border border-border bg-card p-6
+           transition-[border-color,box-shadow,transform] duration-200
+           hover:border-border-hover hover:shadow-card hover:-translate-y-0.5 cursor-pointer;
   }
-  
-  /* Glow Effects */
-  .glow-primary {
-    box-shadow: var(--shadow-primary);
-  }
-  
-  .glow-secondary {
-    box-shadow: var(--shadow-secondary);
-  }
-  
-  /* Navigation Active State */
+
   .nav-link {
-    @apply relative transition-colors duration-300
-           after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 
-           after:bg-gradient-primary after:transition-all after:duration-300
-           hover:after:w-full;
+    @apply relative text-muted-foreground transition-colors duration-200 hover:text-foreground;
   }
-  
+
   .nav-link.active {
-    @apply after:w-full;
+    @apply text-foreground;
   }
-  
-  /* Section Headers */
+
   .section-header {
-    @apply text-4xl md:text-5xl font-bold text-transparent bg-clip-text;
-    background-image: var(--gradient-forest);
+    @apply text-3xl font-semibold tracking-tight text-foreground md:text-4xl;
   }
-  
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.14em] text-primary;
+  }
+
+  /* Phones: turn a grid/column list into a swipeable row so sections stay short.
+     Cards are 85% wide so the next one peeks in. No effect from 640px up. */
+  @media (max-width: 639px) {
+    .mobile-rail {
+      display: flex !important;
+      columns: auto !important;
+      gap: 0.75rem !important;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      margin-inline: -1rem;
+      padding: 0.25rem 1rem 0.75rem;
+      scroll-padding-inline: 1rem;
+      scrollbar-width: none;
+    }
+    .mobile-rail::-webkit-scrollbar {
+      display: none;
+    }
+    .mobile-rail > * {
+      flex: 0 0 85%;
+      margin: 0 !important;
+      scroll-snap-align: start;
+    }
+  }
+
   /* Smooth Scroll */
   html {
     @apply scroll-smooth overflow-x-hidden;
@@ -216,15 +238,15 @@
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-muted;
+    @apply bg-background;
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary rounded-full;
+    @apply bg-border rounded-full;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-glow;
+    @apply bg-border-hover;
   }
 
   /* Project description formatting */

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { activities as activitiesData } from '@/lib/content';
+import { activities as activitiesData, type ActivityItem } from '@/lib/content';
 import { getIcon, getColorRingClass } from '@/lib/icons';
 import { resolveLinks } from '@/lib/links';
 import { LinkButtons, LinkPill } from '@/components/LinkButtons';
@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 
 const Activities = () => {
-  const [selectedActivity, setSelectedActivity] = useState<any>(null);
+  const [selectedActivity, setSelectedActivity] = useState<ActivityItem | null>(null);
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set(['Competitions']));
 
   const toggleCategory = (categoryName: string) => {
@@ -39,9 +39,8 @@ const Activities = () => {
   return (
     <section id="activities" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-10 sm:mb-16 animate-fade-in">
           <h2 className="section-header mb-6">Activities & Achievements</h2>
-          <div className="w-24 h-1 bg-gradient-secondary mx-auto mb-8"></div>
           <p className="text-xl text-foreground max-w-3xl mx-auto">
             Leadership roles, competitions, certifications, and community contributions that shape my journey
           </p>
@@ -102,7 +101,7 @@ const Activities = () => {
                         <span>{item.date}</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-foreground">
-                        <MapPin className="h-4 w-4 text-secondary" />
+                        <MapPin className="h-4 w-4 text-muted-foreground" />
                         <span>{item.location}</span>
                       </div>
                     </div>
@@ -168,7 +167,7 @@ const Activities = () => {
                           <span>{selectedActivity.date}</span>
                         </div>
                         <div className="flex items-center gap-3 text-muted-foreground">
-                          <MapPin className="h-5 w-5 text-secondary" />
+                          <MapPin className="h-5 w-5 text-muted-foreground" />
                           <span>{selectedActivity.location}</span>
                         </div>
                       </div>

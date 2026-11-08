@@ -93,20 +93,16 @@ const Contact = () => {
     icon: getLinkIcon(link.type),
     label: link.label || link.type,
     url: link.url,
-    color: 'hover:text-accent',
+    color: 'hover:text-primary',
   }));
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="section-header mb-6">Let's Connect</h2>
-          <div
-            className="w-24 h-1 mx-auto mb-8"
-            style={{ backgroundImage: 'var(--gradient-forest)' }}
-          ></div>
+        <div className="text-center mb-10 sm:mb-16 animate-fade-in">
+          <h2 className="section-header mb-6">Contact</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Let's talk innovation, security, and resilient systems. I'm always looking for the next challenge.
+            Open to engineering roles and research collaborations in networking, IoT and cybersecurity.
           </p>
         </div>
 
@@ -116,7 +112,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold text-foreground mb-6">Get in Touch</h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Ready to collaborate on your next project? I'm always excited to discuss innovative solutions that push the boundaries of technology.
+                Email is the quickest way to reach me. The form on this page goes to the same inbox.
               </p>
             </div>
 
@@ -156,7 +152,7 @@ const Contact = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 rounded-lg bg-muted text-muted-foreground transition-all duration-300 ${social.color} hover:transform hover:scale-110`}
+                    className={`p-3 rounded-lg bg-muted text-muted-foreground transition-colors duration-200 ${social.color}`}
                     aria-label={social.label}
                   >
                     <Icon className="h-6 w-6" />
@@ -182,7 +178,7 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="bg-input border-border focus:border-primary focus:ring-primary"
+                      className="bg-background border-border focus:border-primary focus:ring-primary"
                       placeholder="Your full name"
                     />
                   </div>
@@ -198,7 +194,7 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="bg-input border-border focus:border-primary focus:ring-primary"
+                      className="bg-background border-border focus:border-primary focus:ring-primary"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -215,7 +211,7 @@ const Contact = () => {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="bg-input border-border focus:border-primary focus:ring-primary"
+                    className="bg-background border-border focus:border-primary focus:ring-primary"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -231,7 +227,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="bg-input border-border focus:border-primary focus:ring-primary resize-none"
+                    className="bg-background border-border focus:border-primary focus:ring-primary resize-none"
                     placeholder="Tell me about your project or idea..."
                   />
                 </div>

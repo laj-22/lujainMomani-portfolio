@@ -8,6 +8,7 @@ import skillsData from '@/content/skills.json';
 import aboutData from '@/content/about.json';
 import siteData from '@/content/site.json';
 import { resolveImage } from '@/lib/images';
+import type { ContentLink } from '@/lib/links';
 
 export interface Project {
   id: string;
@@ -42,7 +43,7 @@ export interface Publication {
   authors: string;
   conference: string;
   year: string;
-  status: 'published' | 'under-review' | 'in-progress';
+  status: 'published' | 'accepted' | 'under-review' | 'in-progress';
   abstract?: string;
   links?: Array<{ type: string; url: string; label?: string }>;
   link?: string;
@@ -132,11 +133,23 @@ export const publications = publicationsData as {
 
 export const experience = experienceData as ExperienceItem[];
 
+export interface ActivityItem {
+  title: string;
+  role: string;
+  date: string;
+  location: string;
+  achievement: string;
+  description: string;
+  tags: string[];
+  link?: string;
+  links?: ContentLink[];
+}
+
 export const activities = activitiesData as Array<{
   category: string;
   icon: string;
   color: string;
-  items: Array<Record<string, unknown>>;
+  items: ActivityItem[];
 }>;
 
 export const skills = skillsData as {
@@ -158,6 +171,7 @@ export const site = siteData as {
   name: string;
   title: string;
   linkedin: string;
+  honours?: string[];
   links?: Array<{ type: string; url: string; label?: string }>;
   email: string;
   location: string;

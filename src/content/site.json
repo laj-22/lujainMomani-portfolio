@@ -1,16 +1,43 @@
 {
   "name": "Lujain Almomani",
-  "title": "Telecommunications/Computer  & IoT Engineer",
-  "linkedin": "https://www.linkedin.com/in/lujainn",
+  "title": "Telecommunication & IoT Engineer",
+  "linkedin": "https://www.linkedin.com/in/lujainn/",
+  "links": [
+    {
+      "type": "linkedin",
+      "url": "https://www.linkedin.com/in/lujainn/",
+      "label": "LinkedIn"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/laj-22",
+      "label": "GitHub"
+    },
+    {
+      "type": "orcid",
+      "url": "https://orcid.org/0009-0003-1950-5463",
+      "label": "ORCID"
+    },
+    {
+      "type": "email",
+      "url": "mailto:lujain.momani@hotmail.com",
+      "label": "Email"
+    }
+  ],
   "email": "lujain.momani@hotmail.com",
-  "location": "Dubai, UAE • Available for online work",
-  "footer": "© 2025 Lujain Almomani. Built with passion for motorsport and cybersecurity.",
+  "location": "Dubai, UAE • Open to on-site and remote roles",
+  "footer": "© 2026 Lujain Almomani",
   "aboutParagraphs": [
-    "I am a Telecommunications/Computer & IoT Engineering graduate with a strong foundation across cybersecurity, network engineering, embedded systems, and connected infrastructure. I actively apply my knowledge through continuous learning, research publication, and hands-on project development — bridging theoretical concepts with practical, real-world implementations.",
-    "Whether it's securing networks, building IoT solutions, analyzing systems, or exploring machine learning applications for intrusion detection — I bring an engineering mindset to wherever the problem is. I combine academic research with practical engineering to develop robust solutions that address current industry challenges across connected systems, threat mitigation, and beyond.",
-    "On mobile, tap sections to expand; on desktop, everything is visible. For a complete overview of experience and projects, download my CV."
+    "I am a Telecommunication & IoT engineer (First Class Honours, Top Graduate 2026) working where networks, embedded hardware and machine learning meet: edge AI for intrusion detection, V2X communication and GNSS security.",
+    "I am a published researcher with award-winning thesis work and a record of turning research into working prototypes."
   ],
   "heroImage": "src/assets/hero-bg.jpg",
   "profileImage": "src/assets/mypicNew.jpeg",
-  "cvPath": "LujainCV.pdf"
+  "cvPath": "LujainCV.pdf",
+  "honours": [
+    "Top Graduate 2026",
+    "First Class Honours (Class I)",
+    "1st of 89 · UOWD Research Competition",
+    "6 Peer-Reviewed Papers"
+  ]
 }

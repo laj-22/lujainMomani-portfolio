@@ -8,6 +8,7 @@ Use this README as an operations manual: file layout, where content lives, how t
 
 ## Table of contents
 
+0. [Handoff notes (read first)](#handoff-notes-read-first)
 1. [CMS integration (planned)](#cms-integration-planned)
 2. [Quick start](#quick-start)
 3. [Architecture at a glance](#architecture-at-a-glance)
@@ -25,6 +26,42 @@ Use this README as an operations manual: file layout, where content lives, how t
 15. [Git branches & workflows](#git-branches--workflows)
 16. [Security, “backend,” and developer tools inspection](#security-backend-and-developer-tools-inspection)
 17. [Environment variables](#environment-variables)
+
+---
+
+## Handoff notes (read first)
+
+State as of **8 November 2026**. If you are a person or an AI picking this up, start here instead of from scratch.
+
+### What changed in the Nov 2026 update
+
+- **Content:** new projects *From Clicks to Collision* (CSAW'25 Hack My Robot, 2nd place, with the full 3-phase write-up and poster link) and *MACH::GO* (Bosch Future Mobility Challenge 2026); real photos for Batterly and the Voice-Controlled Chair; honours badges, "Accepted" publication status, Top Graduate and First Class Honours certificates.
+- **Redesign:** calm theme (warm off-white / soft charcoal, one deep-teal accent, contrast checked against WCAG), Geist font self-hosted, follows the visitor's light/dark setting, no stock hero photo, no gradients/glows/bouncing.
+- **Layout:** skills as chips in packed columns, publications and About cards in grids, certificates beside the About text, compact project cards, and swipe rows on phones (`.mobile-rail`). Measured page length: phone 12.3 screens (was 19.2), tablet 11.6 (13.8), desktop 10.7 (11.1).
+- **Fixes:** literal `\n` showing in project descriptions; invisible Activities icons; ORCID shown with its official iD logo instead of a globe.
+
+### Owner's decisions (keep these unless she says otherwise)
+
+- **MACH::GO:** her role is **"AI Lead"**, listed under Activities → Extracurricular, **not** Professional Experience. Do not describe it as V2X work.
+- **No under-review or in-progress papers** anywhere on the site.
+- **About section:** no V2X or 5G cards; plain, natural tone; business sense shown implicitly (B2B positioning, explaining systems to people), never a job title like "pre-sales". Don't name JoPACC in the About text. Conference talks: say "international conferences" with no locations (one was online).
+- **Writing style:** avoid stock phrases ("innovative solutions", "push the boundaries", "passionate", "seamless") and exclamation marks. Never invent facts; every claim should trace back to the CV, LinkedIn or a project.
+
+### Gotchas
+
+- Images must be in **`public/pictures/`** (served). The top-level `pictures/` folder holds the owner's originals and is not served.
+- `--secondary` and `--accent` are **subtle surface colours** (shadcn convention). For coloured text or icons use `text-primary` or `text-muted-foreground`, never `text-secondary` / `text-accent` (they are nearly invisible).
+- The CSP in `index.html` only allows self-hosted fonts and scripts. Add fonts through `@fontsource-variable/*` npm packages, not Google Fonts links.
+- Deploys need `package-lock.json` updated (CI runs `npm ci`). Install with `npm install --save-exact <pkg>@<version>`.
+- `npx tsc --noEmit -p tsconfig.app.json` and `npm run lint` are both clean (0 errors) as of Nov 2026; keep them that way. The Vite build itself does not type-check, so run them yourself before committing. Content JSON link `type`s are plain strings; `resolveLinks()` normalises them.
+- Do not commit personal source files (e.g. LinkedIn PDF exports) dropped in the project folder.
+
+### How to check your work
+
+1. `npm run dev` → http://localhost:8080/lujainMomani-portfolio/ (the path suffix is required).
+2. Look at it at phone width (~390px), tablet (768px) and desktop, in light and dark.
+3. `npm run build:prod` must end with `verify-dist: OK`.
+4. Push to `main` deploys to GitHub Pages (see below).
 
 ---
 
@@ -173,48 +210,93 @@ There is **no Node server** in production visitors hit only static files and any
 
 ## Sections: what each one does & which file owns it
 
-| Section component | DOM `id` (scroll target) | Primary content location |
-|------------------|--------------------------|---------------------------|
-| `Hero.tsx` | `home` | Intro text, portrait (`src/assets/`), background image, CTAs scroll to `#projects` etc. |
-| `About.tsx` | `about` | Bio paragraphs, **Download CV** link → `public/LujainCV.pdf` |
-| `Skills.tsx` | `skills` | Skill groups; links/skills wired to `#projects` filters where applicable |
-| `ProjectOfTheMonth.tsx` | `featured` | Single “hero” project object at top of file; expandable details |
-| `Projects.tsx` | `projects` | Large `projects` array + category filters + modal |
-| `Publications.tsx` | `publications`, plus `experience` subsection | Publication cards, timelines, Professional Experience |
-| `Activities.tsx` | `activities` | Competitions, certifications, extracurriculars |
-| `Contact.tsx` | `contact` | Contact info, social links, **Web3Forms** submit |
+All text lives in **`src/content/*.json`**. The `.tsx` components only lay it out, so most edits never touch code. `src/lib/content.ts` loads the JSON and holds the TypeScript types.
 
-**Unused but present**
+| Section component | DOM `id` | Content file(s) |
+|------------------|----------|-----------------|
+| `Hero.tsx` | `home` | `site.json` (`name`, `title`, `location`, `honours`, `links`), portrait `src/assets/mypicNew.jpeg` |
+| `About.tsx` | `about` | `about.json` (`paragraphs`, `highlights`), certificate images in `public/certificates/`, CV `public/LujainCV.pdf` (`site.cvPath`) |
+| `Skills.tsx` | `skills` | `skills.json` (`categories`, `relatedProjects`) |
+| `ProjectOfTheMonth.tsx` | `featured` | `thesis.json` |
+| `Projects.tsx` | `projects` | `projects.json`, `project-categories.json` |
+| `Publications.tsx` | `publications` + `experience` | `publications.json`, `experience.json` |
+| `Activities.tsx` | `activities` | `activities.json` |
+| `Contact.tsx` | `contact` | `site.json` (`email`, `location`, `links`), Web3Forms |
+| Footer (`Index.tsx`) | — | `site.json` → `footer` |
 
-- `RecentProjects.tsx` defines `id="recent"` — **not** mounted in `Index.tsx`. Either remove or import it in `Index.tsx` if you want it live.
+**Unused but present:** `RecentProjects.tsx` (`id="recent"`) is not mounted in `Index.tsx`.
 
 ---
 
 ## Adding or editing content
 
-### Spotlight / graduation block
+General rules for every JSON file:
 
-- Edit **`featuredProject`** in `src/components/ProjectOfTheMonth.tsx**.
-- Fields: title, description, longDescription, image, github URL, tags, achievements, tech stack rows.
+- **Line breaks:** write a real newline in the string (`"\n"` in JSON). Never a double-escaped `"\\n"`; that prints a literal `\n` on the page (this bug was fixed site-wide in Nov 2026).
+- **Bold / links in text:** short HTML is allowed (`<strong>…</strong>`). Plain text is wrapped in paragraphs automatically (`RichText.tsx`).
+- **Images:** put the file in `public/pictures/` and reference it as `"pictures/<exact file name>"`. Files in the top-level `pictures/` folder are **not** served.
+- After editing, run `npm run build:prod` (build + safety check) before committing.
 
-### All other projects grid
+### Add a project (`src/content/projects.json`)
 
-- Edit the **`projects: Project[]`** array in **`src/components/Projects.tsx`**.
-- Each project object supports: id, title, description, longDescription, **category**, **tags**, image path, optional **github** / **demo**, **featured**, timeline, team, impact bullets, dates for sorting.
+Copy an existing entry and change it. Fields:
 
-**Featured filter:** Anything with `featured: true` appears when users click **Featured** in the category chips.
+```json
+{
+  "id": "unique-kebab-id",
+  "title": "Project name",
+  "description": "One sentence for the card (2 lines are shown).",
+  "longDescription": "Paragraph.\n\nKey Features & Technical Details:\n• point\n• point",
+  "category": "security",
+  "tags": ["Tag", "Tag"],
+  "image": "pictures/<file in public/pictures>",
+  "featured": false,
+  "timeline": "Team project",
+  "team": "4 people",
+  "impact": ["Short outcome", "Short outcome"],
+  "links": [{ "type": "github", "url": "https://…", "label": "Code" }],
+  "gallery": [],
+  "startDate": "2025-01-01",
+  "endDate": "2025-06-30"
+}
+```
 
-### Publications & experience
+- **`category`** must be an `id` from `project-categories.json` (`embedded`, `iot`, `security`, `robotics`, `robotics-sim`, `autonomy`, `dsp`, `analog`, `ml`, `neteng`, `tools`). Filter chips only appear for categories that have projects.
+- **Order:** `featured: true` first, then newest `endDate` (or `startDate`). Array order does not matter.
+- Cards show the first 2 tags; the detail modal shows all tags, `impact`, `longDescription` and `links`.
+- `gallery` is stored but **not rendered** yet; only `image` is shown.
 
-- **`src/components/Publications.tsx`**: Arrays/objects for published vs under-review items and the Professional Experience timeline.
+### Graduation spotlight (`src/content/thesis.json`)
 
-### Activities
+Single object for the "Graduation Project Spotlight" block. The same thesis also exists as a normal project in `projects.json` (`astraips-thesis-2026`); update both.
 
-- **`src/components/Activities.tsx`**: Structured blocks (competitions, certs, etc.).
+### Add a publication (`src/content/publications.json`)
+
+Add to the `published` array: `title`, `authors` (start with "Lujain…" to count as first author), `conference`, `year`, `status` (`"published"` or `"accepted"`), optional `abstract`, `doi`, `links`. The stats bar (paper count, first-author count, latest year) is computed automatically. **`underReview` is intentionally empty**: the owner asked that under-review/in-progress papers not be shown.
+
+### Add experience (`src/content/experience.json`)
+
+`{ "id", "title", "meta": "Organisation, place • dates", "bullets": [...], "order": n }`. Lower `order` shows first. Student-team roles (e.g. MACH::GO) belong in **Activities → Extracurricular**, not here.
+
+### Add an award / certificate / activity (`src/content/activities.json`)
+
+Pick the category block (`Honours, Awards & Competitions`, `Certifications & Programs`, `Involvements`, `Extracurricular`, `Academic Involvement`) and add an item: `title`, `role`, `date`, `location`, `achievement`, `description`, `tags`, and either `link` or `links`. A certificate image can be linked with `{ "type": "other", "url": "certificates/<file>.jpg", "label": "View Certificate" }` (file in `public/certificates/`).
+
+### Add a skill (`src/content/skills.json`)
+
+Add `{ "name": "…", "icon": "Code" }` to a category's `skills`. To make it clickable with a project count, add `"<skill name>": ["Project title", …]` under `relatedProjects`. Icon names must exist in `src/lib/icons.tsx`.
+
+### About cards & text (`src/content/about.json`)
+
+`paragraphs` (3 short paragraphs) and `highlights` (6 cards: `icon`, `title`, `description`). Keep the tone plain and specific; see the handoff notes below.
+
+### Site-wide links (`src/content/site.json` → `links`)
+
+Shown in the hero and Contact. Types: `github`, `linkedin`, `email` (`mailto:`), `orcid` (official ORCID iD logo), `website`, `youtube`, `paper`, `doi`, `other`. Any `orcid.org` URL gets the ORCID logo automatically.
 
 ### Footer text
 
-- Inline in **`src/pages/Index.tsx`** at the bottom (copyright line).
+`site.json` → `footer`.
 
 ---
 
@@ -293,19 +375,9 @@ Buttons can use **`window.open(url, '_blank', 'noopener,noreferrer')`** (see `Pr
 
 ## Tags, badges & categories
 
-### Projects
-
-- **`category`**: Must match one of the **filter chip ids** in `categories` in `Projects.tsx` (`'iot'`, `'security'`, `'ml'`, etc.). Wrong string = project hidden for that filter.
-- **`tags`**: String array rendered as **`Badge`** components; purely descriptive.
-- **`featured`**: Boolean; drives the **Featured** filter and badge overlay on cards.
-
-### Spotlight (`ProjectOfTheMonth`)
-
-- `tags.map(...)` renders secondary badges — free-form strings.
-
-### Publications / Activities
-
-- Each card often has its own small tag/badge lists in local data structures inside those files.
+- **Projects:** `category` must match an id in `project-categories.json`; `tags` are free text; `featured: true` adds the badge and the Featured filter.
+- **Publications:** the badge comes from `status` (`accepted` / `published`).
+- **Activities:** free-text `tags` and an `achievement` label per item.
 
 ---
 
@@ -363,9 +435,18 @@ Assume you create `src/components/NewSection.tsx`.
 | `tailwind.config.ts`, `src/index.css` | Theme tokens (CSS variables), animations, `@layer` additions |
 | `src/components/ui/*` | shadcn primitives: mostly **presentation** (Button, Card, Badge, Dialog). Rarely edited unless changing design system |
 | `src/lib/utils.ts` | **`cn(...)`** for merging Tailwind class names safely |
-| `src/hooks/useTheme.ts`, `ThemeToggle.tsx` | Light/dark mode |
+| `src/hooks/useTheme.ts`, `ThemeToggle.tsx` | Light/dark mode. Follows the visitor's system setting until they use the toggle; the choice is then remembered |
 | **Section TSX files** | **Content + layout** live together |
 | `RecentProjects.tsx` | Example/legacy gallery — **not on homepage** |
+
+### Design system (calm theme)
+
+- **Palette:** warm off-white paper (light) and soft charcoal (dark), with a single deep-teal accent (`--primary`). Every text/background pair was checked against WCAG contrast (body text 13:1+, secondary text 7:1+), base size 17px. `--secondary` and `--accent` are subtle tinted surfaces (shadcn convention), not extra brand colours: use `text-primary` or `text-muted-foreground` for coloured text. All tokens are HSL in `src/index.css` (`:root` and `.dark`).
+- **Fonts:** Geist (body) and Geist Mono (labels, counts), self-hosted through `@fontsource-variable/*` and imported in `src/main.tsx`. No Google Fonts request, so the page's CSP (`font-src 'self' data:`) stays strict and the fonts work on GitHub Pages.
+- **Utility classes:** `.btn-hero` (filled), `.btn-cyber` / `.btn-forest` (outline), `.project-card`, `.section-header`, `.eyebrow` (small mono label).
+- **Motion:** short colour/translate transitions only; everything is switched off for visitors with "reduce motion" enabled.
+- **Phones (`.mobile-rail`):** below 640px, the About cards, Skills, Publications and Experience become a sideways swipe row (cards 85% wide so the next one peeks in) to keep the page short. From 640px up they are normal grids. Add the class to any grid/column container to get the same behaviour.
+- **Link types:** besides `github`, `linkedin`, `email`, etc., there is an `orcid` type that shows the official ORCID iD mark (`src/lib/OrcidIcon.tsx`). Any `orcid.org` URL gets it automatically.
 
 ---
 

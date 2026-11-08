@@ -16,6 +16,7 @@ LINK_TYPES: list[tuple[str, str]] = [
     ("twitter", "Twitter / X"),
     ("instagram", "Instagram"),
     ("email", "Email"),
+    ("orcid", "ORCID"),
     ("other", "Other"),
 ]
 
@@ -30,6 +31,7 @@ LINK_ICONS: dict[str, str] = {
     "twitter": "🐦",
     "instagram": "📷",
     "email": "✉",
+    "orcid": "iD",
     "other": "🔗",
 }
 
@@ -50,6 +52,8 @@ def infer_link_type(url: str) -> str:
         return "instagram"
     if "doi.org" in u:
         return "doi"
+    if "orcid.org" in u:
+        return "orcid"
     return "website"
 
 

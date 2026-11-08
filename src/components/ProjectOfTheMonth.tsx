@@ -48,22 +48,19 @@ const ProjectOfTheMonth = () => {
   };
 
   return (
-    <section id="featured" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/20">
+    <section id="featured" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-muted/20">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-10 sm:mb-16 animate-fade-in">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Star className="h-8 w-8 text-secondary fill-secondary" />
             <h2 className="section-header">Graduation Project Spotlight</h2>
-            <Star className="h-8 w-8 text-secondary fill-secondary" />
           </div>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Showcasing my thesis project in AI-driven IoT cybersecurity
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 bg-gradient-card">
+          <Card className="overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 bg-card">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               <div className="relative aspect-[16/9] lg:aspect-[4/3] w-full">
                 <img
@@ -157,7 +154,7 @@ const ProjectOfTheMonth = () => {
                     <ul className="space-y-2">
                       {featuredProject.achievements.map((achievement, index) => (
                         <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                          <Star className="h-4 w-4 text-secondary mt-1 flex-shrink-0" />
+                          <Star className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
                           {achievement}
                         </li>
                       ))}

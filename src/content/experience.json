@@ -1,41 +1,33 @@
 [
   {
-    "id": "exp-1",
-    "title": "V2X Networking & Architecture Engineer – Bosch Future Mobility Challenge",
-    "meta": "Dubai, UAE • Sept 2025 - Present",
+    "id": "exp-2",
+    "title": "Research Assistant",
+    "meta": "University of Wollongong in Dubai (UOWD) • Sept 2024 - Present",
     "bullets": [
-      "Led V2X networking architecture design for autonomous driving algorithms, enabling proactive real-time data exchange with traffic monitors and infrastructure to drive enhanced decision-making, accuracy, and on-track performance."
+      "Current project: GNSS spoofing and jamming detection, developing ML-based methods to identify manipulated or interfered satellite navigation signals.",
+      "Built a real-time ML intrusion detection system for vehicular ad-hoc networks (VANETs) reaching 97% accuracy on resource-constrained hardware; co-authored the resulting Springer publication.",
+      "Produced ML research on antenna design classification (up to 99.21% accuracy) and 5G beam selection (hybrid FFNN + genetic algorithm, 98% accuracy)."
     ],
     "order": 1
   },
   {
-    "id": "exp-2",
-    "title": "Research Intern",
-    "meta": "University of Wollongong (UOWD) • Sept 2024 - Present",
+    "id": "exp-4",
+    "title": "Business Intelligence Intern",
+    "meta": "Jordan Payments & Clearing Company (JoPACC), Amman • Jul 2023 - Aug 2023",
     "bullets": [
-      "Developed ML-based VANET IDS; published on VANET security.",
-      "Optimized real-time detection for constrained hardware."
+      "Built executive presentations, a quarterly report and process manuals supporting adoption of a new national payments system.",
+      "Created Power BI visualisations and worked with ETL processes to strengthen internal reporting."
     ],
     "order": 2
   },
   {
     "id": "exp-3",
     "title": "Clubs Director - Student Government",
-    "meta": "Rochester Institute of Technology (RIT) • Apr 2023 - Sept 2023",
+    "meta": "Rochester Institute of Technology (RIT) Dubai • Apr 2023 - Sept 2023",
     "bullets": [
-      "Led clubs, organized events; earned Best Leadership & Best Club.",
-      "Facilitated collaboration across students, faculty, and staff."
+      "Managed all university clubs and led major events; founded the Levant Club, which won Best Club.",
+      "Nominated for the Best Leadership Award."
     ],
     "order": 3
-  },
-  {
-    "id": "exp-4",
-    "title": "Business Intelligence Intern",
-    "meta": "Jordan Payments & Clearance Company (JOPACC) • Jul 2023 - Aug 2023",
-    "bullets": [
-      "Built presentation & quarterly report for decision-making.",
-      "Explored ETL processes; created Power BI visualizations."
-    ],
-    "order": 4
   }
 ]

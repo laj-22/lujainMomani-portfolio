@@ -81,11 +81,10 @@ const RecentProjects = () => {
   };
 
   return (
-    <section id="recent" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="recent" className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-10 sm:mb-16 animate-fade-in">
           <h2 className="section-header mb-6">Recent Work</h2>
-          <div className="w-24 h-1 bg-gradient-secondary mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Latest projects showcasing cutting-edge technology and innovative solutions
           </p>
@@ -156,7 +155,7 @@ const RecentProjects = () => {
                     <Button 
                       size="sm" 
                       variant="outline"
-                      className="flex-1 text-xs hover:border-secondary hover:text-secondary"
+                      className="flex-1 text-xs hover:border-primary hover:text-primary"
                     >
                       <ExternalLink className="h-3 w-3 mr-1" />
                       Demo

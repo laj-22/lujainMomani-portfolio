@@ -65,14 +65,14 @@ const ICONS: Record<string, LucideIcon> = {
 
 const COLOR_ICON_WRAP: Record<string, string> = {
   primary: 'text-primary bg-primary/10 border-primary/20 group-hover:bg-primary/20',
-  secondary: 'text-secondary bg-secondary/10 border-secondary/20 group-hover:bg-secondary/20',
-  accent: 'text-accent bg-accent/10 border-accent/20 group-hover:bg-accent/20',
+  secondary: 'text-foreground/70 bg-secondary border-border group-hover:text-foreground',
+  accent: 'text-primary bg-primary/10 border-primary/20 group-hover:bg-primary/20',
 };
 
 const COLOR_ICON_BOX: Record<string, string> = {
   primary: 'text-primary bg-primary/10',
-  secondary: 'text-secondary bg-secondary/10',
-  accent: 'text-accent bg-accent/10',
+  secondary: 'text-foreground/70 bg-secondary',
+  accent: 'text-primary bg-primary/10',
 };
 
 export function isKnownIcon(name: string | null | undefined): name is IconName {

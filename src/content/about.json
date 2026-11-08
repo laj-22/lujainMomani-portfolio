@@ -1,29 +1,39 @@
 {
   "highlights": [
     {
-      "icon": "Cpu",
-      "title": "Network Engineering",
-      "description": "Routing, switching, and resilient system architecture"
+      "icon": "Radio",
+      "title": "Network & Solution Design",
+      "description": "Multi-site networks designed to a client brief: routing, site-to-site VPN, DMZ and Wi-Fi, sized around the equipment already in place (Cisco IOS, Packet Tracer)."
     },
     {
       "icon": "Shield",
-      "title": "Cybersecurity",
-      "description": "ML-enabled IDS, secure design, and threat-aware systems"
+      "title": "Security Engineering",
+      "description": "Intrusion detection and prevention on edge hardware (Snort 3, ML/DL), and hands-on offensive testing of Wi-Fi, SSH and ROS-based robots."
     },
     {
-      "icon": "Wifi",
-      "title": "IoT & Embedded Systems",
-      "description": "Edge hardware, sensors, microcontrollers, and cloud-connected platforms"
+      "icon": "Cpu",
+      "title": "Embedded & IoT Prototyping",
+      "description": "Raspberry Pi, ESP32 and Arduino builds taken from idea to working demo: sensors, motor control, computer vision and web control apps."
     },
     {
-      "icon": "Code",
-      "title": "Software & Research",
-      "description": "Python, data analysis, ML applications, and published academic work"
+      "icon": "Bot",
+      "title": "Applied ML & Computer Vision",
+      "description": "Models for intrusion detection, GNSS interference, antenna classification and vision-based control, benchmarked and deployed on constrained hardware."
+    },
+    {
+      "icon": "Activity",
+      "title": "Data & Reporting",
+      "description": "Power BI dashboards, ETL, quarterly reports and process manuals that turn operational data into something decision-makers can act on."
+    },
+    {
+      "icon": "Users",
+      "title": "Communication & Leadership",
+      "description": "Conference talks, live product demos and team leadership: led the Batterly and voice-controlled chair builds and ran every student club as Clubs Director."
     }
   ],
   "paragraphs": [
-    "I am a Telecommunications/Computer & IoT Engineering graduate with a strong foundation across cybersecurity, network engineering, embedded systems, and connected infrastructure. I actively apply my knowledge through continuous learning, research publication, and hands-on project development — bridging theoretical concepts with practical, real-world implementations.",
-    "Whether it's securing networks, building IoT solutions, analyzing systems, or exploring machine learning applications for intrusion detection — I bring an engineering mindset to wherever the problem is. I combine academic research with practical engineering to develop robust solutions that address current industry challenges across connected systems, threat mitigation, and beyond.",
-    "On mobile, tap sections to expand; on desktop, everything is visible. For a complete overview of experience and projects, download my CV."
+    "I'm a <strong>Telecommunication & IoT engineer</strong>. I like working across the whole of a connected system: the network, the hardware at the edge, the software and machine learning on top, and the security that holds it together. I graduated from the <strong>University of Wollongong in Dubai</strong> with <strong>First Class Honours</strong> (GPA 3.7/4.0) and the <strong>Top Graduate Award</strong>.",
+    "My thesis, <strong>AstraIPS</strong>, runs AI-based intrusion prevention on a Raspberry Pi 5. It placed 1st of 89 at the UOWD Research Competition and was accepted in IEEE Access. I also led the team behind <strong>Batterly</strong>, a pancake printer we built for the B2B market at a fraction of what existing machines cost, and showed it live at an innovation fair.",
+    "I've presented my papers at international conferences, and I enjoy that part as much as the build: explaining what a system does and why it's worth having. Right now I'm a Research Assistant at UOWD, using machine learning to detect GNSS spoofing and jamming."
   ]
 }

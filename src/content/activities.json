@@ -1,9 +1,63 @@
 [
   {
-    "category": "Competitions",
+    "category": "Honours, Awards & Competitions",
     "icon": "Trophy",
     "color": "primary",
     "items": [
+      {
+        "title": "Top Graduate Award - Telecommunications Engineering & IoT",
+        "role": "University of Wollongong in Dubai",
+        "date": "2026",
+        "location": "Dubai, UAE",
+        "achievement": "Top Graduate",
+        "description": "Awarded by the University of Wollongong in Dubai as the <strong>Top Graduate</strong> of the Bachelor of Engineering (Honours) in Telecommunications Engineering and Internet of Things, in recognition of exceptional academic dedication and commitment to excellence. Issued October 2026.",
+        "tags": [
+          "Award",
+          "Academic Excellence"
+        ],
+        "links": [
+          {
+            "type": "other",
+            "url": "certificates/top-graduate-award.jpg",
+            "label": "View Certificate"
+          }
+        ]
+      },
+      {
+        "title": "First Class Honours (Class I) - Bachelor of Engineering (Honours)",
+        "role": "University of Wollongong, Australia (UOWD campus)",
+        "date": "2026",
+        "location": "Dubai, UAE",
+        "achievement": "Class I Honours",
+        "description": "Admitted to the degree of <strong>Bachelor of Engineering (Honours), Class I</strong> in Telecommunications Engineering and Internet of Things on 25 September 2026, GPA 3.7/4.0.",
+        "tags": [
+          "Award",
+          "Academic Excellence",
+          "First Class Honours"
+        ],
+        "links": [
+          {
+            "type": "other",
+            "url": "certificates/first-class-honours.jpg",
+            "label": "View Certificate"
+          }
+        ]
+      },
+      {
+        "title": "UOWD Research Competition - 1st Place Overall",
+        "role": "University of Wollongong in Dubai",
+        "date": "2026",
+        "location": "Dubai, UAE",
+        "achievement": "1st Place of 89",
+        "description": "AstraIPS, my AI-based intrusion prevention thesis for IoT, took 1st Place Overall out of 89 projects.",
+        "tags": [
+          "Research",
+          "Competition",
+          "Cybersecurity",
+          "IoT"
+        ],
+        "link": "https://laj-22.github.io/ThesiswebsiteLujain/"
+      },
       {
         "title": "CSAW'25 Hack My Robot Competition - 2nd Place",
         "role": "Team Smooth Operators - NYU Abu Dhabi",
@@ -22,7 +76,7 @@
       {
         "title": "Nexus 2.0 Research Competition - First Place, Computational Intelligence & Secure Systems",
         "role": "Inter-University Student Research Competition",
-        "date": "2024",
+        "date": "2025",
         "location": "UAE",
         "achievement": "First Place",
         "description": "Won first place in the Computational Intelligence & Secure Systems track for research on ML/DL-based VANET intrusion detection.",
@@ -34,7 +88,7 @@
         "link": "https://www.linkedin.com/posts/university-of-wollongong-in-dubai_uowd-engineering-cybersecurity-activity-7309847882658938880-nX6E?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE"
       },
       {
-        "title": "Youth Sustainability Conference - First Place, YouthHub×GE",
+        "title": "Youth Sustainability Conference - First Place, GE × INJAZ",
         "role": "Sustainability Innovation Challenge",
         "date": "2023",
         "location": "UAE",
@@ -60,6 +114,17 @@
           "Design"
         ],
         "link": "https://www.linkedin.com/posts/joud-almomani_erc2025-roboticsinnovation-sustainability-ugcPost-7315373789771395074-wU8G?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE"
+      },
+      {
+        "title": "Dean's List",
+        "role": "Rochester Institute of Technology (RIT) Dubai",
+        "date": "2022",
+        "location": "Dubai, UAE",
+        "achievement": "Dean's List",
+        "description": "Recognised on the Dean's List for academic performance.",
+        "tags": [
+          "Academic Excellence"
+        ]
       }
     ]
   },
@@ -68,6 +133,19 @@
     "icon": "Award",
     "color": "secondary",
     "items": [
+      {
+        "title": "Introduction to Cybersecurity",
+        "role": "Cisco Networking Academy",
+        "date": "2025",
+        "location": "Online",
+        "achievement": "Certified",
+        "description": "Foundations of cyber threats, network defence and security best practices.",
+        "tags": [
+          "Cybersecurity",
+          "Cisco",
+          "Online"
+        ]
+      },
       {
         "title": "PwC Elevate Me Program",
         "role": "PwC Academy Middle East",
@@ -83,8 +161,8 @@
         "link": "https://www.linkedin.com/posts/lujainn_i-am-delighted-to-share-that-i-have-recently-activity-7305508240568545280-W5wx?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE"
       },
       {
-        "title": "McKinsey Forward Learners Program",
-        "role": "McKinsey & Company",
+        "title": "McKinsey.org Forward Program",
+        "role": "McKinsey.org",
         "date": "2024",
         "location": "Online",
         "achievement": "Completed",
@@ -110,6 +188,32 @@
           "Online"
         ],
         "link": "https://www.udacity.com/certificate/e/ef946478-4c8a-11ee-a172-bf447b3103e6"
+      },
+      {
+        "title": "Exploring Cloud ERP",
+        "role": "SAP",
+        "date": "2024",
+        "location": "Online",
+        "achievement": "Certified",
+        "description": "Introduction to cloud ERP concepts and SAP business processes.",
+        "tags": [
+          "ERP",
+          "Cloud",
+          "Online"
+        ]
+      },
+      {
+        "title": "Supply Chain Job Simulation",
+        "role": "GE Aerospace (Forage)",
+        "date": "2023",
+        "location": "Online",
+        "achievement": "Completed",
+        "description": "Virtual job simulation covering supply chain analysis and problem solving.",
+        "tags": [
+          "Supply Chain",
+          "Simulation",
+          "Online"
+        ]
       }
     ]
   },
@@ -121,7 +225,7 @@
       {
         "title": "ZainTECH - RIT Data Challenge",
         "role": "Hackathon Participant",
-        "date": "2025-03",
+        "date": "2025",
         "location": "RIT Dubai",
         "achievement": "Participant Credential",
         "description": "Analyzed, modeled, and optimized public transport data; applied AI-driven analytics and teamwork to improve efficiency and routing.",
@@ -158,8 +262,7 @@
           "Research",
           "Competition",
           "Fair"
-        ],
-        "link": "https://www.linkedin.com/posts/mamad_intersys2025-ugcPost-7334919535205969920-qECJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE"
+        ]
       },
       {
         "title": "19th IEEE UAE Section Student Day - University of Dubai",
@@ -173,7 +276,7 @@
           "Research",
           "Competition"
         ],
-        "link": "https://www.linkedin.com/posts/mamad_intersys2025-ugcPost-7334919535205969920-qECJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE"
+        "link": "https://www.linkedin.com/posts/university-of-wollongong-in-dubai_uowd-engineering-cybersecurity-activity-7309847882658938880-nX6E?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj4RqYBCO44hq9YVmaIFI7z-1BhJyoMmmE"
       }
     ]
   },
@@ -183,12 +286,27 @@
     "color": "primary",
     "items": [
       {
+        "title": "AI Lead - MACH::GO",
+        "role": "Bosch Future Mobility Challenge 2026",
+        "date": "2025 - 2026",
+        "location": "Dubai, UAE",
+        "achievement": "International Round Qualifier",
+        "description": "Led the AI work for our autonomous car, MACH V. The team became the first from the Middle East to qualify for the BFMC international round in Romania.",
+        "tags": [
+          "Leadership",
+          "AI",
+          "Autonomous Vehicles",
+          "Bosch"
+        ],
+        "link": "https://github.com/MACH-GO"
+      },
+      {
         "title": "Clubs Director - Student Government",
         "role": "Rochester Institute of Technology (RIT) Dubai",
         "date": "2023",
         "location": "RIT Dubai",
-        "achievement": "Leadership Nominations",
-        "description": "Led university clubs and organized campus events; received Best Leadership and Best Club nominations. Facilitated collaboration among students, faculty, and staff to strengthen community engagement.",
+        "achievement": "Best Leadership Nominee",
+        "description": "Managed all university clubs and led major events; nominated for the Best Leadership Award. Facilitated collaboration among students, faculty, and staff to strengthen community engagement.",
         "tags": [
           "Leadership",
           "Student Government",
@@ -200,8 +318,8 @@
         "role": "Rochester Institute of Technology (RIT) Dubai",
         "date": "2022",
         "location": "RIT Dubai",
-        "achievement": "Club Founder",
-        "description": "Established a cultural community club celebrating Levant heritage; delivered inclusive events and collaborations across campus.",
+        "achievement": "Best Club Award",
+        "description": "Founded a cultural community club celebrating Levant heritage; it won Best Club. Delivered inclusive events and collaborations across campus.",
         "tags": [
           "Founder",
           "Culture",

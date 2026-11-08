@@ -24,19 +24,20 @@
     <link rel="icon" type="image/svg+xml" href="/lujainMomani-portfolio/favicon.svg" />
     <link rel="apple-touch-icon" href="/lujainMomani-portfolio/favicon.svg" />
     <link rel="mask-icon" href="/lujainMomani-portfolio/favicon.svg" color="#1E591C" />
-    <meta name="theme-color" content="#0b1220" />
+    <meta name="theme-color" content="#f7f5f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#171a1b" media="(prefers-color-scheme: dark)" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://api.web3forms.com; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://api.web3forms.com; font-src 'self' data:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com;"
     />
     <script>
       (function() {
+        var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         try {
           var saved = localStorage.getItem('theme');
-          if (!saved || saved === 'dark') document.documentElement.classList.add('dark');
-        } catch (e) {
-          document.documentElement.classList.add('dark');
-        }
+          if (saved === 'dark' || saved === 'light') dark = saved === 'dark';
+        } catch (e) { /* storage blocked: keep system setting */ }
+        if (dark) document.documentElement.classList.add('dark');
       })();
     </script>
 

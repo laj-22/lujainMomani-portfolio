@@ -1,100 +1,81 @@
-import { ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import heroBg from '@/assets/hero-bg.jpg';
+import { ArrowDown } from 'lucide-react';
 import mypicNew from '@/assets/mypicNew.jpeg';
 import { site } from '@/lib/content';
 import { getLinkIcon, openLink, resolveLinks } from '@/lib/links';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBg})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70 dark:from-black/60 dark:via-black/60 dark:to-black/70" />
-      </div>
+    <section id="home" className="relative flex min-h-[100dvh] items-center px-4 pt-24 pb-16 sm:px-6 lg:px-8">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
+        <div className="order-2 animate-fade-in-up lg:order-1">
+          <p className="eyebrow mb-5">{site.location || 'Dubai, UAE'}</p>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div className="animate-fade-in-up">
-          {/* Profile Picture */}
-          <div className="mb-16 flex justify-center">
-            <div className="relative">
-              <img
-                src={mypicNew}
-                alt={`${site.name} - ${site.title}`}
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full object-cover object-[50%_5%] border-4 border-white/20 shadow-lg hover:border-white/40 hover:shadow-xl transition-all duration-300"
-                loading="eager"
-                decoding="sync"
-              />
-              <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 hover:opacity-30 transition-opacity duration-300 backdrop-blur-sm"></div>
+          <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            {site.name}
+          </h1>
+          <p className="mt-4 max-w-xl text-lg text-muted-foreground sm:text-xl">
+            {site.title}
+          </p>
+
+          {site.honours?.length ? (
+            <ul className="mt-8 grid max-w-xl gap-x-8 gap-y-2 border-l-2 border-primary/40 pl-5 sm:grid-cols-2">
+              {site.honours.map((honour) => (
+                <li key={honour} className="text-sm text-foreground/85">
+                  {honour}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <button type="button" className="btn-hero px-5 py-2.5 text-sm" onClick={() => scrollToSection('projects')}>
+              See my work
+            </button>
+            <button type="button" className="btn-cyber px-5 py-2.5 text-sm" onClick={() => scrollToSection('contact')}>
+              Get in touch
+            </button>
+
+            <div className="ml-1 flex items-center gap-1">
+              {resolveLinks(site).map((link, index) => {
+                const Icon = getLinkIcon(link.type);
+                return (
+                  <button
+                    key={`${link.type}-${link.url}-${index}`}
+                    type="button"
+                    onClick={() => openLink(link.url)}
+                    className="rounded-md p-2.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                    aria-label={link.label || link.type}
+                  >
+                    <Icon size={20} />
+                  </button>
+                );
+              })}
             </div>
           </div>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
-            <span className="block text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">{site.name}</span>
-            <span className="block text-lg sm:text-2xl md:text-3xl font-light text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)] mt-2">
-              {site.title}
-            </span>
-          </h1>
+        </div>
 
-        
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button
-              size="lg"
-              className="px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-lg bg-primary text-primary-foreground hover:bg-primary/90 border-2 border-primary"
-              onClick={() => scrollToSection('projects')}
-            >
-              <span className="relative z-10">Explore My Work</span>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-lg bg-secondary text-secondary-foreground hover:bg-secondary/90 border-2 border-secondary"
-              onClick={() => scrollToSection('contact')}
-            >
-              <span className="relative z-10">Let's Connect</span>
-            </Button>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6 mb-12">
-            {resolveLinks(site).map((link, index) => {
-              const Icon = getLinkIcon(link.type);
-              return (
-                <button
-                  key={`${link.type}-${link.url}-${index}`}
-                  type="button"
-                  onClick={() => openLink(link.url)}
-                  className="text-white/70 hover:text-white transition-colors duration-300 p-2 bg-white/10 rounded-full backdrop-blur-sm"
-                  aria-label={link.label || link.type}
-                >
-                  <Icon size={24} />
-                </button>
-              );
-            })}
-          </div>
+        <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+          <img
+            src={mypicNew}
+            alt={`Portrait of ${site.name}`}
+            className="aspect-[4/5] w-44 rounded-2xl object-cover object-[50%_15%] shadow-card sm:w-56 lg:w-full lg:max-w-sm"
+            loading="eager"
+            decoding="async"
+          />
         </div>
       </div>
-      {/* Scroll Indicator */}
+
       <button
+        type="button"
         onClick={() => scrollToSection('about')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground md:block"
+        aria-label="Scroll to About"
       >
-        <ChevronDown size={32} className="text-white/70 hover:text-white transition-colors drop-shadow-md" />
+        <ArrowDown size={20} />
       </button>
     </section>
   );

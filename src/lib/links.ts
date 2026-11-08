@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
+import type { ComponentType } from 'react';
 import {
   ExternalLink,
   FileText,
@@ -9,6 +9,9 @@ import {
   Mail,
   Youtube,
 } from 'lucide-react';
+import OrcidIcon from '@/lib/OrcidIcon';
+
+type LinkIcon = ComponentType<{ size?: number | string; className?: string }>;
 
 export type LinkType =
   | 'github'
@@ -21,6 +24,7 @@ export type LinkType =
   | 'twitter'
   | 'instagram'
   | 'email'
+  | 'orcid'
   | 'other';
 
 export interface ContentLink {
@@ -40,10 +44,11 @@ const DEFAULT_LABELS: Record<LinkType, string> = {
   twitter: 'Twitter',
   instagram: 'Instagram',
   email: 'Email',
+  orcid: 'ORCID',
   other: 'Open Link',
 };
 
-const LINK_ICONS: Record<LinkType, LucideIcon> = {
+const LINK_ICONS: Record<LinkType, LinkIcon> = {
   github: Github,
   youtube: Youtube,
   linkedin: Linkedin,
@@ -54,6 +59,7 @@ const LINK_ICONS: Record<LinkType, LucideIcon> = {
   twitter: ExternalLink,
   instagram: Instagram,
   email: Mail,
+  orcid: OrcidIcon,
   other: ExternalLink,
 };
 
@@ -66,6 +72,7 @@ function inferLinkType(url: string): LinkType {
   if (u.includes('twitter.com') || u.includes('x.com')) return 'twitter';
   if (u.includes('instagram.com')) return 'instagram';
   if (u.includes('doi.org')) return 'doi';
+  if (u.includes('orcid.org')) return 'orcid';
   return 'website';
 }
 
@@ -74,10 +81,14 @@ function normalizeUrl(url: string): string {
   if (!trimmed) return '';
   if (trimmed.startsWith('mailto:')) return trimmed;
   if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  // Site-local file (e.g. certificates/x.jpg): first path segment has no dot, unlike a domain
+  if (!trimmed.split('/')[0].includes('.')) {
+    return `${import.meta.env.BASE_URL || '/'}${trimmed.replace(/^\//, '')}`;
+  }
   return `https://${trimmed.replace(/^\//, '')}`;
 }
 
-export function getLinkIcon(type: LinkType): LucideIcon {
+export function getLinkIcon(type: LinkType): LinkIcon {
   return LINK_ICONS[type] ?? ExternalLink;
 }
 
@@ -88,7 +99,8 @@ export function getLinkLabel(link: ContentLink): string {
 
 export function resolveLinks(
   item: {
-    links?: ContentLink[];
+    // content JSON stores the type as plain text; it is normalised below
+    links?: Array<{ type?: string; url: string; label?: string }>;
     github?: string;
     demo?: string;
     link?: string;
@@ -100,7 +112,8 @@ export function resolveLinks(
     return item.links
       .filter((l) => l?.url?.trim())
       .map((l) => ({
-        type: (l.type as LinkType) || inferLinkType(l.url),
+        // an orcid.org URL always gets the ORCID mark, whatever type the content file says
+        type: /orcid\.org/i.test(l.url) ? 'orcid' : (l.type as LinkType) || inferLinkType(l.url),
         url: normalizeUrl(l.url),
         label: l.label,
       }));
